@@ -297,11 +297,12 @@ function calc(){
   const total=Math.ceil(base*fator-1e-9);
   const pedido=Math.ceil(total/50)*50;
   txtWa=null;$('btnWa').disabled=true;
-  if(a+c===0){['rTot','rPed','rPp'].forEach(i=>$(i).textContent='—');$('rNota').textContent='Preencha quantos convidados.';return;}
+  if(a+c===0){['rTot','rPed','rPp','rResumo'].forEach(i=>$(i).textContent='—');$('rNota').textContent='Preencha quantos convidados.';return;}
   $('rTot').textContent=total.toLocaleString('pt-BR')+' salgados';
   $('rPed').textContent=pedido.toLocaleString('pt-BR')+' ('+(pedido/100).toLocaleString('pt-BR')+' centos)';
   $('rPp').textContent=(a?(n('sa')*fator).toLocaleString('pt-BR',{maximumFractionDigits:1})+' por adulto':'')+(a&&c?' · ':'')+(c?(n('sc')*fator).toLocaleString('pt-BR',{maximumFractionDigits:1})+' por criança':'');
   $('rNota').textContent=fator>1?'Inclui aumento de '+Math.round((fator-1)*100)+'% pela duração ou pelo horário.':'';
+  $('rResumo').textContent='Resumo: '+total.toLocaleString('pt-BR')+' salgados; encomendar '+$('rPed').textContent+'. Detalhes no Resultado, abaixo.';
   txtWa='Festa com '+a+' adultos e '+c+' crianças: '+total+' salgados (encomendar '+pedido+', '+(pedido/100).toLocaleString('pt-BR')+' centos). Calculei no Precifica: '+document.querySelector('link[rel=canonical]').href;
   $('btnWa').disabled=false;
 }
@@ -321,6 +322,7 @@ SALG_BODY=f"""<body>
 <label><span>Duração da festa (horas)</span>{_inp("dur",3,"0.5")}</label>
 <label style="display:flex;gap:8px;align-items:center;justify-content:flex-start"><input id="ref" type="checkbox" style="width:auto"> A festa cai no horário de almoço ou jantar e os salgados são a comida principal</label>
 </section>
+<p class="box good" id="rResumo" aria-live="polite">—</p>
 <section>
 <h2>2. Premissas (ajuste se quiser)</h2>
 <label><span>Salgados por adulto<small>faixa usada pelas fontes: 10 a 15</small></span>{_inp("sa",12)}</label>
@@ -400,11 +402,12 @@ function calc(){
   const kg=p*n('gb')/1000,kgPed=Math.ceil(kg*2-1e-9)/2;
   const f=v=>v.toLocaleString('pt-BR',{maximumFractionDigits:2});
   txtWa=null;$('btnWa').disabled=true;
-  if(p===0){['rDoc','rDocP','rBolo','rBoloP'].forEach(i=>$(i).textContent='—');return;}
+  if(p===0){['rDoc','rDocP','rBolo','rBoloP','rResumo'].forEach(i=>$(i).textContent='—');return;}
   $('rDoc').textContent=doces.toLocaleString('pt-BR')+' docinhos';
   $('rDocP').textContent=pedido.toLocaleString('pt-BR')+' ('+f(pedido/100)+' centos)';
   $('rBolo').textContent=f(kg)+' kg';
   $('rBoloP').textContent=f(kgPed)+' kg';
+  $('rResumo').textContent='Resumo: encomendar '+pedido.toLocaleString('pt-BR')+' docinhos e '+f(kgPed)+' kg de bolo. Detalhes no Resultado, abaixo.';
   txtWa='Festa com '+p+' convidados: '+pedido+' docinhos ('+f(pedido/100)+' centos) e bolo de '+f(kgPed)+' kg. Calculei no Precifica: '+document.querySelector('link[rel=canonical]').href;
   $('btnWa').disabled=false;
 }
@@ -421,6 +424,7 @@ DOCE_BODY=f"""<body>
 <label><span>Total de convidados<small>adultos e crianças: criança também come doce e bolo</small></span>{_inp("pes",40)}</label>
 <label style="display:flex;gap:8px;align-items:center;justify-content:flex-start"><input id="outra" type="checkbox" style="width:auto"> Vai ter outra sobremesa (pudim, torta, mesa de frutas)</label>
 </section>
+<p class="box good" id="rResumo" aria-live="polite">—</p>
 <section>
 <h2>2. Premissas (ajuste se quiser)</h2>
 <label><span>Docinhos por pessoa<small>faixa usada pelas fontes: 5 a 7</small></span>{_inp("dp",6,"0.5")}</label>

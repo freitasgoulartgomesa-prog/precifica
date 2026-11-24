@@ -63,6 +63,7 @@ table{width:100%;border-collapse:collapse;margin:8px 0}th,td{border:1px solid va
 <label><span>Total de convidados<small>adultos e crianças: criança também come doce e bolo</small></span><input id="pes" type="number" inputmode="decimal" min="0" step="1" value="40"></label>
 <label style="display:flex;gap:8px;align-items:center;justify-content:flex-start"><input id="outra" type="checkbox" style="width:auto"> Vai ter outra sobremesa (pudim, torta, mesa de frutas)</label>
 </section>
+<p class="box good" id="rResumo" aria-live="polite">—</p>
 <section>
 <h2>2. Premissas (ajuste se quiser)</h2>
 <label><span>Docinhos por pessoa<small>faixa usada pelas fontes: 5 a 7</small></span><input id="dp" type="number" inputmode="decimal" min="0" step="0.5" value="6"></label>
@@ -131,11 +132,12 @@ function calc(){
   const kg=p*n('gb')/1000,kgPed=Math.ceil(kg*2-1e-9)/2;
   const f=v=>v.toLocaleString('pt-BR',{maximumFractionDigits:2});
   txtWa=null;$('btnWa').disabled=true;
-  if(p===0){['rDoc','rDocP','rBolo','rBoloP'].forEach(i=>$(i).textContent='—');return;}
+  if(p===0){['rDoc','rDocP','rBolo','rBoloP','rResumo'].forEach(i=>$(i).textContent='—');return;}
   $('rDoc').textContent=doces.toLocaleString('pt-BR')+' docinhos';
   $('rDocP').textContent=pedido.toLocaleString('pt-BR')+' ('+f(pedido/100)+' centos)';
   $('rBolo').textContent=f(kg)+' kg';
   $('rBoloP').textContent=f(kgPed)+' kg';
+  $('rResumo').textContent='Resumo: encomendar '+pedido.toLocaleString('pt-BR')+' docinhos e '+f(kgPed)+' kg de bolo. Detalhes no Resultado, abaixo.';
   txtWa='Festa com '+p+' convidados: '+pedido+' docinhos ('+f(pedido/100)+' centos) e bolo de '+f(kgPed)+' kg. Calculei no Precifica: '+document.querySelector('link[rel=canonical]').href;
   $('btnWa').disabled=false;
 }
