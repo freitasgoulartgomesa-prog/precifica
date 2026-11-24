@@ -19,6 +19,9 @@ def head_for(title,desc,url):
     og=(f'<meta property="og:title" content="{html.escape(title)}">\n'
         f'<meta property="og:description" content="{html.escape(desc)}">\n'
         f'<meta property="og:url" content="{url}">\n')
+    bc={"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Precifica","item":BASE}]}
+    if url!=BASE: bc["itemListElement"].append({"@type":"ListItem","position":2,"name":title.split(":")[0],"item":url})
+    ld+='</script>\n<script type="application/ld+json">'+json.dumps(bc,ensure_ascii=False)
     h=re.sub(r'<script type="application/ld\+json">.*?</script>',lambda m:f'<script type="application/ld+json">{ld}</script>\n'+og,h,1,flags=re.S)
     return h
 
@@ -28,6 +31,48 @@ def write(slug,content):
     open(os.path.join(d,"index.html"),"w",encoding="utf-8").write(content)
 
 PAGES=[
+ dict(slug="shopee",title="Calculadora de preço Shopee 2026: taxa e lucro",
+  desc="Calcule quanto cobrar na Shopee com a comissão e a taxa fixa por item de out/2026. A conta escolhe a faixa certa sozinha. Grátis.",
+  h1="Calculadora de preço para vender na Shopee",
+  sub="Na Shopee (taxas de out/2026), produto até R$ 79,99 paga <b>20% + R$ 4,50 por item</b>. Com custo de R$ 14 por peça e 20% de lucro, cobre <b>R$ 30,83</b>. Preencha os seus custos: a calculadora escolhe a faixa de comissão que fecha com o preço final.",
+  lab=["Materiais do lote<small>tecido, linha, miçanga, base, tinta</small>","Embalagem de envio<small>saquinho, plástico-bolha, etiqueta, fita</small>","Luz e outros gastos (estimativa)","Peças que o lote rende"],
+  vals=[60,15,5,10,5,12,20,20,4.5],
+  extra='<label style="display:flex;gap:8px;align-items:center"><input id="auto" type="checkbox" checked style="width:auto"> Usar as faixas da Shopee (out/2026) automaticamente</label>\n<label style="display:flex;gap:8px;align-items:center"><input id="mais450" type="checkbox" style="width:auto"> Vendo como CPF e tive mais de 450 pedidos em 90 dias (+R$ 3 por item)</label>',
+  script='<script>window.FAIXAS=[{nome:"até R$ 79,99",de:0,ate:79.99,t:0.20,fixa:4.5},{nome:"R$ 80 a R$ 99,99",de:80,ate:99.99,t:0.14,fixa:16},{nome:"R$ 100 a R$ 199,99",de:100,ate:199.99,t:0.14,fixa:20},{nome:"a partir de R$ 200",de:200,ate:1e9,t:0.14,fixa:26}];</script>',
+  art="""<p><small>Atualizado em 24/11/2026. Taxas vigentes desde 1º/10/2026 segundo <a href="https://ecommercenapratica.com/blog/taxa-shopee/">E-commerce na Prática</a> e <a href="https://viniensina.com.br/?p=4619">Vini Ensina</a>. A Shopee muda as taxas com frequência: confira na Central do Vendedor. Para usar outros valores, desmarque "Usar as faixas da Shopee" e digite a taxa e a taxa fixa.</small></p>
+<h2>Taxas da Shopee por faixa de preço (out/2026)</h2>
+<table>
+<tr><th>Preço de venda do item</th><th>Comissão</th><th>Taxa fixa por item</th></tr>
+<tr><td>até R$ 79,99</td><td>20%</td><td>R$ 4,50</td></tr>
+<tr><td>R$ 80 a R$ 99,99</td><td>14%</td><td>R$ 16,00</td></tr>
+<tr><td>R$ 100 a R$ 199,99</td><td>14%</td><td>R$ 20,00</td></tr>
+<tr><td>a partir de R$ 200</td><td>14%</td><td>R$ 26,00</td></tr>
+</table>
+<p>Vale para CPF e CNPJ. Quem vende como pessoa física e passou de 450 pedidos em 90 dias paga R$ 3 a mais por item (marque a opção na calculadora).</p>
+<h2>Exemplo resolvido: lote de 10 peças artesanais</h2>
+<p>São os números que já vêm preenchidos. Troque pelos seus.</p>
+<ul>
+<li><b>Materiais:</b> R$ 60. <b>Embalagem de envio:</b> R$ 15. <b>Luz e outros:</b> R$ 5. Total R$ 80 ÷ 10 peças = R$ 8,00 por peça.</li>
+<li><b>Tempo:</b> 5 horas a R$ 12 = R$ 60 ÷ 10 = R$ 6,00 por peça. Custo total: R$ 14,00.</li>
+<li><b>Lucro do negócio:</b> 20%.</li>
+</ul>
+<p><b>A conta na primeira faixa:</b> (14,00 + 4,50) ÷ (1 − 0,20 − 0,20) = 18,50 ÷ 0,60 = <b>R$ 30,83</b>. Como R$ 30,83 está abaixo de R$ 79,99, a faixa fecha.<br>
+Preço mínimo (sem lucro): 18,50 ÷ 0,80 = R$ 23,13. Abaixo disso você paga para vender.</p>
+<h2>Quando o preço muda de faixa</h2>
+<p>Peça com custo total de R$ 45 e 20% de lucro: na primeira faixa daria (45 + 4,50) ÷ 0,60 = R$ 82,50, que já passa de R$ 79,99. Então a faixa não fecha. Na segunda: (45 + 16) ÷ (1 − 0,14 − 0,20) = 61 ÷ 0,66 = <b>R$ 92,42</b>, dentro de R$ 80 a R$ 99,99. A calculadora faz esse teste sozinha e mostra qual faixa usou.</p>
+<p>Às vezes a conta cai num "buraco" entre faixas. Aí a calculadora sugere o menor preço da faixa seguinte (ex.: R$ 80,00), que já cobre o lucro que você pediu.</p>
+<h2>Erros comuns</h2>
+<p><b>Esquecer a taxa fixa.</b> Em produto barato ela pesa muito: num chaveiro de R$ 15, R$ 4,50 são 30% do preço, além dos 20% de comissão.</p>
+<p><b>Usar o mesmo preço da feira.</b> Na feira não há comissão. Na Shopee, a mesma peça precisa de preço maior ou você perde o lucro.</p>
+<p><b>Somar a porcentagem em cima do custo.</b> Custo × 1,20 não paga a comissão de 20%, porque ela é tirada do preço final. Use a divisão, como a calculadora faz.</p>
+<p><b>Não contar a embalagem de envio.</b> Plástico-bolha, saquinho e etiqueta entram em toda venda.</p>
+<h2>Perguntas frequentes</h2>
+<p><b>Vale a pena vender kit em vez de peça avulsa?</b> Muitas vezes sim: a taxa fixa é cobrada por item, então um kit de 3 peças paga uma taxa fixa só. Faça a conta do kit como se fosse uma peça.</p>
+<p><b>O frete entra na conta?</b> Não. Esta calculadora mostra o preço do produto. Programas de frete da Shopee podem ter regras e custos próprios: confira no painel.</p>
+<p><b>Preciso de CNPJ?</b> Não para vender; segundo as fontes, a tabela de out/2026 é a mesma para CPF e CNPJ.</p>
+<p><b>Por que meu preço deu exatamente R$ 80,00 ou R$ 100,00?</b> É o caso do "buraco" entre faixas explicado acima.</p>
+<h2>Outras calculadoras</h2>
+<p><a href="/precifica/">Calculadora geral de preço</a> · <a href="/precifica/croche/">Preço de peça de crochê</a> · <a href="/precifica/bijuteria/">Preço de bijuteria</a></p>"""),
  dict(slug="brigadeiro",title="Quanto cobrar por brigadeiro: calculadora grátis",
   desc="Calcule o preço do brigadeiro por unidade: ingredientes, forminha, gás, seu tempo e taxas. Grátis, direto no celular.",
   h1="Quanto cobrar por brigadeiro?",
@@ -113,9 +158,11 @@ for p in PAGES:
     labs=re.findall(r'<label><span>(.*?)</span><input id="(mat|emb|ene|qtd)"',body,flags=re.S)
     for (old,i),new in zip(labs,p["lab"]):
         body=body.replace(f'<label><span>{old}</span><input id="{i}"',f'<label><span>{new}</span><input id="{i}"',1)
-    for i,v in zip(["mat","emb","ene","qtd","hrs","vh","taxa","luc"],p["vals"]):
+    for i,v in zip(["mat","emb","ene","qtd","hrs","vh","taxa","luc","fixa"],p["vals"]):
         body=re.sub(rf'(id="{i}"[^>]*value=")[^"]*"',lambda m,v=v:f'{m.group(1)}{v}"',body,1)
     body=body.replace("<footer>",f"<article>{p['art']}</article>\n<footer>",1)
+    if p.get("extra"): body=body.replace('<label><span>Taxa da maquininha',p["extra"]+'\n<label><span>Taxa da maquininha',1)
+    if p.get("script"): body=body.replace("<script>",p["script"]+"\n<script>",1)
     write(p["slug"],head_for(p["title"],p["desc"],url)+body)
 
 SOBRE_DESC="O que é o Precifica, como o cálculo funciona e por que seus números ficam só no seu navegador."

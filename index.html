@@ -39,6 +39,7 @@ nav{font-size:.9rem;margin:0 0 8px}nav a{color:var(--accent);margin-right:12px;d
 footer{color:var(--muted);font-size:.85rem;margin-top:24px}
 footer a{color:var(--accent)}
 article{line-height:1.6}article h2{margin-top:20px}
+table{width:100%;border-collapse:collapse;margin:8px 0}th,td{border:1px solid var(--line);padding:6px 8px;text-align:left}
 @media print{
   body{background:#fff;color:#000}
   nav,.btns,footer{display:none!important}
@@ -49,7 +50,7 @@ article{line-height:1.6}article h2{margin-top:20px}
 </head>
 <body>
 <main>
-<nav aria-label="Calculadoras"><a href="/precifica/">Calculadora geral</a><a href="/precifica/brigadeiro/">Brigadeiro</a><a href="/precifica/bolo-de-pote/">Bolo de pote</a><a href="/precifica/croche/">Crochê</a><a href="/precifica/bijuteria/">Bijuteria</a><a href="/precifica/sobre/">Sobre</a></nav>
+<nav aria-label="Calculadoras"><a href="/precifica/">Calculadora geral</a><a href="/precifica/brigadeiro/">Brigadeiro</a><a href="/precifica/bolo-de-pote/">Bolo de pote</a><a href="/precifica/croche/">Crochê</a><a href="/precifica/bijuteria/">Bijuteria</a><a href="/precifica/shopee/">Shopee</a><a href="/precifica/sobre/">Sobre</a></nav>
 <h1>Quanto cobrar pelo seu produto?</h1>
 <p class="sub">Para quem faz e vende doces, bijuteria, artesanato e costura. Preencha por <b>unidade</b> (ou por lote e diga quantas unidades saem). Tudo fica no seu aparelho; nada é enviado.</p>
 
@@ -70,6 +71,7 @@ article{line-height:1.6}article h2{margin-top:20px}
 <section>
 <h2>3. Taxas e lucro</h2>
 <label><span>Taxa da maquininha / app / marketplace (%)</span><input id="taxa" type="number" inputmode="decimal" min="0" max="60" step="0.1" value="5"></label>
+<label><span>Taxa fixa por venda (R$)<small>Shopee, Mercado Livre e outros cobram um valor fixo por item vendido; deixe 0 se não houver</small></span><input id="fixa" type="number" inputmode="decimal" min="0" step="0.01" value="0"></label>
 <label><span>Lucro do negócio (%)<small>para repor ferramentas, crescer, imprevistos</small></span><input id="luc" type="number" inputmode="decimal" min="0" max="80" step="1" value="20"></label>
 <label><span>Preço que você cobra hoje (opcional)</span><input id="atual" type="number" inputmode="decimal" min="0" step="0.01" value=""></label>
 </section>
@@ -79,7 +81,7 @@ article{line-height:1.6}article h2{margin-top:20px}
 <div class="res" aria-live="polite">
 <div class="box"><small>Custo de material + embalagem</small><b id="rCusto">—</b></div>
 <div class="box"><small>Seu tempo</small><b id="rTempo">—</b></div>
-<div class="box big"><small>Preço de venda sugerido</small><b id="rPreco">—</b><span id="rNota"></span></div>
+<div class="box big"><small>Preço de venda sugerido</small><b id="rPreco">—</b><span id="rNota"></span><span id="rFaixa"></span></div>
 <div class="box"><small>Preço mínimo (sem lucro)</small><b id="rMin">—</b></div>
 <div class="box"><small>Sobra para você (lucro + pagamento das suas horas)</small><b id="rLimpo">—</b></div>
 </div>
@@ -93,7 +95,7 @@ article{line-height:1.6}article h2{margin-top:20px}
 <section>
 <h2>Como a conta é feita</h2>
 <p>Custo por unidade = (material + embalagem + energia + horas × valor da hora) ÷ unidades.<br>
-Preço = custo ÷ (1 − taxa% − lucro%). Assim a taxa e o lucro saem do preço final, e não do seu bolso.</p>
+Preço = (custo + taxa fixa por venda) ÷ (1 − taxa% − lucro%). Assim a taxa e o lucro saem do preço final, e não do seu bolso.</p>
 </section>
 
 <footer>Ferramenta gratuita e independente. Os valores são estimativas para ajudar na decisão; confira seus custos reais. · <a href="/precifica/sobre/">Sobre e privacidade</a></footer>
@@ -110,29 +112,41 @@ function enviarWa(){
   const txt="Calculei meu preço no Precifica: R$ "+valor+" por unidade. Faça a sua conta grátis: "+url;
   window.open("https://wa.me/?text="+encodeURIComponent(txt),'_blank','noopener');
 }
+function precoCom(base,l){
+  const auto=window.FAIXAS&&$('auto')&&$('auto').checked;
+  if(!auto){const t=n('taxa')/100,fx=n('fixa'),d=1-t-l;return d<=0.05?null:{p:(base+fx)/d,t:t,fx:fx,f:null};}
+  const extra=($('mais450')&&$('mais450').checked)?3:0;let best=null;
+  for(const f of window.FAIXAS){const fx=f.fixa+extra,d=1-f.t-l;if(d<=0.05)continue;
+    const p=Math.max((base+fx)/d,f.de);if(p<=f.ate&&(!best||p<best.p))best={p:p,t:f.t,fx:fx,f:f};}
+  return best;
+}
 function calc(){
   const qtd=Math.max(1,n('qtd'));
   const custo=(n('mat')+n('emb')+n('ene'))/qtd;
   const tempo=(n('hrs')*n('vh'))/qtd;
   const base=custo+tempo;
-  const t=n('taxa')/100,l=n('luc')/100;
-  const div=1-t-l;
-  precoAtual=null;$('btnWa').disabled=true;
-  if(div<=0.05){
+  const l=n('luc')/100;
+  const auto=window.FAIXAS&&$('auto')&&$('auto').checked;
+  if(window.FAIXAS){$('taxa').readOnly=!!auto;$('fixa').readOnly=!!auto;}
+  const r=precoCom(base,l),rm=precoCom(base,0);
+  precoAtual=null;$('btnWa').disabled=true;$('rFaixa').textContent='';
+  if(!r||!rm){
     ['rCusto','rTempo','rPreco','rMin','rLimpo'].forEach(id=>$(id).textContent='—');
     $('rNota').innerHTML='<span class="warn">Taxa + lucro altos demais.</span>';
     $('rAtual').textContent='';
     return;
   }
+  if(auto){$('taxa').value=+(r.t*100).toFixed(2);$('fixa').value=r.fx;
+    $('rFaixa').innerHTML='<br><small>Faixa usada: '+r.f.nome+' ('+(r.t*100).toFixed(0)+'% + '+brl(r.fx)+' por item)</small>';}
   $('rCusto').textContent=brl(custo);
   $('rTempo').textContent=brl(tempo);
-  const soma=t+l;
+  const soma=r.t+l;
   $('rNota').innerHTML=(soma>=0.85)?'<span class="warn">Atenção: taxa + lucro acima de 85% deixa o preço muito alto.</span>':'';
-  const preco=base/div, min=base/(1-t);
+  const preco=r.p, min=rm.p;
   precoAtual=preco;$('btnWa').disabled=false;
   $('rPreco').textContent=brl(preco);
   $('rMin').textContent=brl(min);
-  $('rLimpo').textContent=brl(preco*(1-t)-custo);
+  $('rLimpo').textContent=brl(preco*(1-r.t)-r.fx-custo);
   const a=parseFloat($('atual').value);
   if(a>0){
     const d=(a-preco)/preco*100;
