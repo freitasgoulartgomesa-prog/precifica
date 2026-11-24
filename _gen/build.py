@@ -216,11 +216,11 @@ Abaixo de R$ 6,74 (6,40 ÷ 0,95) você não paga o material e as suas horas depo
 ]
 
 # Oferta da planilha paga (S1-5). Fica desligada até o Arthur mandar o link de venda da Kiwify: cole o link aqui e rode o build.
-PLANILHA_URL=""
+PLANILHA_URL="https://pay.kiwify.com.br/HS40mXy"
 PLANILHA_HTML=(f'<aside class="oferta"><h2>Planilha Ficha técnica e preço (R$ 12,90)</h2>'
  '<p>Anote o preço dos ingredientes ou materiais, monte até 5 receitas e veja o custo por unidade, o preço mínimo e o preço de venda, '
- 'já com a sua hora, a taxa da maquininha e o lucro. Abre no Excel e no Google Planilhas. A calculadora desta página continua grátis.</p>'
- f'<p><a href="{PLANILHA_URL}" rel="nofollow sponsored">Ver a planilha</a></p></aside>'+chr(10)) if PLANILHA_URL else ""
+ 'já com a sua hora, a taxa da maquininha e o lucro. Arquivo .xlsx para Excel ou Google Planilhas, com guia de uso. A calculadora desta página continua grátis.</p>'
+ f'<p><a href="{PLANILHA_URL}" rel="nofollow">Comprar a planilha</a></p></aside>'+chr(10)) if PLANILHA_URL else ""
 
 for p in PAGES:
     url=BASE+p["slug"]+"/"
