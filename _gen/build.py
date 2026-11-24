@@ -228,7 +228,14 @@ for p in PAGES:
     if p.get("script"): body=body.replace("<script>",p["script"]+"\n<script>",1)
     write(p["slug"],head_for(p["title"],p["desc"],url)+body)
 
-SOBRE_DESC="O que é o Precifica, como o cálculo funciona e por que seus números ficam só no seu navegador."
+SOBRE_DESC="O que é o Precifica, como o cálculo funciona, privacidade e como colocar uma calculadora grátis no seu site ou blog."
+EMB_JS=r"""<script>
+function codEmb(){const u="https://freitasgoulartgomesa-prog.github.io/precifica/"+document.getElementById("embSel").value;
+document.getElementById("embCod").value='<iframe src="'+u+'" width="100%" height="900" style="border:0;max-width:720px" loading="lazy" title="Calculadora Precifica"></iframe>\n<p><a href="'+u+'">Calculadora grátis do Precifica</a></p>';}
+function ok(){document.getElementById("embOk").textContent="Copiado!";}
+function copiarEmb(){const t=document.getElementById("embCod");t.select();try{navigator.clipboard.writeText(t.value).then(ok,()=>{document.execCommand("copy");ok();});}catch(e){document.execCommand("copy");ok();}}
+document.getElementById("embSel").addEventListener("change",codEmb);codEmb();
+</script>"""
 SOBRE_BODY=f"""<body>
 <main>
 {NAV}
@@ -251,6 +258,16 @@ SOBRE_BODY=f"""<body>
 <h2>Projeto</h2>
 <p>Projeto pessoal mantido com ajuda de inteligência artificial e revisado.</p>
 </section>
+<section id="use-no-seu-site">
+<h2>Use no seu site ou blog</h2>
+<p>Tem um blog de receitas, uma loja ou um site de artesanato? Pode colocar uma calculadora do Precifica nele, de graça. Escolha a calculadora, copie o código e cole no seu site (no WordPress, use o bloco "HTML personalizado").</p>
+<label><span>Calculadora</span><select id="embSel" style="padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font-size:1rem;max-width:200px">
+<option value="">Calculadora geral de preço</option><option value="brigadeiro/">Brigadeiro</option><option value="bolo-de-pote/">Bolo de pote</option><option value="croche/">Crochê</option><option value="bijuteria/">Bijuteria</option><option value="shopee/">Shopee</option><option value="quantos-salgados/">Salgados para festa</option><option value="docinhos-e-bolo/">Doces e bolo para festa</option>
+</select></label>
+<textarea id="embCod" readonly rows="5" style="width:100%;margin-top:8px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:13px/1.4 ui-monospace,Consolas,monospace"></textarea>
+<div class="btns"><button type="button" onclick="copiarEmb()">Copiar código</button><span id="embOk" class="good" style="align-self:center"></span></div>
+<p><small>O código mostra a calculadora dentro de uma moldura e mantém um link para o Precifica. Ela continua sem cookies e sem coletar dados.</small></p>
+</section>
 <section>
 <h2>Sugestões</h2>
 <p>Achou um erro ou tem uma ideia? <a href="https://github.com/freitasgoulartgomesa-prog/precifica/issues">Abra uma sugestão no GitHub</a>.</p>
@@ -258,6 +275,7 @@ SOBRE_BODY=f"""<body>
 </article>
 {FOOTER}
 </main>
+{EMB_JS}
 </body>
 </html>
 """

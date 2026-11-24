@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sobre o Precifica</title>
 <link rel="canonical" href="https://freitasgoulartgomesa-prog.github.io/precifica/sobre/">
-<meta name="description" content="O que é o Precifica, como o cálculo funciona e por que seus números ficam só no seu navegador.">
+<meta name="description" content="O que é o Precifica, como o cálculo funciona, privacidade e como colocar uma calculadora grátis no seu site ou blog.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23b5562f'/%3E%3Ctext x='32' y='41' font-size='24' font-family='Arial' font-weight='bold' text-anchor='middle' fill='white'%3ER$%3C/text%3E%3C/svg%3E">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Precifica", "url": "https://freitasgoulartgomesa-prog.github.io/precifica/sobre/", "description": "O que é o Precifica, como o cálculo funciona e por que seus números ficam só no seu navegador.", "applicationCategory": "BusinessApplication", "operatingSystem": "Any", "inLanguage": "pt-BR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "BRL"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Precifica", "url": "https://freitasgoulartgomesa-prog.github.io/precifica/sobre/", "description": "O que é o Precifica, como o cálculo funciona, privacidade e como colocar uma calculadora grátis no seu site ou blog.", "applicationCategory": "BusinessApplication", "operatingSystem": "Any", "inLanguage": "pt-BR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "BRL"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Precifica", "item": "https://freitasgoulartgomesa-prog.github.io/precifica/"}, {"@type": "ListItem", "position": 2, "name": "Sobre o Precifica", "item": "https://freitasgoulartgomesa-prog.github.io/precifica/sobre/"}]}</script>
 <meta property="og:title" content="Sobre o Precifica">
-<meta property="og:description" content="O que é o Precifica, como o cálculo funciona e por que seus números ficam só no seu navegador.">
+<meta property="og:description" content="O que é o Precifica, como o cálculo funciona, privacidade e como colocar uma calculadora grátis no seu site ou blog.">
 <meta property="og:url" content="https://freitasgoulartgomesa-prog.github.io/precifica/sobre/">
 
 <style>
@@ -75,6 +75,16 @@ table{width:100%;border-collapse:collapse;margin:8px 0}th,td{border:1px solid va
 <h2>Projeto</h2>
 <p>Projeto pessoal mantido com ajuda de inteligência artificial e revisado.</p>
 </section>
+<section id="use-no-seu-site">
+<h2>Use no seu site ou blog</h2>
+<p>Tem um blog de receitas, uma loja ou um site de artesanato? Pode colocar uma calculadora do Precifica nele, de graça. Escolha a calculadora, copie o código e cole no seu site (no WordPress, use o bloco "HTML personalizado").</p>
+<label><span>Calculadora</span><select id="embSel" style="padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font-size:1rem;max-width:200px">
+<option value="">Calculadora geral de preço</option><option value="brigadeiro/">Brigadeiro</option><option value="bolo-de-pote/">Bolo de pote</option><option value="croche/">Crochê</option><option value="bijuteria/">Bijuteria</option><option value="shopee/">Shopee</option><option value="quantos-salgados/">Salgados para festa</option><option value="docinhos-e-bolo/">Doces e bolo para festa</option>
+</select></label>
+<textarea id="embCod" readonly rows="5" style="width:100%;margin-top:8px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:13px/1.4 ui-monospace,Consolas,monospace"></textarea>
+<div class="btns"><button type="button" onclick="copiarEmb()">Copiar código</button><span id="embOk" class="good" style="align-self:center"></span></div>
+<p><small>O código mostra a calculadora dentro de uma moldura e mantém um link para o Precifica. Ela continua sem cookies e sem coletar dados.</small></p>
+</section>
 <section>
 <h2>Sugestões</h2>
 <p>Achou um erro ou tem uma ideia? <a href="https://github.com/freitasgoulartgomesa-prog/precifica/issues">Abra uma sugestão no GitHub</a>.</p>
@@ -82,5 +92,12 @@ table{width:100%;border-collapse:collapse;margin:8px 0}th,td{border:1px solid va
 </article>
 <footer>Ferramenta gratuita e independente. Os valores são estimativas para ajudar na decisão; confira seus custos reais. · <a href="/precifica/sobre/">Sobre e privacidade</a></footer>
 </main>
+<script>
+function codEmb(){const u="https://freitasgoulartgomesa-prog.github.io/precifica/"+document.getElementById("embSel").value;
+document.getElementById("embCod").value='<iframe src="'+u+'" width="100%" height="900" style="border:0;max-width:720px" loading="lazy" title="Calculadora Precifica"></iframe>\n<p><a href="'+u+'">Calculadora grátis do Precifica</a></p>';}
+function ok(){document.getElementById("embOk").textContent="Copiado!";}
+function copiarEmb(){const t=document.getElementById("embCod");t.select();try{navigator.clipboard.writeText(t.value).then(ok,()=>{document.execCommand("copy");ok();});}catch(e){document.execCommand("copy");ok();}}
+document.getElementById("embSel").addEventListener("change",codEmb);codEmb();
+</script>
 </body>
 </html>
