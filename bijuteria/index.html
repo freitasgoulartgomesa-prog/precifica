@@ -4,14 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Quanto cobrar por bijuteria artesanal: calculadora grátis</title>
-<meta name="description" content="Calcule o preço da sua bijuteria: miçangas, fecho, fio, embalagem, seu tempo e taxas. Grátis, direto no celular.">
 <link rel="canonical" href="https://freitasgoulartgomesa-prog.github.io/precifica/bijuteria/">
+<meta name="description" content="Calcule o preço da sua bijuteria: miçangas, fecho, fio, embalagem, seu tempo e taxas. Grátis, direto no celular.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23b5562f'/%3E%3Ctext x='32' y='41' font-size='24' font-family='Arial' font-weight='bold' text-anchor='middle' fill='white'%3ER$%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Precifica", "url": "https://freitasgoulartgomesa-prog.github.io/precifica/bijuteria/", "description": "Calcule o preço da sua bijuteria: miçangas, fecho, fio, embalagem, seu tempo e taxas. Grátis, direto no celular.", "applicationCategory": "BusinessApplication", "operatingSystem": "Any", "inLanguage": "pt-BR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "BRL"}}</script>
 <meta property="og:title" content="Quanto cobrar por bijuteria artesanal: calculadora grátis">
 <meta property="og:description" content="Calcule o preço da sua bijuteria: miçangas, fecho, fio, embalagem, seu tempo e taxas. Grátis, direto no celular.">
 <meta property="og:url" content="https://freitasgoulartgomesa-prog.github.io/precifica/bijuteria/">
+
 <style>
 :root{--bg:#fbf8f3;--card:#fff;--ink:#2b2420;--muted:#6f655d;--accent:#b5562f;--line:#e8e0d6;--ok:#2f7d4f}
-@media (prefers-color-scheme:dark){:root{--bg:#1c1917;--card:#26221f;--ink:#f3eee8;--muted:#b3a89d;--accent:#e9875d;--line:#3a3430;--ok:#6cc58f}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1c1917;--card:#26221f;--ink:#f3eee8;--muted:#b3a89d;--accent:#e9875d;--line:#3a3430;--ok:#6cc58f}}
+:root[data-theme="dark"]{--bg:#1c1917;--card:#26221f;--ink:#f3eee8;--muted:#b3a89d;--accent:#e9875d;--line:#3a3430;--ok:#6cc58f}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 main{max-width:720px;margin:0 auto;padding:24px 16px 48px}
@@ -31,50 +35,64 @@ input{width:120px;padding:8px;border:1px solid var(--line);border-radius:8px;bac
 .big b{font-size:2rem;color:var(--accent)}
 .warn{color:var(--accent);font-weight:600}
 .good{color:var(--ok);font-weight:600}
-nav{font-size:.9rem;margin:8px 0}nav a{color:var(--accent);margin-right:12px}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.btns button{padding:10px 14px;border:1px solid var(--accent);border-radius:8px;background:var(--accent);color:#fff;font-size:.95rem;cursor:pointer}
+.btns button:disabled{opacity:.5;cursor:not-allowed}
+.btns button.sec{background:transparent;color:var(--accent)}
+nav{font-size:.9rem;margin:0 0 8px}nav a{color:var(--accent);margin-right:12px;display:inline-block}
 footer{color:var(--muted);font-size:.85rem;margin-top:24px}
-nav{font-size:.9rem;margin-bottom:8px}nav a{color:var(--accent);margin-right:12px}article h2{margin-top:20px}article{line-height:1.6}</style>
+footer a{color:var(--accent)}
+article{line-height:1.6}article h2{margin-top:20px}
+@media print{
+  body{background:#fff;color:#000}
+  nav,.btns,footer{display:none!important}
+  section{border:1px solid #999;break-inside:avoid}
+  input{border:1px solid #999;background:#fff;color:#000}
+}
+</style>
 </head>
 <body>
 <main>
-<nav><a href="../">Calculadora geral</a><a href="../brigadeiro/">Brigadeiro</a><a href="../bolo-de-pote/">Bolo de pote</a><a href="../croche/">Crochê</a><a href="../bijuteria/">Bijuteria</a></nav>
+<nav aria-label="Calculadoras"><a href="/precifica/">Calculadora geral</a><a href="/precifica/brigadeiro/">Brigadeiro</a><a href="/precifica/bolo-de-pote/">Bolo de pote</a><a href="/precifica/croche/">Crochê</a><a href="/precifica/bijuteria/">Bijuteria</a><a href="/precifica/sobre/">Sobre</a></nav>
 <h1>Quanto cobrar por bijuteria artesanal?</h1>
 <p class="sub">Preencha os custos de <b>um lote</b> de peças iguais (ex.: 10 pulseiras) e quantas peças saem dele.</p>
 
 <section>
 <h2>1. Custos do lote</h2>
-<label><span>Materiais do lote<small>miçangas, pedras, fio, fechos, argolas</small></span><input id="mat" type="number" min="0" step="0.01" value="30"></label>
-<label><span>Embalagem<small>saquinho, cartela, tag</small></span><input id="emb" type="number" min="0" step="0.01" value="8"></label>
-<label><span>Outros gastos (estimativa)</span><input id="ene" type="number" min="0" step="0.01" value="2"></label>
-<label><span>Peças que o lote rende</span><input id="qtd" type="number" min="1" step="1" value="10"></label>
+<label><span>Materiais do lote<small>miçangas, pedras, fio, fechos, argolas</small></span><input id="mat" type="number" inputmode="decimal" min="0" step="0.01" value="30"></label>
+<label><span>Embalagem<small>saquinho, cartela, tag</small></span><input id="emb" type="number" inputmode="decimal" min="0" step="0.01" value="8"></label>
+<label><span>Outros gastos (estimativa)</span><input id="ene" type="number" inputmode="decimal" min="0" step="0.01" value="2"></label>
+<label><span>Peças que o lote rende</span><input id="qtd" type="number" inputmode="decimal" min="1" step="1" value="10"></label>
 </section>
 
 <section>
 <h2>2. Seu tempo</h2>
-<label><span>Horas para fazer o lote</span><input id="hrs" type="number" min="0" step="0.25" value="2"></label>
-<label><span>Quanto quer ganhar por hora (R$)<small>referência: salário mínimo 2026 ≈ R$ 7,37/h (R$ 1.621 ÷ 220 h)</small></span><input id="vh" type="number" min="0" step="0.5" value="12"></label>
+<label><span>Horas para fazer o lote</span><input id="hrs" type="number" inputmode="decimal" min="0" step="0.25" value="2"></label>
+<label><span>Quanto quer ganhar por hora (R$)<small>referência: salário mínimo de 2026 ≈ R$ 7,37/h (R$ 1.621 ÷ 220 h)</small></span><input id="vh" type="number" inputmode="decimal" min="0" step="0.5" value="12"></label>
 </section>
 
 <section>
 <h2>3. Taxas e lucro</h2>
-<label><span>Taxa da maquininha / app / marketplace (%)</span><input id="taxa" type="number" min="0" max="60" step="0.1" value="5"></label>
-<label><span>Lucro do negócio (%)<small>para repor ferramentas, crescer, imprevistos</small></span><input id="luc" type="number" min="0" max="80" step="1" value="25"></label>
-<label><span>Preço que você cobra hoje (opcional)</span><input id="atual" type="number" min="0" step="0.01" value=""></label>
+<label><span>Taxa da maquininha / app / marketplace (%)</span><input id="taxa" type="number" inputmode="decimal" min="0" max="60" step="0.1" value="5"></label>
+<label><span>Lucro do negócio (%)<small>para repor ferramentas, crescer, imprevistos</small></span><input id="luc" type="number" inputmode="decimal" min="0" max="80" step="1" value="25"></label>
+<label><span>Preço que você cobra hoje (opcional)</span><input id="atual" type="number" inputmode="decimal" min="0" step="0.01" value=""></label>
 </section>
 
 <section>
 <h2>Resultado por unidade</h2>
-<div class="res">
-<div class="box"><small>Custo de material + embalagem</small><b id="rCusto">–</b></div>
-<div class="box"><small>Seu tempo</small><b id="rTempo">–</b></div>
-<div class="box big"><small>Preço de venda sugerido</small><b id="rPreco">–</b><span id="rNota"></span></div>
-<div class="box"><small>Preço mínimo (sem lucro)</small><b id="rMin">–</b></div>
-<div class="box"><small>Você recebe limpo por unidade</small><b id="rLimpo">–</b></div>
+<div class="res" aria-live="polite">
+<div class="box"><small>Custo de material + embalagem</small><b id="rCusto">—</b></div>
+<div class="box"><small>Seu tempo</small><b id="rTempo">—</b></div>
+<div class="box big"><small>Preço de venda sugerido</small><b id="rPreco">—</b><span id="rNota"></span></div>
+<div class="box"><small>Preço mínimo (sem lucro)</small><b id="rMin">—</b></div>
+<div class="box"><small>Sobra para você (lucro + pagamento das suas horas)</small><b id="rLimpo">—</b></div>
 </div>
 <p id="rAtual"></p>
+<div class="btns">
+<button type="button" id="btnWa" disabled onclick="enviarWa()">Enviar no WhatsApp</button>
+<button type="button" class="sec" onclick="window.print()">Imprimir</button>
+</div>
 </section>
-
-<nav>Calculadoras por produto: <a href="brigadeiro/">Brigadeiro</a><a href="bolo-de-pote/">Bolo de pote</a><a href="croche/">Crochê</a></nav>
 
 <section>
 <h2>Como a conta é feita</h2>
@@ -84,18 +102,26 @@ Preço = custo ÷ (1 − taxa% − lucro%). Assim a taxa e o lucro saem do preç
 
 <article><h2>Como precificar bijuteria</h2>
 <p><b>1. Conte por lote.</b> Comprar miçanga em pacote e usar um pouco em cada peça confunde. Faça 10 peças iguais e divida o custo total por 10.</p>
-<p><b>2. Fecho e argola custam.</b> Peças pequenas somam: fecho, terminal, argola e fio podem passar do valor das contas.</p>
+<p><b>2. Fecho e argola custam.</b> Peças pequenas somam: fecho, terminal, argola e fio podem custar mais que as miçangas.</p>
 <p><b>3. Cronometre a montagem.</b> Uma pulseira simples leva minutos; um colar bordado leva horas. O tempo muda tudo.</p>
 <p><b>4. Cartela e embalagem vendem.</b> Elas entram no custo, mas ajudam a cobrar mais.</p>
 <p><b>5. Feira, loja ou internet?</b> Em loja consignada a loja fica com uma parte; coloque essa parte no campo de taxa.</p>
 <h2>Bijuteria x semijoia</h2>
 <p>Semijoia tem banho de metal e custo maior por peça. A conta é a mesma: some o custo da peça pronta (incluindo o banho) no campo de materiais.</p></article>
-<footer>Ferramenta gratuita e independente. Os valores são estimativas para ajudar na decisão; confira seus custos reais.</footer>
+<footer>Ferramenta gratuita e independente. Os valores são estimativas para ajudar na decisão; confira seus custos reais. · <a href="/precifica/sobre/">Sobre e privacidade</a></footer>
 </main>
 <script>
 const $=id=>document.getElementById(id);
 const n=id=>Math.max(0,parseFloat($(id).value)||0);
 const brl=v=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+let precoAtual=null;
+function enviarWa(){
+  if(precoAtual===null)return;
+  const url=document.querySelector('link[rel=canonical]').href;
+  const valor=precoAtual.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+  const txt="Calculei meu preço no Precifica: R$ "+valor+" por unidade. Faça a sua conta grátis: "+url;
+  window.open("https://wa.me/?text="+encodeURIComponent(txt),'_blank','noopener');
+}
 function calc(){
   const qtd=Math.max(1,n('qtd'));
   const custo=(n('mat')+n('emb')+n('ene'))/qtd;
@@ -103,11 +129,20 @@ function calc(){
   const base=custo+tempo;
   const t=n('taxa')/100,l=n('luc')/100;
   const div=1-t-l;
+  precoAtual=null;$('btnWa').disabled=true;
+  if(div<=0.05){
+    ['rCusto','rTempo','rPreco','rMin','rLimpo'].forEach(id=>$(id).textContent='—');
+    $('rNota').innerHTML='<span class="warn">Taxa + lucro altos demais.</span>';
+    $('rAtual').textContent='';
+    return;
+  }
   $('rCusto').textContent=brl(custo);
   $('rTempo').textContent=brl(tempo);
-  if(div<=0.05){$('rPreco').textContent='–';$('rNota').innerHTML='<span class="warn">Taxa + lucro altos demais.</span>';return;}
+  const soma=t+l;
+  $('rNota').innerHTML=(soma>=0.85)?'<span class="warn">Atenção: taxa + lucro acima de 85% deixa o preço muito alto.</span>':'';
   const preco=base/div, min=base/(1-t);
-  $('rPreco').textContent=brl(preco);$('rNota').textContent='';
+  precoAtual=preco;$('btnWa').disabled=false;
+  $('rPreco').textContent=brl(preco);
   $('rMin').textContent=brl(min);
   $('rLimpo').textContent=brl(preco*(1-t)-custo);
   const a=parseFloat($('atual').value);
