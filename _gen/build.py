@@ -276,7 +276,7 @@ SALG_BODY=f"""<body>
 <tr><th>O quê</th><th>Por pessoa</th></tr>
 <tr><td>Salgados, adulto (festa de 2 a 3 h)</td><td>10 a 15</td></tr>
 <tr><td>Salgados, criança</td><td>5 a 8</td></tr>
-<tr><td>Docinhos</td><td>5 a 7 (cerca de 5 se houver outra sobremesa)</td></tr>
+<tr><td>Docinhos (<a href="/precifica/docinhos-e-bolo/">calcular</a>)</td><td>5 a 7 (cerca de 5 se houver outra sobremesa)</td></tr>
 <tr><td>Bolo</td><td>cerca de 100 g (80 a 100 g com outras opções no cardápio)</td></tr>
 </table>
 <h2>O que faz a conta subir ou descer</h2>
@@ -293,7 +293,7 @@ SALG_BODY=f"""<body>
 <p><b>E se o salgado for grande?</b> O salgado de festa costuma ser pequeno, de uma ou duas mordidas. Se for maior (tamanho de lanchonete), conte menos por pessoa.</p>
 <p><b>Quanto cobrar pelo cento de salgado?</b> Depende dos seus custos. A <a href="/precifica/">calculadora de preço</a> soma ingredientes, óleo, embalagem, gás, o seu tempo e a taxa, e mostra o preço por unidade; multiplique por 100.</p>
 <h2>Outras calculadoras</h2>
-<p><a href="/precifica/">Preço do cento de salgado</a> · <a href="/precifica/brigadeiro/">Quanto cobrar por brigadeiro</a> · <a href="/precifica/bolo-de-pote/">Preço de bolo de pote</a></p>
+<p><a href="/precifica/docinhos-e-bolo/">Quantos docinhos e quanto bolo</a> · <a href="/precifica/">Preço do cento de salgado</a> · <a href="/precifica/brigadeiro/">Quanto cobrar por brigadeiro</a> · <a href="/precifica/bolo-de-pote/">Preço de bolo de pote</a></p>
 </article>
 {FOOTER}
 </main>
@@ -303,7 +303,106 @@ SALG_BODY=f"""<body>
 """
 write("quantos-salgados",head_for(SALG_TITLE,SALG_DESC,SALG_URL)+SALG_BODY)
 
-urls=[BASE]+[BASE+p["slug"]+"/" for p in PAGES]+[SALG_URL,BASE+"sobre/"]
+# ---- Frente 2 (festa): docinhos e bolo por pessoa ----
+DOCE_URL=BASE+"docinhos-e-bolo/"
+DOCE_TITLE="Quantos docinhos e quanto bolo por pessoa: calculadora"
+DOCE_DESC="Calcule quantos docinhos encomendar e quantos quilos de bolo pedir para a festa, com ou sem outra sobremesa. Grátis, direto no celular."
+DOCE_SCRIPT="""<script>
+const $=id=>document.getElementById(id);
+const n=id=>Math.max(0,parseFloat($(id).value)||0);
+let txtWa=null;
+function trocar(){const o=$('outra').checked;$('dp').value=o?5:6;$('gb').value=o?80:100;calc();}
+function calc(){
+  const p=Math.round(n('pes'));
+  const doces=Math.ceil(p*n('dp')-1e-9),pedido=Math.ceil(doces/50)*50;
+  const kg=p*n('gb')/1000,kgPed=Math.ceil(kg*2-1e-9)/2;
+  const f=v=>v.toLocaleString('pt-BR',{maximumFractionDigits:2});
+  txtWa=null;$('btnWa').disabled=true;
+  if(p===0){['rDoc','rDocP','rBolo','rBoloP'].forEach(i=>$(i).textContent='—');return;}
+  $('rDoc').textContent=doces.toLocaleString('pt-BR')+' docinhos';
+  $('rDocP').textContent=pedido.toLocaleString('pt-BR')+' ('+f(pedido/100)+' centos)';
+  $('rBolo').textContent=f(kg)+' kg';
+  $('rBoloP').textContent=f(kgPed)+' kg';
+  txtWa='Festa com '+p+' convidados: '+pedido+' docinhos ('+f(pedido/100)+' centos) e bolo de '+f(kgPed)+' kg. Calculei no Precifica: '+document.querySelector('link[rel=canonical]').href;
+  $('btnWa').disabled=false;
+}
+function enviarWa(){if(txtWa)window.open('https://wa.me/?text='+encodeURIComponent(txtWa),'_blank','noopener');}
+document.querySelectorAll('input').forEach(i=>i.addEventListener('input',i.id==='outra'?trocar:calc));calc();
+</script>"""
+DOCE_BODY=f"""<body>
+<main>
+{NAV}
+<h1>Quantos docinhos e quanto bolo por pessoa?</h1>
+<p class="sub">Conte de <b>5 a 7 docinhos por convidado</b> (6 quando o doce é a única sobremesa) e cerca de <b>100 g de bolo por pessoa</b>. Para 40 convidados: <b>250 docinhos e um bolo de 4 kg</b>. Mude os números para a sua festa.</p>
+<section>
+<h2>1. Convidados</h2>
+<label><span>Total de convidados<small>adultos e crianças: criança também come doce e bolo</small></span>{_inp("pes",40)}</label>
+<label style="display:flex;gap:8px;align-items:center;justify-content:flex-start"><input id="outra" type="checkbox" style="width:auto"> Vai ter outra sobremesa (pudim, torta, mesa de frutas)</label>
+</section>
+<section>
+<h2>2. Premissas (ajuste se quiser)</h2>
+<label><span>Docinhos por pessoa<small>faixa usada pelas fontes: 5 a 7</small></span>{_inp("dp",6,"0.5")}</label>
+<label><span>Bolo por pessoa (gramas)<small>faixa usada pelas fontes: 80 a 100 g</small></span>{_inp("gb",100,"5")}</label>
+</section>
+<section>
+<h2>Resultado</h2>
+<div class="res" aria-live="polite">
+<div class="box"><small>Docinhos</small><b id="rDoc">—</b></div>
+<div class="box"><small>Para encomendar (arredondado para 50)</small><b id="rDocP">—</b></div>
+<div class="box"><small>Bolo (conta exata)</small><b id="rBolo">—</b></div>
+<div class="box big"><small>Bolo para encomendar (arredondado para meio quilo)</small><b id="rBoloP">—</b></div>
+</div>
+<div class="btns">
+<button type="button" id="btnWa" disabled onclick="enviarWa()">Enviar no WhatsApp</button>
+<button type="button" class="sec" onclick="window.print()">Imprimir</button>
+</div>
+<p><small>Faz doces para vender? <a href="/precifica/brigadeiro/">Calcule o preço do brigadeiro</a> ou o <a href="/precifica/">preço do quilo de bolo</a> com os seus custos.</small></p>
+</section>
+<article>
+<p><small>Atualizado em 24/11/2026. Não existe uma regra oficial: as faixas são as que aparecem em guias de festa como <a href="https://www.receiteria.com.br/dicas/calculadora-de-docinhos-festa/">Receiteria</a>, <a href="https://www.casamentos.com.br/artigos/como-calcular-a-quantidade-de-doces-do-meu-casamento--c5265">Casamentos.com.br</a> e <a href="https://valorfinal.com.br/calculadora-festa">Valor Final</a>. Ao marcar "outra sobremesa", a calculadora usa 5 docinhos e 80 g de bolo por pessoa.</small></p>
+<h2>Exemplo resolvido: 40 convidados, só doces e bolo de sobremesa</h2>
+<p>São os números que já vêm preenchidos.</p>
+<ul>
+<li><b>Docinhos:</b> 40 × 6 = 240. Docinho é vendido por cento, então arredonde para cima: <b>250 (2,5 centos)</b>.</li>
+<li><b>Bolo:</b> 40 × 100 g = 4.000 g = <b>4 kg</b>.</li>
+</ul>
+<h2>Exemplo 2: 40 convidados com pudim na mesa</h2>
+<p>Com outra sobremesa: 40 × 5 = 200 docinhos (2 centos) e 40 × 80 g = 3,2 kg de bolo. Arredondando para meio quilo: <b>bolo de 3,5 kg</b>.</p>
+<h2>Tabela rápida</h2>
+<table>
+<tr><th>Convidados</th><th>Docinhos (6 por pessoa)</th><th>Bolo (100 g por pessoa)</th></tr>
+<tr><td>20</td><td>120 → encomende 150</td><td>2 kg</td></tr>
+<tr><td>30</td><td>180 → encomende 200</td><td>3 kg</td></tr>
+<tr><td>50</td><td>300</td><td>5 kg</td></tr>
+<tr><td>80</td><td>480 → encomende 500</td><td>8 kg</td></tr>
+<tr><td>100</td><td>600</td><td>10 kg</td></tr>
+</table>
+<p>Vai servir salgados também? Veja <a href="/precifica/quantos-salgados/">quantos salgados por pessoa</a>.</p>
+<h2>O que faz a conta mudar</h2>
+<p><b>Mais doces:</b> festa longa, mesa de doces como atração principal, casamento com doces finos para levar.</p>
+<p><b>Menos doces:</b> outra sobremesa, festa curta, muitos convidados que não comem doce.</p>
+<p><b>Bolo:</b> bolo com muitas camadas ou recheio pesado rende mais fatias por quilo; bolo só de enfeite (cenográfico) não entra na conta.</p>
+<h2>Erros comuns</h2>
+<p><b>Somar bolo e docinho como se fossem a mesma coisa.</b> São duas contas: docinho por unidade e bolo por peso.</p>
+<p><b>Esquecer as forminhas e as caixas.</b> Para quem encomenda, pergunte se o preço do cento já inclui forminha. Para quem vende, ela entra no custo.</p>
+<p><b>Arredondar para baixo.</b> Faltar doce é pior do que sobrar alguns: arredonde a encomenda para cima.</p>
+<h2>Perguntas frequentes</h2>
+<p><b>Quantos docinhos para 50 pessoas?</b> Com 6 por pessoa, 300 docinhos (3 centos). Com outra sobremesa, 250.</p>
+<p><b>Quantos quilos de bolo para 50 pessoas?</b> Cerca de 5 kg, com 100 g por pessoa. Com outras sobremesas, 4 kg.</p>
+<p><b>Criança conta como adulto?</b> Para doce e bolo, sim: criança costuma comer tanto quanto adulto.</p>
+<p><b>Quantas fatias tem um bolo de 1 kg?</b> Com fatias de 100 g, cerca de 10. É a conta que esta página usa.</p>
+<h2>Outras calculadoras</h2>
+<p><a href="/precifica/quantos-salgados/">Quantos salgados por pessoa</a> · <a href="/precifica/brigadeiro/">Quanto cobrar por brigadeiro</a> · <a href="/precifica/bolo-de-pote/">Preço de bolo de pote</a></p>
+</article>
+{FOOTER}
+</main>
+"""+DOCE_SCRIPT+"""
+</body>
+</html>
+"""
+write("docinhos-e-bolo",head_for(DOCE_TITLE,DOCE_DESC,DOCE_URL)+DOCE_BODY)
+
+urls=[BASE]+[BASE+p["slug"]+"/" for p in PAGES]+[SALG_URL,DOCE_URL,BASE+"sobre/"]
 open(os.path.join(ROOT,"sitemap.xml"),"w",encoding="utf-8").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"".join(f"<url><loc>{u}</loc><lastmod>2026-11-24</lastmod></url>\n" for u in urls)+"</urlset>\n")
 open(os.path.join(ROOT,"robots.txt"),"w",encoding="utf-8").write("User-agent: *\nAllow: /\nSitemap: "+BASE+"sitemap.xml\n")
-print("ok",[p["slug"] for p in PAGES]+["quantos-salgados","sobre"])
+print("ok",[p["slug"] for p in PAGES]+["quantos-salgados","docinhos-e-bolo","sobre"])
