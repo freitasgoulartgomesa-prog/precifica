@@ -109,17 +109,37 @@ Abaixo de R$ 2,25 (2,14 ÷ 0,95) você não paga nem o material e as suas horas 
  dict(slug="bolo-de-pote",title="Quanto cobrar por bolo de pote: calculadora grátis",
   desc="Calcule o preço do bolo de pote: massa, recheio, pote, colher, gás, seu tempo e taxas. Grátis e sem cadastro.",
   h1="Quanto cobrar por bolo de pote?",
-  sub="Preencha os custos de <b>uma fornada</b> (massa + recheios) e quantos potes ela enche.",
+  sub="Com R$ 65 de material e embalagem para 12 potes, 3 horas de trabalho, 5% de taxa e 25% de lucro, o bolo de pote sai a <b>R$ 13,10</b>. Preencha os custos de <b>uma fornada</b> (massa + recheios) e quantos potes ela enche.",
   lab=["Massa e recheios<small>farinha, ovos, leite condensado, chocolate, frutas</small>","Potes, tampas, colherzinhas, etiquetas","Gás e luz (estimativa)","Potes que a fornada enche"],
   vals=[45,15,5,12,3,15,5,25],
-  art="""<h2>Como fazer a conta do bolo de pote</h2>
-<p><b>1. Uma fornada inteira.</b> Some massa e todos os recheios usados. É mais fácil acertar o custo de uma fornada do que de um pote.</p>
-<p><b>2. Embalagem pesa.</b> No bolo de pote, pote + tampa + colher pode custar quase tanto quanto o recheio. Não esqueça de nada.</p>
-<p><b>3. Tempo:</b> assar, fazer recheio, montar camadas e limpar a cozinha. Tudo isso é trabalho.</p>
-<p><b>4. Perdas.</b> Se costuma sobrar pote no fim do dia, conte só os que você vende de fato nas unidades.</p>
-<p><b>5. Sabores diferentes, custos diferentes.</b> Ninho com Nutella custa mais que brigadeiro simples. Faça uma conta para cada sabor.</p>
-<h2>Quantos potes para ter um salário?</h2>
-<p>Olhe o campo "Sobra para você" e divida o quanto quer tirar no mês por esse valor. É uma conta simples que mostra se a meta é possível.</p>"""),
+  art="""<h2>Exemplo resolvido: fornada de 12 potes de 250 ml</h2>
+<p>Os números abaixo são os que já vêm preenchidos na calculadora. São um <b>exemplo</b>: troque pelos valores das suas notas e do seu mercado.</p>
+<ul>
+<li><b>Massa e recheios:</b> R$ 45,00 (massa de chocolate, dois recheios cremosos e cobertura para 12 potes).</li>
+<li><b>Potes com tampa, colherzinhas e etiquetas:</b> R$ 15,00. <b>Gás e luz:</b> R$ 5,00 (forno ligado cerca de 40 minutos, mais o fogão dos recheios).</li>
+<li><b>Tempo:</b> 3 horas entre assar, fazer os recheios, montar as camadas e lavar a louça, a R$ 15 por hora = R$ 45,00.</li>
+<li><b>Taxa da maquininha:</b> 5%. <b>Lucro do negócio:</b> 25%.</li>
+</ul>
+<p><b>A conta:</b> custo por pote = (45 + 15 + 5) ÷ 12 = R$ 5,42. Tempo por pote = 45 ÷ 12 = R$ 3,75. Total = R$ 9,17.<br>
+Preço = 9,17 ÷ (1 − 0,05 − 0,25) = 9,17 ÷ 0,70 = <b>R$ 13,10 por pote</b>.<br>
+Abaixo de R$ 9,65 (9,17 ÷ 0,95) você não paga nem o material e as suas horas depois da taxa.</p>
+<h2>Onde está o custo do bolo de pote</h2>
+<p><b>Embalagem:</b> no exemplo, pote, tampa, colher e etiqueta somam R$ 1,25 por unidade, quase um quarto do custo de material. Comprar potes em caixa fechada costuma baixar esse valor.</p>
+<p><b>Recheio:</b> é o que mais muda entre sabores. Creme de leite ninho, creme de avelã e frutas vermelhas custam bem mais que um brigadeiro simples. Faça uma conta por sabor e não um preço único para todos.</p>
+<p><b>Tamanho do pote:</b> pote de 250 ml e pote de 350 ml levam quantidades diferentes de massa e recheio. Se vende os dois, faça duas contas.</p>
+<p><b>Rendimento:</b> conte quantos potes cheios saem de verdade da fornada. Sobra de massa que vira lanche não entra.</p>
+<h2>Erros comuns</h2>
+<p><b>Copiar o preço da concorrente.</b> Ela pode ter custos, tamanho de pote e recheios diferentes dos seus. Use o preço dela só para comparar depois de fazer a sua conta.</p>
+<p><b>Esquecer a perda do dia.</b> Se você leva 20 potes para vender e costuma voltar com 3, o custo dos 3 precisa estar no preço dos 17 vendidos. Coloque 17 no campo de potes.</p>
+<p><b>Não contar a geladeira e a bolsa térmica.</b> Gelo, bolsa térmica e a geladeira ligada a mais também são custo. Some uma estimativa no campo de gás e luz.</p>
+<p><b>Dar desconto maior que o lucro.</b> Com 25% de lucro, um "leve 3, pague 2" (33% de desconto) faz você trabalhar no prejuízo.</p>
+<h2>Perguntas frequentes</h2>
+<p><b>Quanto cobrar por bolo de pote de 250 ml?</b> Depende dos seus custos. No exemplo desta página, com R$ 65 de material e embalagem para 12 potes e 3 horas de trabalho, o preço sai R$ 13,10.</p>
+<p><b>Vale a pena vender pelo iFood?</b> Só se o preço no app for maior. A comissão sai do preço final: coloque a porcentagem do app no campo de taxa e veja o novo preço.</p>
+<p><b>Quantos potes preciso vender por mês?</b> No exemplo, sobram R$ 7,02 por pote para pagar as suas horas e o lucro. Para tirar R$ 1.500 no mês: 1.500 ÷ 7,02 ≈ 214 potes, cerca de 18 fornadas.</p>
+<p><b>Bolo de pote precisa de rótulo?</b> Para vender, é boa prática ter etiqueta com nome do produto, ingredientes e data de validade. As regras de rotulagem e de vigilância sanitária mudam conforme a cidade e o tipo de venda: confira na prefeitura.</p>
+<h2>Outras calculadoras</h2>
+<p><a href="/precifica/brigadeiro/">Quanto cobrar por brigadeiro</a> · <a href="/precifica/docinhos-e-bolo/">Quantos docinhos e quanto bolo para festa</a> · <a href="/precifica/">Calculadora geral de preço</a></p>"""),
  dict(slug="croche",title="Quanto cobrar por peça de crochê: calculadora grátis",
   desc="Calcule o preço da sua peça de crochê: linha, acessórios, embalagem, horas de trabalho e taxas. Grátis, direto no celular.",
   h1="Quanto cobrar por uma peça de crochê?",
