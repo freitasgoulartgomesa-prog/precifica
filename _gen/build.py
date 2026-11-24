@@ -143,17 +143,38 @@ Abaixo de R$ 9,65 (9,17 ÷ 0,95) você não paga nem o material e as suas horas 
  dict(slug="croche",title="Quanto cobrar por peça de crochê: calculadora grátis",
   desc="Calcule o preço da sua peça de crochê: linha, acessórios, embalagem, horas de trabalho e taxas. Grátis, direto no celular.",
   h1="Quanto cobrar por uma peça de crochê?",
-  sub="Preencha os custos de <b>uma peça</b> (ou de um lote, dizendo quantas peças saem).",
+  sub="Um amigurumi de 20 cm com R$ 34 de material e 6 horas de trabalho a R$ 12 por hora sai a <b>R$ 141,33</b> (5% de taxa e 20% de lucro). Preencha os custos de <b>uma peça</b> (ou de um lote, dizendo quantas peças saem).",
   lab=["Linhas e fios<small>conte só a parte do novelo que a peça usa</small>","Acessórios e embalagem<small>enchimento, olhos, botões, saquinho, tag</small>","Luz e outros gastos (estimativa)","Peças feitas com esses materiais"],
   vals=[25,8,1,1,6,12,5,20],
-  art="""<h2>Como precificar crochê sem trabalhar no prejuízo</h2>
-<p><b>1. Linha usada, não novelo comprado.</b> Se a peça gasta meio novelo de R$ 20, o custo de linha é R$ 10.</p>
-<p><b>2. Cronometre.</b> Crochê leva horas. Marque o tempo das primeiras peças de cada modelo; é o número mais importante da conta.</p>
-<p><b>3. Valor da sua hora.</b> Uma forma simples: divida quanto quer ganhar no mês pelas horas que pode trabalhar. Ex.: R$ 1.500 ÷ 130 h ≈ R$ 11,50 por hora.</p>
-<p><b>4. Acabamento e embalagem contam.</b> Tag, saquinho e enchimento são custo.</p>
-<p><b>5. Se o preço assustar,</b> é sinal de que a peça leva muitas horas. Opções: modelos mais rápidos, peças menores, ou vender o diferencial (exclusiva, sob medida) para quem paga mais.</p>
-<h2>Sobre a conta</h2>
-<p>Esta calculadora tira a taxa e o lucro do preço final (preço = custo ÷ (1 − taxa − lucro)). É o jeito que garante que, depois de pagar a taxa, sobra o lucro que você escolheu.</p>"""),
+  art="""<h2>Exemplo resolvido: amigurumi de 20 cm</h2>
+<p>Os números abaixo são os que já vêm preenchidos na calculadora. São um <b>exemplo</b>: troque pelos seus.</p>
+<ul>
+<li><b>Linha:</b> R$ 25,00 (a parte dos novelos que a peça usou, não os novelos inteiros).</li>
+<li><b>Enchimento, olhos de segurança, tag e saquinho:</b> R$ 8,00. <b>Luz:</b> R$ 1,00.</li>
+<li><b>Tempo:</b> 6 horas, do primeiro ponto até a costura das partes, a R$ 12 por hora = R$ 72,00.</li>
+<li><b>Taxa da maquininha:</b> 5%. <b>Lucro do negócio:</b> 20%.</li>
+</ul>
+<p><b>A conta:</b> material = 25 + 8 + 1 = R$ 34,00. Tempo = R$ 72,00. Total = R$ 106,00.<br>
+Preço = 106 ÷ (1 − 0,05 − 0,20) = 106 ÷ 0,75 = <b>R$ 141,33</b>.<br>
+Abaixo de R$ 111,58 (106 ÷ 0,95) você não paga o material e as suas horas depois da taxa.</p>
+<p>Repare: o tempo é <b>dois terços</b> do custo. Se a mesma peça levar 4 horas em vez de 6, o preço cai para R$ 109,33. Por isso cronometrar é o passo mais importante.</p>
+<h2>Onde está o custo do crochê</h2>
+<p><b>Horas de trabalho:</b> quase sempre a maior parte. Anote o tempo das primeiras peças de cada modelo; com a prática ele cai, e o preço pode cair junto.</p>
+<p><b>Linha usada:</b> pese a peça pronta e compare com o peso do novelo. Ex.: peça de 50 g feita com novelo de 100 g que custou R$ 20 usa R$ 10 de linha.</p>
+<p><b>Acabamento:</b> olhos de segurança, enchimento, botões, forro, tag e embalagem. São pequenos, mas somam.</p>
+<p><b>Peças em série:</b> se fizer 5 peças iguais, preencha os materiais e as horas do lote e coloque 5 em "Peças feitas". O custo por peça costuma cair, porque você fica mais rápida.</p>
+<h2>Erros comuns</h2>
+<p><b>Cobrar só a linha em dobro.</b> No exemplo, R$ 25 × 2 = R$ 50 deixaria de fora mais da metade do custo real (as horas).</p>
+<p><b>Usar o valor do novelo inteiro.</b> Se sobra meio novelo para outra peça, só a metade entra nesta conta.</p>
+<p><b>Comparar com peça industrial.</b> Peça de fábrica é feita em máquina, em escala. O cliente de crochê paga pelo feito à mão: mostre isso na foto e na descrição.</p>
+<p><b>Esquecer a taxa.</b> Cartão, loja de artesanato consignada ou marketplace ficam com uma parte do preço. Ponha a porcentagem no campo de taxa; para Shopee, use a <a href="/precifica/shopee/">calculadora da Shopee</a>.</p>
+<h2>Perguntas frequentes</h2>
+<p><b>Quanto vale a hora de trabalho no crochê?</b> Uma forma simples: divida quanto quer ganhar no mês pelas horas que pode trabalhar. Ex.: R$ 1.500 ÷ 130 h ≈ R$ 11,50 por hora. A referência do salário mínimo de 2026 é cerca de R$ 7,37 por hora.</p>
+<p><b>E se o preço ficar alto demais?</b> É sinal de que a peça leva muitas horas. Opções: modelos mais rápidos, peças menores, ou vender o diferencial (exclusiva, sob encomenda, com nome) para quem paga mais.</p>
+<p><b>Como cobrar encomenda personalizada?</b> Faça a conta como uma peça nova, com o tempo estimado a mais para criar o modelo. Peça um sinal (por exemplo, metade) antes de começar.</p>
+<p><b>Receita (gráfico) comprada entra no custo?</b> Pode entrar dividida pelas peças que você pretende vender com ela. Ex.: receita de R$ 30 para 10 peças = R$ 3 por peça no campo de materiais.</p>
+<h2>Outras calculadoras</h2>
+<p><a href="/precifica/bijuteria/">Preço de bijuteria</a> · <a href="/precifica/shopee/">Preço para vender na Shopee</a> · <a href="/precifica/">Calculadora geral de preço</a></p>"""),
  dict(slug="bijuteria",title="Quanto cobrar por bijuteria artesanal: calculadora grátis",
   desc="Calcule o preço da sua bijuteria: miçangas, fecho, fio, embalagem, seu tempo e taxas. Grátis, direto no celular.",
   h1="Quanto cobrar por bijuteria artesanal?",
