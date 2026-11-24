@@ -47,7 +47,7 @@ article{line-height:1.6}article h2{margin-top:20px}
 table{width:100%;border-collapse:collapse;margin:8px 0}th,td{border:1px solid var(--line);padding:6px 8px;text-align:left}
 @media print{
   body{background:#fff;color:#000}
-  nav,.btns,footer{display:none!important}
+  nav,.btns,footer,#tabela label{display:none!important}
   section{border:1px solid #999;break-inside:avoid}
   input{border:1px solid #999;background:#fff;color:#000}
 }
@@ -97,6 +97,19 @@ table{width:100%;border-collapse:collapse;margin:8px 0}th,td{border:1px solid va
 </div>
 </section>
 
+<section id="tabela">
+<h2>Minha tabela de preços</h2>
+<p><small>Calcule um produto, dê um nome e adicione. Repita para os outros. Depois envie a tabela pronta para o cliente no WhatsApp ou imprima. A lista fica guardada só neste aparelho.</small></p>
+<label><span>Nome do produto<small>ex.: Brigadeiro tradicional (unidade)</small></span><input id="tNome" type="text" maxlength="60" style="width:180px;text-align:left" placeholder="Nome do produto"></label>
+<label><span>Preço na tabela (R$)<small>vem do preço sugerido; arredonde se quiser</small></span><input id="tPreco" type="number" inputmode="decimal" min="0" step="0.01"></label>
+<div class="btns"><button type="button" onclick="addTab()">Adicionar à tabela</button></div>
+<table id="tLista" style="display:none"></table>
+<label style="display:flex;gap:8px;align-items:center;justify-content:flex-start"><input id="tLink" type="checkbox" checked style="width:auto"> Incluir no fim o link do Precifica</label>
+<div class="btns">
+<button type="button" id="tWa" disabled onclick="enviarTab()">Enviar tabela no WhatsApp</button>
+<button type="button" class="sec" id="tLimpar" disabled onclick="limparTab()">Limpar tabela</button>
+</div>
+</section>
 <section>
 <h2>Como a conta é feita</h2>
 <p>Custo por unidade = (material + embalagem + energia + horas × valor da hora) ÷ unidades.<br>
@@ -176,7 +189,7 @@ function calc(){
   const soma=r.t+l;
   $('rNota').innerHTML=(soma>=0.85)?'<span class="warn">Atenção: taxa + lucro acima de 85% deixa o preço muito alto.</span>':'';
   const preco=r.p, min=rm.p;
-  precoAtual=preco;$('btnWa').disabled=false;
+  precoAtual=preco;$('btnWa').disabled=false;if(!$('tPreco').dataset.manual)$('tPreco').value=preco.toFixed(2);
   $('rPreco').textContent=brl(preco);
   $('rMin').textContent=brl(min);
   $('rLimpo').textContent=brl(preco*(1-r.t)-r.fx-custo);
@@ -188,7 +201,34 @@ function calc(){
       : '<span class="good">Seu preço atual cobre custos, tempo e lucro.</span>';
   } else $('rAtual').textContent='';
 }
-document.querySelectorAll('input').forEach(i=>i.addEventListener('input',calc));calc();
+let tab=[];
+try{tab=JSON.parse(localStorage.getItem('precifica_tabela')||'[]')||[];}catch(e){tab=[];}
+function salvaTab(){try{localStorage.setItem('precifica_tabela',JSON.stringify(tab));}catch(e){}}
+function esc(t){return String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function desenhaTab(){
+  const el=$('tLista');
+  el.style.display=tab.length?'':'none';
+  el.innerHTML='<tr><th>Produto</th><th>Preço</th><th></th></tr>'+tab.map((x,i)=>'<tr><td>'+esc(x.n)+'</td><td>'+brl(x.p)+'</td><td><button type="button" class="sec" style="padding:2px 8px;border:1px solid var(--accent);border-radius:6px;background:transparent;color:var(--accent)" onclick="tirarTab('+i+')" aria-label="Tirar">×</button></td></tr>').join('');
+  $('tWa').disabled=!tab.length;$('tLimpar').disabled=!tab.length;
+}
+function addTab(){
+  const nome=$('tNome').value.trim(),p=parseFloat($('tPreco').value);
+  if(!nome){$('tNome').focus();return;}
+  if(!(p>0)){$('tPreco').focus();return;}
+  tab.push({n:nome.slice(0,60),p:Math.round(p*100)/100});salvaTab();desenhaTab();
+  $('tNome').value='';$('tPreco').dataset.manual='';calc();
+}
+function tirarTab(i){tab.splice(i,1);salvaTab();desenhaTab();}
+function limparTab(){if(confirm('Apagar a tabela inteira?')){tab=[];salvaTab();desenhaTab();}}
+function enviarTab(){
+  if(!tab.length)return;
+  let t='Tabela de preços\n'+tab.map(x=>'• '+x.n+': '+brl(x.p)).join('\n');
+  if($('tLink').checked)t+='\n\nFeita com o Precifica (grátis): '+document.querySelector('link[rel=canonical]').href;
+  window.open('https://wa.me/?text='+encodeURIComponent(t),'_blank','noopener');
+}
+$('tPreco').addEventListener('input',()=>{$('tPreco').dataset.manual='1';});
+desenhaTab();
+document.querySelectorAll('input').forEach(i=>{if(!['tNome','tPreco','tLink'].includes(i.id))i.addEventListener('input',calc);});calc();
 </script>
 </body>
 </html>
