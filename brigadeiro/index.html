@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quanto cobrar por brigadeiro: calculadora grátis</title>
+<meta name="description" content="Calcule o preço do brigadeiro por unidade: ingredientes, forminha, gás, seu tempo e taxas. Grátis, direto no celular.">
+<link rel="canonical" href="https://freitasgoulartgomesa-prog.github.io/precifica/brigadeiro/">
+<meta property="og:title" content="Quanto cobrar por brigadeiro: calculadora grátis">
+<meta property="og:description" content="Calcule o preço do brigadeiro por unidade: ingredientes, forminha, gás, seu tempo e taxas. Grátis, direto no celular.">
+<meta property="og:url" content="https://freitasgoulartgomesa-prog.github.io/precifica/brigadeiro/">
+<style>
+:root{--bg:#fbf8f3;--card:#fff;--ink:#2b2420;--muted:#6f655d;--accent:#b5562f;--line:#e8e0d6;--ok:#2f7d4f}
+@media (prefers-color-scheme:dark){:root{--bg:#1c1917;--card:#26221f;--ink:#f3eee8;--muted:#b3a89d;--accent:#e9875d;--line:#3a3430;--ok:#6cc58f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:720px;margin:0 auto;padding:24px 16px 48px}
+h1{font-size:1.7rem;line-height:1.2;margin:.2em 0}
+p.sub{color:var(--muted);margin-top:0}
+section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:16px 0}
+h2{font-size:1.05rem;margin:0 0 8px}
+label{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:6px 0;border-bottom:1px dashed var(--line)}
+label:last-child{border-bottom:0}
+label span{flex:1}
+small{color:var(--muted);display:block;font-size:.8rem}
+input{width:120px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font-size:1rem;text-align:right}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.box{border:1px solid var(--line);border-radius:10px;padding:12px}
+.box b{display:block;font-size:1.4rem}
+.big{grid-column:1/-1;border-color:var(--accent)}
+.big b{font-size:2rem;color:var(--accent)}
+.warn{color:var(--accent);font-weight:600}
+.good{color:var(--ok);font-weight:600}
+footer{color:var(--muted);font-size:.85rem;margin-top:24px}
+nav{font-size:.9rem;margin-bottom:8px}nav a{color:var(--accent);margin-right:12px}article h2{margin-top:20px}article{line-height:1.6}</style>
+</head>
+<body>
+<main>
+<nav><a href="../">Calculadora geral</a><a href="../brigadeiro/">Brigadeiro</a><a href="../bolo-de-pote/">Bolo de pote</a><a href="../croche/">Crochê</a></nav>
+<h1>Quanto cobrar por brigadeiro?</h1>
+<p class="sub">Preencha os custos de <b>uma receita</b> (uma panela) e quantos brigadeiros ela rende. A conta mostra o preço por unidade.</p>
+
+<section>
+<h2>1. Custos do lote</h2>
+<label><span>Ingredientes da receita<small>leite condensado, chocolate, manteiga, granulado</small></span><input id="mat" type="number" min="0" step="0.01" value="22"></label>
+<label><span>Forminhas, caixinha, etiqueta</span><input id="emb" type="number" min="0" step="0.01" value="6"></label>
+<label><span>Gás e luz (estimativa)</span><input id="ene" type="number" min="0" step="0.01" value="3"></label>
+<label><span>Brigadeiros que a receita rende</span><input id="qtd" type="number" min="1" step="1" value="25"></label>
+</section>
+
+<section>
+<h2>2. Seu tempo</h2>
+<label><span>Horas para fazer o lote</span><input id="hrs" type="number" min="0" step="0.25" value="1.5"></label>
+<label><span>Quanto quer ganhar por hora (R$)<small>referência: salário mínimo 2026 ≈ R$ 7,37/h (R$ 1.621 ÷ 220 h)</small></span><input id="vh" type="number" min="0" step="0.5" value="15"></label>
+</section>
+
+<section>
+<h2>3. Taxas e lucro</h2>
+<label><span>Taxa da maquininha / app / marketplace (%)</span><input id="taxa" type="number" min="0" max="60" step="0.1" value="5"></label>
+<label><span>Lucro do negócio (%)<small>para repor ferramentas, crescer, imprevistos</small></span><input id="luc" type="number" min="0" max="80" step="1" value="30"></label>
+<label><span>Preço que você cobra hoje (opcional)</span><input id="atual" type="number" min="0" step="0.01" value=""></label>
+</section>
+
+<section>
+<h2>Resultado por unidade</h2>
+<div class="res">
+<div class="box"><small>Custo de material + embalagem</small><b id="rCusto">–</b></div>
+<div class="box"><small>Seu tempo</small><b id="rTempo">–</b></div>
+<div class="box big"><small>Preço de venda sugerido</small><b id="rPreco">–</b><span id="rNota"></span></div>
+<div class="box"><small>Preço mínimo (sem lucro)</small><b id="rMin">–</b></div>
+<div class="box"><small>Você recebe limpo por unidade</small><b id="rLimpo">–</b></div>
+</div>
+<p id="rAtual"></p>
+</section>
+
+<section>
+<h2>Como a conta é feita</h2>
+<p>Custo por unidade = (material + embalagem + energia + horas × valor da hora) ÷ unidades.<br>
+Preço = custo ÷ (1 − taxa% − lucro%). Assim a taxa e o lucro saem do preço final, e não do seu bolso.</p>
+</section>
+
+<article><h2>Passo a passo para precificar brigadeiro</h2>
+<p><b>1. Custo da receita.</b> Some o que você pagou em tudo o que entra na panela. Se usou só meia lata de creme de leite, conte só a metade do preço.</p>
+<p><b>2. Rendimento real.</b> Conte quantos brigadeiros saíram de verdade, no tamanho que você vende (ex.: 15 g ou 20 g). Os que você prova ou que quebram não entram.</p>
+<p><b>3. Seu tempo vale dinheiro.</b> Enrolar dá trabalho. Marque no relógio quanto tempo leva do fogão até a caixinha fechada.</p>
+<p><b>4. Taxas.</b> Maquininha, Pix com taxa, iFood ou marketplace: a taxa sai do preço, então ela já entra na conta.</p>
+<p><b>5. Compare com a sua região.</b> A calculadora mostra o preço que paga tudo. Se o mercado da sua cidade cobra menos, veja onde dá para baixar custo (comprar no atacado, receita maior) antes de baixar o preço.</p>
+<h2>Erro mais comum</h2>
+<p>Multiplicar o custo dos ingredientes por 2 ou 3 e esquecer do tempo. Quem enrola 100 brigadeiros por dia trabalha horas; se o preço não paga essas horas, o negócio só parece dar lucro.</p></article>
+<footer>Ferramenta gratuita e independente. Os valores são estimativas para ajudar na decisão; confira seus custos reais.</footer>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const n=id=>Math.max(0,parseFloat($(id).value)||0);
+const brl=v=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+function calc(){
+  const qtd=Math.max(1,n('qtd'));
+  const custo=(n('mat')+n('emb')+n('ene'))/qtd;
+  const tempo=(n('hrs')*n('vh'))/qtd;
+  const base=custo+tempo;
+  const t=n('taxa')/100,l=n('luc')/100;
+  const div=1-t-l;
+  $('rCusto').textContent=brl(custo);
+  $('rTempo').textContent=brl(tempo);
+  if(div<=0.05){$('rPreco').textContent='–';$('rNota').innerHTML='<span class="warn">Taxa + lucro altos demais.</span>';return;}
+  const preco=base/div, min=base/(1-t);
+  $('rPreco').textContent=brl(preco);$('rNota').textContent='';
+  $('rMin').textContent=brl(min);
+  $('rLimpo').textContent=brl(preco*(1-t)-custo);
+  const a=parseFloat($('atual').value);
+  if(a>0){
+    const d=(a-preco)/preco*100;
+    $('rAtual').innerHTML = a<min ? '<span class="warn">Seu preço atual ('+brl(a)+') está abaixo do mínimo: você paga para trabalhar.</span>'
+      : a<preco ? '<span class="warn">Seu preço atual está '+Math.abs(d).toFixed(0)+'% abaixo do sugerido. Cobre o seu tempo, mas sobra pouco lucro.</span>'
+      : '<span class="good">Seu preço atual cobre custos, tempo e lucro.</span>';
+  } else $('rAtual').textContent='';
+}
+document.querySelectorAll('input').forEach(i=>i.addEventListener('input',calc));calc();
+</script>
+</body>
+</html>

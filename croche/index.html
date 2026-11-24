@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quanto cobrar por peça de crochê: calculadora grátis</title>
+<meta name="description" content="Calcule o preço da sua peça de crochê: linha, acessórios, embalagem, horas de trabalho e taxas. Grátis, direto no celular.">
+<link rel="canonical" href="https://freitasgoulartgomesa-prog.github.io/precifica/croche/">
+<meta property="og:title" content="Quanto cobrar por peça de crochê: calculadora grátis">
+<meta property="og:description" content="Calcule o preço da sua peça de crochê: linha, acessórios, embalagem, horas de trabalho e taxas. Grátis, direto no celular.">
+<meta property="og:url" content="https://freitasgoulartgomesa-prog.github.io/precifica/croche/">
+<style>
+:root{--bg:#fbf8f3;--card:#fff;--ink:#2b2420;--muted:#6f655d;--accent:#b5562f;--line:#e8e0d6;--ok:#2f7d4f}
+@media (prefers-color-scheme:dark){:root{--bg:#1c1917;--card:#26221f;--ink:#f3eee8;--muted:#b3a89d;--accent:#e9875d;--line:#3a3430;--ok:#6cc58f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:720px;margin:0 auto;padding:24px 16px 48px}
+h1{font-size:1.7rem;line-height:1.2;margin:.2em 0}
+p.sub{color:var(--muted);margin-top:0}
+section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:16px 0}
+h2{font-size:1.05rem;margin:0 0 8px}
+label{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:6px 0;border-bottom:1px dashed var(--line)}
+label:last-child{border-bottom:0}
+label span{flex:1}
+small{color:var(--muted);display:block;font-size:.8rem}
+input{width:120px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font-size:1rem;text-align:right}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.box{border:1px solid var(--line);border-radius:10px;padding:12px}
+.box b{display:block;font-size:1.4rem}
+.big{grid-column:1/-1;border-color:var(--accent)}
+.big b{font-size:2rem;color:var(--accent)}
+.warn{color:var(--accent);font-weight:600}
+.good{color:var(--ok);font-weight:600}
+footer{color:var(--muted);font-size:.85rem;margin-top:24px}
+nav{font-size:.9rem;margin-bottom:8px}nav a{color:var(--accent);margin-right:12px}article h2{margin-top:20px}article{line-height:1.6}</style>
+</head>
+<body>
+<main>
+<nav><a href="../">Calculadora geral</a><a href="../brigadeiro/">Brigadeiro</a><a href="../bolo-de-pote/">Bolo de pote</a><a href="../croche/">Crochê</a></nav>
+<h1>Quanto cobrar por uma peça de crochê?</h1>
+<p class="sub">Preencha os custos de <b>uma peça</b> (ou de um lote, dizendo quantas peças saem).</p>
+
+<section>
+<h2>1. Custos do lote</h2>
+<label><span>Linhas e fios<small>conte só a parte do novelo que a peça usa</small></span><input id="mat" type="number" min="0" step="0.01" value="25"></label>
+<label><span>Acessórios e embalagem<small>enchimento, olhos, botões, saquinho, tag</small></span><input id="emb" type="number" min="0" step="0.01" value="8"></label>
+<label><span>Luz e outros gastos (estimativa)</span><input id="ene" type="number" min="0" step="0.01" value="1"></label>
+<label><span>Peças feitas com esses materiais</span><input id="qtd" type="number" min="1" step="1" value="1"></label>
+</section>
+
+<section>
+<h2>2. Seu tempo</h2>
+<label><span>Horas para fazer o lote</span><input id="hrs" type="number" min="0" step="0.25" value="6"></label>
+<label><span>Quanto quer ganhar por hora (R$)<small>referência: salário mínimo 2026 ≈ R$ 7,37/h (R$ 1.621 ÷ 220 h)</small></span><input id="vh" type="number" min="0" step="0.5" value="12"></label>
+</section>
+
+<section>
+<h2>3. Taxas e lucro</h2>
+<label><span>Taxa da maquininha / app / marketplace (%)</span><input id="taxa" type="number" min="0" max="60" step="0.1" value="5"></label>
+<label><span>Lucro do negócio (%)<small>para repor ferramentas, crescer, imprevistos</small></span><input id="luc" type="number" min="0" max="80" step="1" value="20"></label>
+<label><span>Preço que você cobra hoje (opcional)</span><input id="atual" type="number" min="0" step="0.01" value=""></label>
+</section>
+
+<section>
+<h2>Resultado por unidade</h2>
+<div class="res">
+<div class="box"><small>Custo de material + embalagem</small><b id="rCusto">–</b></div>
+<div class="box"><small>Seu tempo</small><b id="rTempo">–</b></div>
+<div class="box big"><small>Preço de venda sugerido</small><b id="rPreco">–</b><span id="rNota"></span></div>
+<div class="box"><small>Preço mínimo (sem lucro)</small><b id="rMin">–</b></div>
+<div class="box"><small>Você recebe limpo por unidade</small><b id="rLimpo">–</b></div>
+</div>
+<p id="rAtual"></p>
+</section>
+
+<section>
+<h2>Como a conta é feita</h2>
+<p>Custo por unidade = (material + embalagem + energia + horas × valor da hora) ÷ unidades.<br>
+Preço = custo ÷ (1 − taxa% − lucro%). Assim a taxa e o lucro saem do preço final, e não do seu bolso.</p>
+</section>
+
+<article><h2>Como precificar crochê sem trabalhar no prejuízo</h2>
+<p><b>1. Linha usada, não novelo comprado.</b> Se a peça gasta meio novelo de R$ 20, o custo de linha é R$ 10.</p>
+<p><b>2. Cronometre.</b> Crochê leva horas. Marque o tempo das primeiras peças de cada modelo; é o número mais importante da conta.</p>
+<p><b>3. Valor da sua hora.</b> Uma forma simples: divida quanto quer ganhar no mês pelas horas que pode trabalhar. Ex.: R$ 1.500 ÷ 130 h ≈ R$ 11,50 por hora.</p>
+<p><b>4. Acabamento e embalagem contam.</b> Tag, saquinho e enchimento são custo.</p>
+<p><b>5. Se o preço assustar,</b> é sinal de que a peça leva muitas horas. Opções: modelos mais rápidos, peças menores, ou vender o diferencial (exclusiva, sob medida) para quem paga mais.</p>
+<h2>Sobre a conta</h2>
+<p>Esta calculadora tira a taxa e o lucro do preço final (preço = custo ÷ (1 − taxa − lucro)). É o jeito que garante que, depois de pagar a taxa, sobra o lucro que você escolheu.</p></article>
+<footer>Ferramenta gratuita e independente. Os valores são estimativas para ajudar na decisão; confira seus custos reais.</footer>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const n=id=>Math.max(0,parseFloat($(id).value)||0);
+const brl=v=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+function calc(){
+  const qtd=Math.max(1,n('qtd'));
+  const custo=(n('mat')+n('emb')+n('ene'))/qtd;
+  const tempo=(n('hrs')*n('vh'))/qtd;
+  const base=custo+tempo;
+  const t=n('taxa')/100,l=n('luc')/100;
+  const div=1-t-l;
+  $('rCusto').textContent=brl(custo);
+  $('rTempo').textContent=brl(tempo);
+  if(div<=0.05){$('rPreco').textContent='–';$('rNota').innerHTML='<span class="warn">Taxa + lucro altos demais.</span>';return;}
+  const preco=base/div, min=base/(1-t);
+  $('rPreco').textContent=brl(preco);$('rNota').textContent='';
+  $('rMin').textContent=brl(min);
+  $('rLimpo').textContent=brl(preco*(1-t)-custo);
+  const a=parseFloat($('atual').value);
+  if(a>0){
+    const d=(a-preco)/preco*100;
+    $('rAtual').innerHTML = a<min ? '<span class="warn">Seu preço atual ('+brl(a)+') está abaixo do mínimo: você paga para trabalhar.</span>'
+      : a<preco ? '<span class="warn">Seu preço atual está '+Math.abs(d).toFixed(0)+'% abaixo do sugerido. Cobre o seu tempo, mas sobra pouco lucro.</span>'
+      : '<span class="good">Seu preço atual cobre custos, tempo e lucro.</span>';
+  } else $('rAtual').textContent='';
+}
+document.querySelectorAll('input').forEach(i=>i.addEventListener('input',calc));calc();
+</script>
+</body>
+</html>
