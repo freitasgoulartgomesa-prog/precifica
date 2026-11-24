@@ -200,7 +200,110 @@ SOBRE_BODY=f"""<body>
 """
 write("sobre",head_for("Sobre o Precifica",SOBRE_DESC,BASE+"sobre/")+SOBRE_BODY)
 
-urls=[BASE]+[BASE+p["slug"]+"/" for p in PAGES]+[BASE+"sobre/"]
+# ---- Frente 2 (festa): quantos salgados por pessoa ----
+SALG_URL=BASE+"quantos-salgados/"
+SALG_TITLE="Quantos salgados por pessoa: calculadora para festa"
+SALG_DESC="Calcule quantos salgados pedir para a festa: adultos, crianças, duração e horário de refeição. Mostra o total e quantos centos encomendar. Grátis."
+SALG_SCRIPT="""<script>
+const $=id=>document.getElementById(id);
+const n=id=>Math.max(0,parseFloat($(id).value)||0);
+let txtWa=null;
+function calc(){
+  const a=Math.round(n('ad')),c=Math.round(n('cr'));
+  const base=a*n('sa')+c*n('sc');
+  const fator=1+n('hx')/100*Math.max(0,n('dur')-3)+($('ref').checked?n('rx')/100:0);
+  const total=Math.ceil(base*fator-1e-9);
+  const pedido=Math.ceil(total/50)*50;
+  txtWa=null;$('btnWa').disabled=true;
+  if(a+c===0){['rTot','rPed','rPp'].forEach(i=>$(i).textContent='—');$('rNota').textContent='Preencha quantos convidados.';return;}
+  $('rTot').textContent=total.toLocaleString('pt-BR')+' salgados';
+  $('rPed').textContent=pedido.toLocaleString('pt-BR')+' ('+(pedido/100).toLocaleString('pt-BR')+' centos)';
+  $('rPp').textContent=(a?(n('sa')*fator).toLocaleString('pt-BR',{maximumFractionDigits:1})+' por adulto':'')+(a&&c?' · ':'')+(c?(n('sc')*fator).toLocaleString('pt-BR',{maximumFractionDigits:1})+' por criança':'');
+  $('rNota').textContent=fator>1?'Inclui aumento de '+Math.round((fator-1)*100)+'% pela duração ou pelo horário.':'';
+  txtWa='Festa com '+a+' adultos e '+c+' crianças: '+total+' salgados (encomendar '+pedido+', '+(pedido/100).toLocaleString('pt-BR')+' centos). Calculei no Precifica: '+document.querySelector('link[rel=canonical]').href;
+  $('btnWa').disabled=false;
+}
+function enviarWa(){if(txtWa)window.open('https://wa.me/?text='+encodeURIComponent(txtWa),'_blank','noopener');}
+document.querySelectorAll('input').forEach(i=>i.addEventListener('input',calc));calc();
+</script>"""
+def _inp(i,v,step="1",mn="0"): return f'<input id="{i}" type="number" inputmode="decimal" min="{mn}" step="{step}" value="{v}">'
+SALG_BODY=f"""<body>
+<main>
+{NAV}
+<h1>Quantos salgados por pessoa?</h1>
+<p class="sub">Numa festa de 2 a 3 horas, conte de <b>10 a 15 salgados por adulto</b> e de <b>5 a 8 por criança</b>. Para 30 adultos e 10 crianças, são cerca de <b>420 salgados: encomende 450</b>. Mude os números abaixo para a sua festa.</p>
+<section>
+<h2>1. Convidados</h2>
+<label><span>Adultos<small>conte adolescentes como adultos</small></span>{_inp("ad",30)}</label>
+<label><span>Crianças<small>até uns 10 anos</small></span>{_inp("cr",10)}</label>
+<label><span>Duração da festa (horas)</span>{_inp("dur",3,"0.5")}</label>
+<label style="display:flex;gap:8px;align-items:center;justify-content:flex-start"><input id="ref" type="checkbox" style="width:auto"> A festa cai no horário de almoço ou jantar e os salgados são a comida principal</label>
+</section>
+<section>
+<h2>2. Premissas (ajuste se quiser)</h2>
+<label><span>Salgados por adulto<small>faixa usada pelas fontes: 10 a 15</small></span>{_inp("sa",12)}</label>
+<label><span>Salgados por criança<small>faixa usada pelas fontes: 5 a 8</small></span>{_inp("sc",6)}</label>
+<label><span>Aumento por hora acima de 3 h (%)<small>estimativa nossa</small></span>{_inp("hx",25)}</label>
+<label><span>Aumento no horário de refeição (%)<small>estimativa nossa</small></span>{_inp("rx",20)}</label>
+</section>
+<section>
+<h2>Resultado</h2>
+<div class="res" aria-live="polite">
+<div class="box big"><small>Salgados para a festa</small><b id="rTot">—</b><span id="rNota"></span></div>
+<div class="box"><small>Para encomendar (arredondado para 50)</small><b id="rPed">—</b></div>
+<div class="box"><small>Média por pessoa</small><b id="rPp" style="font-size:1.05rem">—</b></div>
+</div>
+<div class="btns">
+<button type="button" id="btnWa" disabled onclick="enviarWa()">Enviar no WhatsApp</button>
+<button type="button" class="sec" onclick="window.print()">Imprimir</button>
+</div>
+<p><small>Faz salgados para vender? <a href="/precifica/">Calcule o preço do cento</a> com ingredientes, embalagem, gás, seu tempo e taxas.</small></p>
+</section>
+<article>
+<p><small>Atualizado em 24/11/2026. Não existe uma regra oficial: as faixas abaixo são as que aparecem em guias de festa como <a href="https://www.decorfacil.com/quantidade-de-salgados-para-festa">Decor Fácil</a>, <a href="https://valorfinal.com.br/calculadora-festa">Valor Final</a> e <a href="https://www.receiteria.com.br/dicas/calculadora-de-docinhos-festa/">Receiteria</a>. Os aumentos por duração e por horário são uma estimativa nossa, que você pode mudar.</small></p>
+<h2>Exemplo resolvido: 30 adultos e 10 crianças, 3 horas</h2>
+<p>São os números que já vêm preenchidos.</p>
+<ul>
+<li><b>Adultos:</b> 30 × 12 = 360 salgados.</li>
+<li><b>Crianças:</b> 10 × 6 = 60 salgados.</li>
+<li><b>Total:</b> 420. Festa de 3 horas fora do horário de refeição: sem aumento.</li>
+<li><b>Encomenda:</b> salgado costuma ser vendido por cento, então arredonde para cima: <b>450 (4,5 centos)</b>.</li>
+</ul>
+<h2>Exemplo 2: almoço de 40 adultos, 4 horas</h2>
+<p>Base: 40 × 12 = 480. Aumento: 25% pela hora a mais + 20% pelo horário de almoço = 45%. Total: 480 × 1,45 = <b>696 salgados</b>; encomende <b>700 (7 centos)</b>. Dá cerca de 17 por pessoa, porque nesse caso o salgado é a refeição.</p>
+<h2>Tabela de referência para festa</h2>
+<table>
+<tr><th>O quê</th><th>Por pessoa</th></tr>
+<tr><td>Salgados, adulto (festa de 2 a 3 h)</td><td>10 a 15</td></tr>
+<tr><td>Salgados, criança</td><td>5 a 8</td></tr>
+<tr><td>Docinhos</td><td>5 a 7 (cerca de 5 se houver outra sobremesa)</td></tr>
+<tr><td>Bolo</td><td>cerca de 100 g (80 a 100 g com outras opções no cardápio)</td></tr>
+</table>
+<h2>O que faz a conta subir ou descer</h2>
+<p><b>Sobe:</b> festa mais longa, perto do almoço ou do jantar, muitos adolescentes, salgados como única comida, convidados que chegam com fome depois do trabalho.</p>
+<p><b>Desce:</b> festa curta, muitas crianças pequenas, outras comidas na mesa (cachorro-quente, pizza, churrasco). Nesses casos use o começo da faixa (10 por adulto).</p>
+<h2>Erros comuns</h2>
+<p><b>Contar criança como adulto.</b> Criança pequena come bem menos; em festa infantil isso muda muito o total.</p>
+<p><b>Esquecer quem não confirmou.</b> Some uma margem para quem aparece sem avisar, ou use o fim da faixa.</p>
+<p><b>Pedir tudo frito.</b> Misturar fritos e assados agrada mais e ajuda quem não come fritura. A quantidade total é a mesma.</p>
+<p><b>Encomendar em cima da hora.</b> Quem faz salgados costuma fechar a agenda do fim de semana com antecedência; peça o orçamento cedo.</p>
+<h2>Perguntas frequentes</h2>
+<p><b>Quantos salgados para 50 pessoas?</b> Com 50 adultos numa festa de 3 horas: 50 × 12 = 600 salgados (6 centos). Se forem 40 adultos e 10 crianças: 480 + 60 = 540; encomende 550.</p>
+<p><b>Quantos salgados para 100 pessoas?</b> Com 100 adultos e 12 por pessoa: 1.200 salgados (12 centos). Use a calculadora se houver crianças ou se a festa for longa.</p>
+<p><b>E se o salgado for grande?</b> O salgado de festa costuma ser pequeno, de uma ou duas mordidas. Se for maior (tamanho de lanchonete), conte menos por pessoa.</p>
+<p><b>Quanto cobrar pelo cento de salgado?</b> Depende dos seus custos. A <a href="/precifica/">calculadora de preço</a> soma ingredientes, óleo, embalagem, gás, o seu tempo e a taxa, e mostra o preço por unidade; multiplique por 100.</p>
+<h2>Outras calculadoras</h2>
+<p><a href="/precifica/">Preço do cento de salgado</a> · <a href="/precifica/brigadeiro/">Quanto cobrar por brigadeiro</a> · <a href="/precifica/bolo-de-pote/">Preço de bolo de pote</a></p>
+</article>
+{FOOTER}
+</main>
+"""+SALG_SCRIPT+"""
+</body>
+</html>
+"""
+write("quantos-salgados",head_for(SALG_TITLE,SALG_DESC,SALG_URL)+SALG_BODY)
+
+urls=[BASE]+[BASE+p["slug"]+"/" for p in PAGES]+[SALG_URL,BASE+"sobre/"]
 open(os.path.join(ROOT,"sitemap.xml"),"w",encoding="utf-8").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"".join(f"<url><loc>{u}</loc><lastmod>2026-11-24</lastmod></url>\n" for u in urls)+"</urlset>\n")
 open(os.path.join(ROOT,"robots.txt"),"w",encoding="utf-8").write("User-agent: *\nAllow: /\nSitemap: "+BASE+"sitemap.xml\n")
-print("ok",[p["slug"] for p in PAGES]+["sobre"])
+print("ok",[p["slug"] for p in PAGES]+["quantos-salgados","sobre"])
