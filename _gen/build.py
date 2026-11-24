@@ -79,31 +79,32 @@ Preço mínimo (sem lucro): 18,50 ÷ 0,80 = R$ 23,13. Abaixo disso você paga pa
   h1="Quanto cobrar por brigadeiro?",
   sub="Preencha os custos de <b>uma receita</b> (uma panela) e quantos brigadeiros ela rende. A conta mostra o preço por unidade.",
   lab=["Ingredientes da receita<small>leite condensado, chocolate, manteiga, granulado</small>","Forminhas, caixinha, etiqueta","Gás e luz (estimativa)","Brigadeiros que a receita rende"],
-  vals=[22,6,3,25,1.5,15,5,30],
-  art="""<h2>Exemplo resolvido: 25 brigadeiros de 20 g</h2>
+  vals=[11.02,1.8,1.5,30,1,15,5,20],
+  art="""<h2>Exemplo resolvido: 30 brigadeiros de 15 g</h2>
 <p>Os números abaixo são os que já vêm preenchidos na calculadora. São um <b>exemplo</b>: troque pelos valores das suas notas e do seu mercado.</p>
 <ul>
-<li><b>Ingredientes da panela:</b> R$ 22,00 (leite condensado, chocolate em pó, manteiga e granulado).</li>
-<li><b>Forminhas e caixinha:</b> R$ 6,00. <b>Gás e luz:</b> R$ 3,00.</li>
-<li><b>Rendimento:</b> a massa pronta pesou 500 g; 500 ÷ 20 g = 25 brigadeiros.</li>
-<li><b>Tempo:</b> 1 h 30 min do fogão até a caixinha fechada, a R$ 15 por hora = R$ 22,50.</li>
-<li><b>Taxa da maquininha:</b> 5%. <b>Lucro do negócio:</b> 30%.</li>
+<li><b>Ingredientes da panela:</b> R$ 11,02 (1 lata de leite condensado R$ 7,00, 30 g de chocolate em pó R$ 1,35, 15 g de manteiga R$ 0,75 e 80 g de granulado R$ 1,92).</li>
+<li><b>Forminhas:</b> 30 a R$ 0,06 = R$ 1,80. <b>Gás e luz:</b> R$ 1,50.</li>
+<li><b>Rendimento:</b> a massa pronta pesou 450 g; 450 ÷ 15 g = 30 brigadeiros.</li>
+<li><b>Tempo:</b> 1 h do fogão até as forminhas, a R$ 15 por hora = R$ 15,00.</li>
+<li><b>Taxa da maquininha:</b> 5%. <b>Lucro do negócio:</b> 20%.</li>
 </ul>
-<p><b>A conta:</b> custo por unidade = (22 + 6 + 3) ÷ 25 = R$ 1,24. Tempo por unidade = 22,50 ÷ 25 = R$ 0,90. Total = R$ 2,14.<br>
-Preço = 2,14 ÷ (1 − 0,05 − 0,30) = 2,14 ÷ 0,65 = <b>R$ 3,29 por brigadeiro</b>.<br>
-Abaixo de R$ 2,25 (2,14 ÷ 0,95) você não paga nem o material e as suas horas depois da taxa.</p>
+<p><b>A conta:</b> material por unidade = (11,02 + 1,80 + 1,50) ÷ 30 = R$ 0,48. Tempo por unidade = 15,00 ÷ 30 = R$ 0,50. Total = R$ 0,98.<br>
+Preço = 0,977 ÷ (1 − 0,05 − 0,20) = 0,977 ÷ 0,75 = <b>R$ 1,30 por brigadeiro</b> (R$ 130 o cento).<br>
+Abaixo de R$ 1,03 (0,977 ÷ 0,95) você não paga nem o material e as suas horas depois da taxa.</p>
 <h2>Onde está o custo do brigadeiro</h2>
 <p><b>Leite condensado e chocolate</b> são quase todo o custo da massa. Trocar o chocolate em pó comum por cacau 50% ou chocolate nobre muda bastante o preço: faça uma conta para cada versão.</p>
 <p><b>Cobertura:</b> granulado comum, granulado belga, castanha ou confeito colorido têm custos bem diferentes. Pese quanto vai em cada lote.</p>
-<p><b>Forminha:</b> parece pouco, mas no exemplo R$ 6,00 ÷ 25 = R$ 0,24 por unidade, mais que o gás.</p>
+<p><b>Forminha:</b> parece pouco, mas no exemplo R$ 1,80 ÷ 30 = R$ 0,06 por unidade, mais que o gás (R$ 0,05). Caixinha e etiqueta somam ainda mais.</p>
 <p><b>Rendimento:</b> o jeito mais exato é pesar a massa pronta e dividir pelo peso de cada bolinha. Brigadeiro de 15 g rende mais unidades que o de 20 g com a mesma panela.</p>
 <h2>Erros comuns</h2>
 <p><b>Multiplicar o custo por 2 ou 3.</b> Essa regra ignora o seu tempo. Enrolar 100 brigadeiros leva horas, e elas precisam estar no preço.</p>
-<p><b>Dar desconto grande no cento.</b> Se o desconto for maior que o lucro, você paga para trabalhar. No exemplo, o lucro é 30%; um desconto de 10% no cento ainda deixa margem, um de 35% não.</p>
+<p><b>Dar desconto grande no cento.</b> Se o desconto for maior que o lucro, você paga para trabalhar. No exemplo, o lucro é 20%; um desconto de 10% no cento ainda deixa margem, um de 35% não.</p>
+<p><b>Copiar o preço da vizinha.</b> No exemplo, vendendo a R$ 0,80: 30 × 0,80 = R$ 24,00, menos 5% de taxa = R$ 22,80, menos R$ 14,32 de material = R$ 8,48 pela 1 h de trabalho, sem lucro nenhum. Faça a sua conta antes de baixar o preço.</p>
 <p><b>Contar os que você prova ou que quebram.</b> No rendimento entram só os que vão para a caixa.</p>
 <p><b>Esquecer a taxa.</b> Cartão, Pix com taxa ou app de entrega ficam com uma parte do preço. Coloque a taxa no campo certo.</p>
 <h2>Perguntas frequentes</h2>
-<p><b>Quanto cobrar pelo cento de brigadeiro?</b> Multiplique o preço por unidade por 100. No exemplo, 100 × R$ 3,29 = R$ 329. Se quiser dar desconto para festa, veja a regra acima.</p>
+<p><b>Quanto cobrar pelo cento de brigadeiro?</b> Multiplique o preço por unidade por 100. No exemplo, 100 × R$ 1,30 = R$ 130. Para comparar: em 2026 o cento tradicional costuma sair entre R$ 80 e R$ 160, mais barato no Nordeste e mais caro nas capitais do Sudeste (referências: <a href="https://engrenou.com.br/precificacao/cento-de-brigadeiro" rel="nofollow">Engrenou</a> e <a href="https://receitorio.app/guia/quanto-cobrar-por-brigadeiro/" rel="nofollow">Receitório</a>). Brigadeiro gourmet passa disso. Se quiser dar desconto para festa, veja a regra acima.</p>
 <p><b>Brigadeiro gourmet deve custar mais?</b> Sim, porque o ingrediente é mais caro e costuma levar mais tempo para decorar. Preencha a calculadora com os custos da versão gourmet.</p>
 <p><b>E a taxa de entrega?</b> Cobre à parte. A calculadora mostra o preço do produto; o frete muda conforme a distância.</p>
 <p><b>Quanto vale a minha hora?</b> Divida quanto quer ganhar no mês pelas horas que trabalha. Ex.: R$ 2.000 ÷ 120 h ≈ R$ 16,67 por hora.</p>"""),
