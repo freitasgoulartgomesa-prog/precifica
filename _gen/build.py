@@ -214,6 +214,13 @@ Abaixo de R$ 6,74 (6,40 ÷ 0,95) você não paga o material e as suas horas depo
 <p><a href="/precifica/croche/">Preço de peça de crochê</a> · <a href="/precifica/shopee/">Preço para vender na Shopee</a> · <a href="/precifica/">Calculadora geral de preço</a></p>"""),
 ]
 
+# Oferta da planilha paga (S1-5). Fica desligada até o Arthur mandar o link de venda da Kiwify: cole o link aqui e rode o build.
+PLANILHA_URL=""
+PLANILHA_HTML=(f'<aside class="oferta"><h2>Planilha Ficha técnica e preço (R$ 12,90)</h2>'
+ '<p>Anote o preço dos ingredientes ou materiais, monte até 5 receitas e veja o custo por unidade, o preço mínimo e o preço de venda, '
+ 'já com a sua hora, a taxa da maquininha e o lucro. Abre no Excel e no Google Planilhas. A calculadora desta página continua grátis.</p>'
+ f'<p><a href="{PLANILHA_URL}" rel="nofollow sponsored">Ver a planilha</a></p></aside>'+chr(10)) if PLANILHA_URL else ""
+
 for p in PAGES:
     url=BASE+p["slug"]+"/"
     body=BODY
@@ -224,7 +231,7 @@ for p in PAGES:
         body=body.replace(f'<label><span>{old}</span><input id="{i}"',f'<label><span>{new}</span><input id="{i}"',1)
     for i,v in zip(["mat","emb","ene","qtd","hrs","vh","taxa","luc","fixa"],p["vals"]):
         body=re.sub(rf'(id="{i}"[^>]*value=")[^"]*"',lambda m,v=v:f'{m.group(1)}{v}"',body,1)
-    body=body.replace("<footer>",f"<article>{p['art']}</article>\n<footer>",1)
+    body=body.replace("<footer>",f"<article>{p['art']}</article>\n{PLANILHA_HTML}<footer>",1)
     if p.get("extra"): body=body.replace('<label><span>Taxa da maquininha',p["extra"]+'\n<label><span>Taxa da maquininha',1)
     if p.get("script"): body=body.replace("<script>",p["script"]+"\n<script>",1)
     write(p["slug"],head_for(p["title"],p["desc"],url)+body)
