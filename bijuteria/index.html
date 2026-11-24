@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quanto cobrar por bijuteria artesanal: calculadora grátis</title>
+<meta name="description" content="Calcule o preço da sua bijuteria: miçangas, fecho, fio, embalagem, seu tempo e taxas. Grátis, direto no celular.">
+<link rel="canonical" href="https://freitasgoulartgomesa-prog.github.io/precifica/bijuteria/">
+<meta property="og:title" content="Quanto cobrar por bijuteria artesanal: calculadora grátis">
+<meta property="og:description" content="Calcule o preço da sua bijuteria: miçangas, fecho, fio, embalagem, seu tempo e taxas. Grátis, direto no celular.">
+<meta property="og:url" content="https://freitasgoulartgomesa-prog.github.io/precifica/bijuteria/">
+<style>
+:root{--bg:#fbf8f3;--card:#fff;--ink:#2b2420;--muted:#6f655d;--accent:#b5562f;--line:#e8e0d6;--ok:#2f7d4f}
+@media (prefers-color-scheme:dark){:root{--bg:#1c1917;--card:#26221f;--ink:#f3eee8;--muted:#b3a89d;--accent:#e9875d;--line:#3a3430;--ok:#6cc58f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:720px;margin:0 auto;padding:24px 16px 48px}
+h1{font-size:1.7rem;line-height:1.2;margin:.2em 0}
+p.sub{color:var(--muted);margin-top:0}
+section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:16px 0}
+h2{font-size:1.05rem;margin:0 0 8px}
+label{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:6px 0;border-bottom:1px dashed var(--line)}
+label:last-child{border-bottom:0}
+label span{flex:1}
+small{color:var(--muted);display:block;font-size:.8rem}
+input{width:120px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font-size:1rem;text-align:right}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.box{border:1px solid var(--line);border-radius:10px;padding:12px}
+.box b{display:block;font-size:1.4rem}
+.big{grid-column:1/-1;border-color:var(--accent)}
+.big b{font-size:2rem;color:var(--accent)}
+.warn{color:var(--accent);font-weight:600}
+.good{color:var(--ok);font-weight:600}
+nav{font-size:.9rem;margin:8px 0}nav a{color:var(--accent);margin-right:12px}
+footer{color:var(--muted);font-size:.85rem;margin-top:24px}
+nav{font-size:.9rem;margin-bottom:8px}nav a{color:var(--accent);margin-right:12px}article h2{margin-top:20px}article{line-height:1.6}</style>
+</head>
+<body>
+<main>
+<nav><a href="../">Calculadora geral</a><a href="../brigadeiro/">Brigadeiro</a><a href="../bolo-de-pote/">Bolo de pote</a><a href="../croche/">Crochê</a><a href="../bijuteria/">Bijuteria</a></nav>
+<h1>Quanto cobrar por bijuteria artesanal?</h1>
+<p class="sub">Preencha os custos de <b>um lote</b> de peças iguais (ex.: 10 pulseiras) e quantas peças saem dele.</p>
+
+<section>
+<h2>1. Custos do lote</h2>
+<label><span>Materiais do lote<small>miçangas, pedras, fio, fechos, argolas</small></span><input id="mat" type="number" min="0" step="0.01" value="30"></label>
+<label><span>Embalagem<small>saquinho, cartela, tag</small></span><input id="emb" type="number" min="0" step="0.01" value="8"></label>
+<label><span>Outros gastos (estimativa)</span><input id="ene" type="number" min="0" step="0.01" value="2"></label>
+<label><span>Peças que o lote rende</span><input id="qtd" type="number" min="1" step="1" value="10"></label>
+</section>
+
+<section>
+<h2>2. Seu tempo</h2>
+<label><span>Horas para fazer o lote</span><input id="hrs" type="number" min="0" step="0.25" value="2"></label>
+<label><span>Quanto quer ganhar por hora (R$)<small>referência: salário mínimo 2026 ≈ R$ 7,37/h (R$ 1.621 ÷ 220 h)</small></span><input id="vh" type="number" min="0" step="0.5" value="12"></label>
+</section>
+
+<section>
+<h2>3. Taxas e lucro</h2>
+<label><span>Taxa da maquininha / app / marketplace (%)</span><input id="taxa" type="number" min="0" max="60" step="0.1" value="5"></label>
+<label><span>Lucro do negócio (%)<small>para repor ferramentas, crescer, imprevistos</small></span><input id="luc" type="number" min="0" max="80" step="1" value="25"></label>
+<label><span>Preço que você cobra hoje (opcional)</span><input id="atual" type="number" min="0" step="0.01" value=""></label>
+</section>
+
+<section>
+<h2>Resultado por unidade</h2>
+<div class="res">
+<div class="box"><small>Custo de material + embalagem</small><b id="rCusto">–</b></div>
+<div class="box"><small>Seu tempo</small><b id="rTempo">–</b></div>
+<div class="box big"><small>Preço de venda sugerido</small><b id="rPreco">–</b><span id="rNota"></span></div>
+<div class="box"><small>Preço mínimo (sem lucro)</small><b id="rMin">–</b></div>
+<div class="box"><small>Você recebe limpo por unidade</small><b id="rLimpo">–</b></div>
+</div>
+<p id="rAtual"></p>
+</section>
+
+<nav>Calculadoras por produto: <a href="brigadeiro/">Brigadeiro</a><a href="bolo-de-pote/">Bolo de pote</a><a href="croche/">Crochê</a></nav>
+
+<section>
+<h2>Como a conta é feita</h2>
+<p>Custo por unidade = (material + embalagem + energia + horas × valor da hora) ÷ unidades.<br>
+Preço = custo ÷ (1 − taxa% − lucro%). Assim a taxa e o lucro saem do preço final, e não do seu bolso.</p>
+</section>
+
+<article><h2>Como precificar bijuteria</h2>
+<p><b>1. Conte por lote.</b> Comprar miçanga em pacote e usar um pouco em cada peça confunde. Faça 10 peças iguais e divida o custo total por 10.</p>
+<p><b>2. Fecho e argola custam.</b> Peças pequenas somam: fecho, terminal, argola e fio podem passar do valor das contas.</p>
+<p><b>3. Cronometre a montagem.</b> Uma pulseira simples leva minutos; um colar bordado leva horas. O tempo muda tudo.</p>
+<p><b>4. Cartela e embalagem vendem.</b> Elas entram no custo, mas ajudam a cobrar mais.</p>
+<p><b>5. Feira, loja ou internet?</b> Em loja consignada a loja fica com uma parte; coloque essa parte no campo de taxa.</p>
+<h2>Bijuteria x semijoia</h2>
+<p>Semijoia tem banho de metal e custo maior por peça. A conta é a mesma: some o custo da peça pronta (incluindo o banho) no campo de materiais.</p></article>
+<footer>Ferramenta gratuita e independente. Os valores são estimativas para ajudar na decisão; confira seus custos reais.</footer>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const n=id=>Math.max(0,parseFloat($(id).value)||0);
+const brl=v=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+function calc(){
+  const qtd=Math.max(1,n('qtd'));
+  const custo=(n('mat')+n('emb')+n('ene'))/qtd;
+  const tempo=(n('hrs')*n('vh'))/qtd;
+  const base=custo+tempo;
+  const t=n('taxa')/100,l=n('luc')/100;
+  const div=1-t-l;
+  $('rCusto').textContent=brl(custo);
+  $('rTempo').textContent=brl(tempo);
+  if(div<=0.05){$('rPreco').textContent='–';$('rNota').innerHTML='<span class="warn">Taxa + lucro altos demais.</span>';return;}
+  const preco=base/div, min=base/(1-t);
+  $('rPreco').textContent=brl(preco);$('rNota').textContent='';
+  $('rMin').textContent=brl(min);
+  $('rLimpo').textContent=brl(preco*(1-t)-custo);
+  const a=parseFloat($('atual').value);
+  if(a>0){
+    const d=(a-preco)/preco*100;
+    $('rAtual').innerHTML = a<min ? '<span class="warn">Seu preço atual ('+brl(a)+') está abaixo do mínimo: você paga para trabalhar.</span>'
+      : a<preco ? '<span class="warn">Seu preço atual está '+Math.abs(d).toFixed(0)+'% abaixo do sugerido. Cobre o seu tempo, mas sobra pouco lucro.</span>'
+      : '<span class="good">Seu preço atual cobre custos, tempo e lucro.</span>';
+  } else $('rAtual').textContent='';
+}
+document.querySelectorAll('input').forEach(i=>i.addEventListener('input',calc));calc();
+</script>
+</body>
+</html>

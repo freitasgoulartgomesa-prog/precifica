@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://freitasgoulartgomesa-prog.github.io/precifica/sitemap.xml

@@ -6,7 +6,7 @@ src=open(os.path.join(ROOT,"index.html"),encoding="utf-8").read()
 css=re.search(r"<style>(.*?)</style>",src,re.S).group(1)
 js=re.search(r"<script>(.*?)</script>",src,re.S).group(1)
 css+="nav{font-size:.9rem;margin-bottom:8px}nav a{color:var(--accent);margin-right:12px}article h2{margin-top:20px}article{line-height:1.6}"
-NAV='<nav><a href="../">Calculadora geral</a><a href="../brigadeiro/">Brigadeiro</a><a href="../bolo-de-pote/">Bolo de pote</a><a href="../croche/">Crochê</a></nav>'
+NAV='<nav><a href="../">Calculadora geral</a><a href="../brigadeiro/">Brigadeiro</a><a href="../bolo-de-pote/">Bolo de pote</a><a href="../croche/">Crochê</a><a href="../bijuteria/">Bijuteria</a></nav>'
 PAGES=[
  dict(slug="brigadeiro",title="Quanto cobrar por brigadeiro: calculadora grátis",
   desc="Calcule o preço do brigadeiro por unidade: ingredientes, forminha, gás, seu tempo e taxas. Grátis, direto no celular.",
@@ -50,6 +50,20 @@ PAGES=[
 <p><b>5. Se o preço assustar,</b> é sinal de que a peça leva muitas horas. Opções: modelos mais rápidos, peças menores, ou vender o diferencial (exclusiva, sob medida) para quem paga mais.</p>
 <h2>Sobre a conta</h2>
 <p>Esta calculadora tira a taxa e o lucro do preço final (preço = custo ÷ (1 − taxa − lucro)). É o jeito que garante que, depois de pagar a taxa, sobra o lucro que você escolheu.</p>"""),
+ dict(slug="bijuteria",title="Quanto cobrar por bijuteria artesanal: calculadora grátis",
+  desc="Calcule o preço da sua bijuteria: miçangas, fecho, fio, embalagem, seu tempo e taxas. Grátis, direto no celular.",
+  h1="Quanto cobrar por bijuteria artesanal?",
+  sub="Preencha os custos de <b>um lote</b> de peças iguais (ex.: 10 pulseiras) e quantas peças saem dele.",
+  lab=["Materiais do lote<small>miçangas, pedras, fio, fechos, argolas</small>","Embalagem<small>saquinho, cartela, tag</small>","Outros gastos (estimativa)","Peças que o lote rende"],
+  vals=[30,8,2,10,2,12,5,25],
+  art="""<h2>Como precificar bijuteria</h2>
+<p><b>1. Conte por lote.</b> Comprar miçanga em pacote e usar um pouco em cada peça confunde. Faça 10 peças iguais e divida o custo total por 10.</p>
+<p><b>2. Fecho e argola custam.</b> Peças pequenas somam: fecho, terminal, argola e fio podem passar do valor das contas.</p>
+<p><b>3. Cronometre a montagem.</b> Uma pulseira simples leva minutos; um colar bordado leva horas. O tempo muda tudo.</p>
+<p><b>4. Cartela e embalagem vendem.</b> Elas entram no custo, mas ajudam a cobrar mais.</p>
+<p><b>5. Feira, loja ou internet?</b> Em loja consignada a loja fica com uma parte; coloque essa parte no campo de taxa.</p>
+<h2>Bijuteria x semijoia</h2>
+<p>Semijoia tem banho de metal e custo maior por peça. A conta é a mesma: some o custo da peça pronta (incluindo o banho) no campo de materiais.</p>"""),
 ]
 ids=["mat","emb","ene","qtd","hrs","vh","taxa","luc"]
 for p in PAGES:
