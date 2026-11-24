@@ -5,6 +5,7 @@ ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 src=open(os.path.join(ROOT,"index.html"),encoding="utf-8").read()
 HEAD=src[:src.index("<body>")]
 BODY=src[src.index("<body>"):]
+BODY=re.sub(r"<!--HOME-->.*?<!--/HOME-->\n?","",BODY,flags=re.S)  # artigo só da página inicial
 NAV=re.search(r'<nav aria-label="Calculadoras">.*?</nav>',src,re.S).group(0)
 FOOTER=re.search(r"<footer>.*?</footer>",src,re.S).group(0)
 
