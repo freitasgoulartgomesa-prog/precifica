@@ -108,6 +108,37 @@ Abaixo de R$ 1,03 (0,977 ÷ 0,95) você não paga nem o material e as suas horas
 <p><b>Brigadeiro gourmet deve custar mais?</b> Sim, porque o ingrediente é mais caro e costuma levar mais tempo para decorar. Preencha a calculadora com os custos da versão gourmet.</p>
 <p><b>E a taxa de entrega?</b> Cobre à parte. A calculadora mostra o preço do produto; o frete muda conforme a distância.</p>
 <p><b>Quanto vale a minha hora?</b> Divida quanto quer ganhar no mês pelas horas que trabalha. Ex.: R$ 2.000 ÷ 120 h ≈ R$ 16,67 por hora.</p>"""),
+ dict(slug="panetone",title="Quanto cobrar por panetone caseiro: calculadora grátis",
+  desc="Vai vender panetone ou chocotone no Natal? Calcule o preço do panetone caseiro de 500 g: ingredientes, forma, embalagem, forno, seu tempo e taxas. Grátis.",
+  h1="Quanto cobrar por panetone caseiro?",
+  sub="Renda extra no Natal sem vender no prejuízo. Preencha os custos de <b>uma fornada</b> e quantos panetones ela rende. A conta mostra o preço de cada um.",
+  lab=["Ingredientes da fornada<small>farinha, manteiga, ovos, açúcar, fermento, frutas ou gotas de chocolate</small>","Formas de papel, saco, fita e etiqueta","Gás ou luz do forno (estimativa)","Panetones que a fornada rende"],
+  vals=[28.9,7,4,2,1.5,15,5,20],
+  art="""<h2>Exemplo resolvido: 2 panetones caseiros de 500 g</h2>
+<p>Os números abaixo são os que já vêm preenchidos na calculadora. São um <b>exemplo</b> com preços de mercado comuns: troque pelos valores das suas notas.</p>
+<ul>
+<li><b>Ingredientes da fornada:</b> R$ 28,90 (500 g de farinha R$ 2,75, 150 g de açúcar R$ 0,75, 150 g de manteiga R$ 9,00, 4 ovos R$ 3,20, 200 ml de leite R$ 1,20, 10 g de fermento biológico seco R$ 1,00, 200 g de frutas cristalizadas R$ 6,00, 100 g de uva-passa R$ 3,50 e essência e raspas de laranja R$ 1,50).</li>
+<li><b>Embalagem:</b> 2 formas de papel de 500 g (R$ 1,50 cada) e 2 sacos com fita e etiqueta (R$ 2,00 cada) = R$ 7,00. <b>Forno:</b> R$ 4,00.</li>
+<li><b>Tempo:</b> 1,5 h de trabalho de verdade (sovar, modelar, assar e embalar), a R$ 15 por hora = R$ 22,50. As horas de crescimento da massa não entram, porque você pode fazer outra coisa.</li>
+<li><b>Taxa da maquininha:</b> 5%. <b>Lucro do negócio:</b> 20%.</li>
+</ul>
+<p><b>A conta:</b> material por panetone = (28,90 + 7,00 + 4,00) ÷ 2 = R$ 19,95. Tempo por panetone = 22,50 ÷ 2 = R$ 11,25. Total = R$ 31,20.<br>
+Preço = 31,20 ÷ (1 − 0,05 − 0,20) = 31,20 ÷ 0,75 = <b>R$ 41,60 por panetone de 500 g</b>.<br>
+Abaixo de R$ 32,84 (31,20 ÷ 0,95) você não paga nem o material e as suas horas depois da taxa.</p>
+<h2>Chocotone e panetone recheado</h2>
+<p><b>Chocotone:</b> troque as frutas e a passa (R$ 9,50 no exemplo) por 200 g de gotas de chocolate próprias para forno e coloque o preço que você pagou. Faça uma conta para cada sabor: o recheio muda o custo.</p>
+<p><b>Trufado ou com recheio de brigadeiro, doce de leite ou Nutella:</b> o recheio pode custar mais que a massa. Some o recheio nos ingredientes e conte o tempo a mais para rechear.</p>
+<p><b>Tamanhos:</b> o de 500 g é o mais procurado para presente. Um mini de 100 g sai com a mesma massa: divida a fornada por mais unidades e inclua uma forma e um saco para cada uma.</p>
+<h2>Erros comuns</h2>
+<p><b>Comparar com o panetone de mercado em promoção.</b> O industrial compra em toneladas. O seu é feito à mão, com manteiga e sem conservante: venda isso, não o preço mais baixo.</p>
+<p><b>Esquecer a embalagem.</b> No exemplo, a embalagem é R$ 3,50 por panetone, quase 1/5 do material. Para presente, caixa e laço custam mais: coloque no campo certo.</p>
+<p><b>Contar as horas de crescimento como trabalho, ou esquecer o seu tempo de verdade.</b> Só entra o tempo em que você está trabalhando. Mas ele precisa entrar.</p>
+<p><b>Aceitar encomenda grande sem conta.</b> 20 panetones são 10 fornadas no exemplo, cerca de 15 horas de trabalho. Veja se o forno e a sua agenda dão conta antes de fechar o preço.</p>
+<h2>Perguntas frequentes</h2>
+<p><b>Quanto cobrar por um panetone caseiro de 500 g?</b> Faça a sua conta: no exemplo dá R$ 41,60. Para comparar, panetones industriais gourmet de 500 g saíram por R$ 70 a R$ 90 em 2025 (<a href="https://www.guiadasemana.com.br/gastronomia/galeria/lancamentos-panetones-chocotones-2025" rel="nofollow">Guia da Semana</a>). O seu caseiro pode ficar entre o de supermercado e o gourmet.</p>
+<p><b>Dá para vender panetone como renda extra no Natal?</b> Sim, desde que o preço pague o material, o seu tempo e a taxa. Comece com encomendas de conhecidos e anote quanto tempo cada fornada leva de verdade.</p>
+<p><b>E para vender em cesta de Natal?</b> Calcule o panetone aqui e some o preço de cada item da cesta. A cesta inteira também precisa de lucro e da sua hora para montar.</p>
+<p><b>Quanto vale a minha hora?</b> Divida quanto quer ganhar no mês pelas horas que trabalha. Ex.: R$ 2.000 ÷ 120 h ≈ R$ 16,67 por hora.</p>"""),
  dict(slug="bolo-de-pote",title="Quanto cobrar por bolo de pote: calculadora grátis",
   desc="Calcule o preço do bolo de pote: massa, recheio, pote, colher, gás, seu tempo e taxas. Grátis e sem cadastro.",
   h1="Quanto cobrar por bolo de pote?",
@@ -218,6 +249,7 @@ Abaixo de R$ 6,74 (6,40 ÷ 0,95) você não paga o material e as suas horas depo
 # Oferta da planilha paga (S1-5). Fica desligada até o Arthur mandar o link de venda da Kiwify: cole o link aqui e rode o build.
 PLANILHA_URL="https://pay.kiwify.com.br/HS40mXy"
 PLANILHA_HTML=(f'<aside class="oferta"><h2>Planilha Ficha técnica e preço (R$ 12,90)</h2>'
+ '<p><b>Vai vender no Natal?</b> Panetone, brigadeiro, bolo de pote ou cesta: monte a ficha de cada produto antes de aceitar as encomendas.</p>'
  '<p>Anote o preço dos ingredientes ou materiais, monte até 5 receitas e veja o custo por unidade, o preço mínimo e o preço de venda, '
  'já com a sua hora, a taxa da maquininha e o lucro. Arquivo .xlsx para Excel ou Google Planilhas, com guia de uso. A calculadora desta página continua grátis.</p>'
  f'<p><a href="{PLANILHA_URL}" rel="nofollow">Comprar a planilha</a></p></aside>'+chr(10)) if PLANILHA_URL else ""
@@ -271,7 +303,7 @@ SOBRE_BODY=f"""<body>
 <h2>Use no seu site ou blog</h2>
 <p>Tem um blog de receitas, uma loja ou um site de artesanato? Pode colocar uma calculadora do Precifica nele, de graça. Escolha a calculadora, copie o código e cole no seu site (no WordPress, use o bloco "HTML personalizado").</p>
 <label><span>Calculadora</span><select id="embSel" style="padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font-size:1rem;max-width:200px">
-<option value="">Calculadora geral de preço</option><option value="brigadeiro/">Brigadeiro</option><option value="bolo-de-pote/">Bolo de pote</option><option value="croche/">Crochê</option><option value="bijuteria/">Bijuteria</option><option value="shopee/">Shopee</option><option value="quantos-salgados/">Salgados para festa</option><option value="docinhos-e-bolo/">Doces e bolo para festa</option>
+<option value="">Calculadora geral de preço</option><option value="brigadeiro/">Brigadeiro</option><option value="bolo-de-pote/">Bolo de pote</option><option value="panetone/">Panetone</option><option value="croche/">Crochê</option><option value="bijuteria/">Bijuteria</option><option value="shopee/">Shopee</option><option value="quantos-salgados/">Salgados para festa</option><option value="docinhos-e-bolo/">Doces e bolo para festa</option>
 </select></label>
 <textarea id="embCod" readonly rows="5" style="width:100%;margin-top:8px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:13px/1.4 ui-monospace,Consolas,monospace"></textarea>
 <div class="btns"><button type="button" onclick="copiarEmb()">Copiar código</button><span id="embOk" class="good" style="align-self:center"></span></div>
