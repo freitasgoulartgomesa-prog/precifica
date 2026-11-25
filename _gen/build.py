@@ -139,6 +139,38 @@ Abaixo de R$ 32,84 (31,20 ÷ 0,95) você não paga nem o material e as suas hora
 <p><b>Dá para vender panetone como renda extra no Natal?</b> Sim, desde que o preço pague o material, o seu tempo e a taxa. Comece com encomendas de conhecidos e anote quanto tempo cada fornada leva de verdade.</p>
 <p><b>E para vender em cesta de Natal?</b> Calcule o panetone aqui e some o preço de cada item da cesta. A cesta inteira também precisa de lucro e da sua hora para montar.</p>
 <p><b>Quanto vale a minha hora?</b> Divida quanto quer ganhar no mês pelas horas que trabalha. Ex.: R$ 2.000 ÷ 120 h ≈ R$ 16,67 por hora.</p>"""),
+ dict(slug="cesta-de-natal",title="Quanto cobrar por cesta de Natal: calculadora grátis",
+  desc="Vai montar cestas de Natal para vender? Calcule o preço de cada cesta: itens, cesta e embalagem, ida ao mercado, seu tempo e taxas. Grátis, direto no celular.",
+  h1="Quanto cobrar por cesta de Natal?",
+  sub="Renda extra no Natal montando cestas. Preencha o custo de <b>um lote</b> de cestas iguais e quantas você monta. A conta mostra o preço de cada uma.",
+  lab=["Itens de todas as cestas do lote<small>panetone, chocolates, biscoitos, geleia, castanhas, suco</small>","Cestas ou caixas, papel, laço e etiqueta","Ida ao mercado e entrega (estimativa)","Cestas do lote"],
+  vals=[290,80,15,5,2.5,15,5,20],
+  art="""<h2>Exemplo resolvido: 5 cestas de Natal iguais</h2>
+<p>Os números abaixo são os que já vêm preenchidos na calculadora. São um <b>exemplo</b>: troque pelos preços que você pagou.</p>
+<ul>
+<li><b>Itens de cada cesta:</b> panetone de 500 g R$ 15,00, suco de uva integral R$ 12,00, caixa de bombons R$ 10,00, biscoitos R$ 6,00, geleia R$ 8,00 e 100 g de castanhas R$ 7,00 = R$ 58,00. Para 5 cestas: <b>R$ 290,00</b>.</li>
+<li><b>Embalagem:</b> cesta ou caixa R$ 12,00 + papel celofane, laço e etiqueta R$ 4,00 = R$ 16,00 por cesta; 5 cestas = <b>R$ 80,00</b>.</li>
+<li><b>Ida ao mercado e entrega:</b> R$ 15,00 para o lote.</li>
+<li><b>Tempo:</b> 2,5 h para comprar, montar e embalar as 5, a R$ 15 por hora = R$ 37,50.</li>
+<li><b>Taxa da maquininha:</b> 5%. <b>Lucro do negócio:</b> 20%.</li>
+</ul>
+<p><b>A conta:</b> material por cesta = (290 + 80 + 15) ÷ 5 = R$ 77,00. Tempo por cesta = 37,50 ÷ 5 = R$ 7,50. Total = R$ 84,50.<br>
+Preço = 84,50 ÷ (1 − 0,05 − 0,20) = 84,50 ÷ 0,75 = <b>R$ 112,67 por cesta</b> (pode arredondar para R$ 112,90).<br>
+Abaixo de R$ 88,95 (84,50 ÷ 0,95) você não paga nem os itens e as suas horas depois da taxa.</p>
+<h2>Cesta com itens caseiros</h2>
+<p>Se a cesta leva panetone, brigadeiro ou geleia feitos por você, calcule primeiro o custo de cada um (por exemplo na <a href="/precifica/panetone/">calculadora de panetone</a> ou na de <a href="/precifica/brigadeiro/">brigadeiro</a>) e coloque esse custo nos itens. Use o <b>custo</b>, não o preço de venda: o lucro entra uma vez só, no fim.</p>
+<h2>Três tamanhos para três bolsos</h2>
+<p>No fim de ano muita gente quer presentear, mas com pouco dinheiro. Monte uma cesta pequena, uma média e uma grande e faça uma conta para cada uma. A pequena atrai quem tem pouco para gastar; a grande dá mais lucro por cesta.</p>
+<h2>Erros comuns</h2>
+<p><b>Somar só o preço dos itens.</b> No exemplo, a embalagem é R$ 16 por cesta, mais de 1/4 do valor dos itens. Cesta, papel e laço precisam estar no preço.</p>
+<p><b>Esquecer o seu tempo de compra.</b> Rodar mercados atrás de preço bom leva horas: elas fazem parte do trabalho.</p>
+<p><b>Comprar tudo antes de fechar as encomendas.</b> Peça um sinal (por exemplo, metade) na encomenda e compre depois. Assim você não fica com cestas paradas no dia 26.</p>
+<p><b>Comprar no varejo quando dá para comprar no atacado.</b> Para 10 cestas ou mais, cote os itens em atacarejo e mude os valores na calculadora: o preço final cai.</p>
+<h2>Perguntas frequentes</h2>
+<p><b>Quanto cobrar por uma cesta de Natal?</b> Faça a sua conta: no exemplo, uma cesta com 6 itens sai por R$ 112,67. O preço muda muito com os itens; o que não muda é a regra de somar itens, embalagem, tempo e taxa e só depois o lucro.</p>
+<p><b>E para empresas?</b> Encomenda grande pede preço por lote. Calcule o lote inteiro aqui (por exemplo, 30 cestas) e ofereça um desconto menor que o seu lucro.</p>
+<p><b>Posso colocar bebida alcoólica?</b> Só se o comprador e quem recebe forem maiores de 18, e confira as regras de onde você vende. Suco de uva integral é uma opção para todos.</p>
+<p><b>Quanto vale a minha hora?</b> Divida quanto quer ganhar no mês pelas horas que trabalha. Ex.: R$ 2.000 ÷ 120 h ≈ R$ 16,67 por hora.</p>"""),
  dict(slug="bolo-de-pote",title="Quanto cobrar por bolo de pote: calculadora grátis",
   desc="Calcule o preço do bolo de pote: massa, recheio, pote, colher, gás, seu tempo e taxas. Grátis e sem cadastro.",
   h1="Quanto cobrar por bolo de pote?",
@@ -303,7 +335,7 @@ SOBRE_BODY=f"""<body>
 <h2>Use no seu site ou blog</h2>
 <p>Tem um blog de receitas, uma loja ou um site de artesanato? Pode colocar uma calculadora do Precifica nele, de graça. Escolha a calculadora, copie o código e cole no seu site (no WordPress, use o bloco "HTML personalizado").</p>
 <label><span>Calculadora</span><select id="embSel" style="padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font-size:1rem;max-width:200px">
-<option value="">Calculadora geral de preço</option><option value="brigadeiro/">Brigadeiro</option><option value="bolo-de-pote/">Bolo de pote</option><option value="panetone/">Panetone</option><option value="croche/">Crochê</option><option value="bijuteria/">Bijuteria</option><option value="shopee/">Shopee</option><option value="quantos-salgados/">Salgados para festa</option><option value="docinhos-e-bolo/">Doces e bolo para festa</option><option value="festa-de-ano-novo/">Festa de Ano Novo</option>
+<option value="">Calculadora geral de preço</option><option value="brigadeiro/">Brigadeiro</option><option value="bolo-de-pote/">Bolo de pote</option><option value="panetone/">Panetone</option><option value="cesta-de-natal/">Cesta de Natal</option><option value="croche/">Crochê</option><option value="bijuteria/">Bijuteria</option><option value="shopee/">Shopee</option><option value="quantos-salgados/">Salgados para festa</option><option value="docinhos-e-bolo/">Doces e bolo para festa</option><option value="festa-de-ano-novo/">Festa de Ano Novo</option>
 </select></label>
 <textarea id="embCod" readonly rows="5" style="width:100%;margin-top:8px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:13px/1.4 ui-monospace,Consolas,monospace"></textarea>
 <div class="btns"><button type="button" onclick="copiarEmb()">Copiar código</button><span id="embOk" class="good" style="align-self:center"></span></div>
