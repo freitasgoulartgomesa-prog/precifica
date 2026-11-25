@@ -303,7 +303,7 @@ SOBRE_BODY=f"""<body>
 <h2>Use no seu site ou blog</h2>
 <p>Tem um blog de receitas, uma loja ou um site de artesanato? Pode colocar uma calculadora do Precifica nele, de graça. Escolha a calculadora, copie o código e cole no seu site (no WordPress, use o bloco "HTML personalizado").</p>
 <label><span>Calculadora</span><select id="embSel" style="padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font-size:1rem;max-width:200px">
-<option value="">Calculadora geral de preço</option><option value="brigadeiro/">Brigadeiro</option><option value="bolo-de-pote/">Bolo de pote</option><option value="panetone/">Panetone</option><option value="croche/">Crochê</option><option value="bijuteria/">Bijuteria</option><option value="shopee/">Shopee</option><option value="quantos-salgados/">Salgados para festa</option><option value="docinhos-e-bolo/">Doces e bolo para festa</option>
+<option value="">Calculadora geral de preço</option><option value="brigadeiro/">Brigadeiro</option><option value="bolo-de-pote/">Bolo de pote</option><option value="panetone/">Panetone</option><option value="croche/">Crochê</option><option value="bijuteria/">Bijuteria</option><option value="shopee/">Shopee</option><option value="quantos-salgados/">Salgados para festa</option><option value="docinhos-e-bolo/">Doces e bolo para festa</option><option value="festa-de-ano-novo/">Festa de Ano Novo</option>
 </select></label>
 <textarea id="embCod" readonly rows="5" style="width:100%;margin-top:8px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:13px/1.4 ui-monospace,Consolas,monospace"></textarea>
 <div class="btns"><button type="button" onclick="copiarEmb()">Copiar código</button><span id="embOk" class="good" style="align-self:center"></span></div>
@@ -528,7 +528,135 @@ DOCE_BODY=f"""<body>
 """
 write("docinhos-e-bolo",head_for(DOCE_TITLE,DOCE_DESC,DOCE_URL)+DOCE_BODY)
 
-urls=[BASE]+[BASE+p["slug"]+"/" for p in PAGES]+[SALG_URL,DOCE_URL,BASE+"sobre/"]
+# ---- Época (Ano Novo): quanto comprar de comida e bebida ----
+ANO_URL=BASE+"festa-de-ano-novo/"
+ANO_TITLE="Quanto comprar para a festa de Ano Novo: comida, bebida e custo"
+ANO_DESC="Calcule quanta carne, cerveja, espumante, refrigerante, água e gelo comprar para a festa de Ano Novo e quanto vai gastar por pessoa. Grátis, sem cadastro."
+ANO_SCRIPT="""<script>
+const $=id=>document.getElementById(id);
+const n=id=>Math.max(0,parseFloat($(id).value)||0);
+const R=v=>'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+const D=(v,c)=>v.toLocaleString('pt-BR',{maximumFractionDigits:c});
+let txtWa=null;
+function conta(){
+  const ab=Math.round(n('ab')),an=Math.round(n('an')),cr=Math.round(n('cr')),tot=ab+an+cr;
+  const ext=1+n('hx')/100*Math.max(0,n('dur')-5);
+  const carne=Math.round(((ab+an)*n('ca')+cr*n('cc'))/100)/10;
+  const litCerv=ab*n('ce')*ext, latas=Math.ceil(litCerv/0.35-1e-9);
+  const garr=Math.ceil(ab/Math.max(1,n('eg'))-1e-9);
+  const litRef=((an+cr)*n('rf')+ab*n('rfb'))*ext, garRef=Math.ceil(litRef/2-1e-9);
+  const litAg=Math.ceil(tot*n('ag')*ext-1e-9);
+  const gelo=Math.ceil((latas*0.35+garRef*2)*n('gl')-1e-9);
+  const it=[['Carne ou prato principal',D(carne,1)+' kg',carne*n('pca')],
+    ['Cerveja (só maiores de 18)',latas+' latas de 350 ml',latas*n('pce')],
+    ['Espumante para o brinde (só maiores de 18)',garr+' garrafas de 750 ml',garr*n('pes')],
+    ['Refrigerante ou suco',garRef+' garrafas de 2 L',garRef*n('prf')],
+    ['Água',litAg+' L',litAg*n('pag')],
+    ['Gelo',gelo+' kg',gelo*n('pgl')],
+    ['Acompanhamentos (arroz, farofa, salada, pão)',tot+' pessoas',tot*n('pac')]];
+  const total=it.reduce((s,x)=>s+x[2],0);
+  return {tot,it,total};
+}
+function calc(){
+  const r=conta();txtWa=null;$('btnWa').disabled=true;
+  if(r.tot===0){$('lista').innerHTML='';['rTot','rPp','rResumo'].forEach(i=>$(i).textContent='—');return;}
+  $('lista').innerHTML=r.it.map(x=>'<tr><td>'+x[0]+'</td><td>'+x[1]+'</td><td>'+R(x[2])+'</td></tr>').join('');
+  $('rTot').textContent=R(r.total);
+  $('rPp').textContent=R(r.total/r.tot)+' por pessoa';
+  $('rResumo').textContent='Resumo: '+r.tot+' pessoas, gasto de cerca de '+R(r.total)+' ('+R(r.total/r.tot)+' por pessoa). Lista completa abaixo.';
+  txtWa='Lista da festa de Ano Novo ('+r.tot+' pessoas):\\n'+r.it.map(x=>'- '+x[0]+': '+x[1]+' ('+R(x[2])+')').join('\\n')+'\\nTotal: '+R(r.total)+' ('+R(r.total/r.tot)+' por pessoa). Calculei no Precifica: '+document.querySelector('link[rel=canonical]').href;
+  $('btnWa').disabled=false;
+}
+function enviarWa(){if(txtWa)window.open('https://wa.me/?text='+encodeURIComponent(txtWa),'_blank','noopener');}
+document.querySelectorAll('input').forEach(i=>i.addEventListener('input',calc));calc();
+</script>"""
+ANO_BODY=f"""<body>
+<main>
+{NAV}
+<h1>Quanto comprar para a festa de Ano Novo?</h1>
+<p class="sub">Diga quantas pessoas vão e veja a lista de compras da virada (carne, cerveja, espumante, refrigerante, água e gelo) com o gasto total e por pessoa. Para 18 pessoas, a conta dá cerca de <b>R$ 750, uns R$ 42 por pessoa</b>. Troque os preços pelos do seu mercado.</p>
+<section>
+<h2>1. Convidados</h2>
+<label><span>Adultos que bebem álcool<small>só maiores de 18</small></span>{_inp("ab",10)}</label>
+<label><span>Adultos que não bebem álcool</span>{_inp("an",4)}</label>
+<label><span>Crianças</span>{_inp("cr",4)}</label>
+<label><span>Duração da festa (horas)</span>{_inp("dur",5,"0.5")}</label>
+</section>
+<p class="box good" id="rResumo" aria-live="polite">—</p>
+<section>
+<h2>Lista de compras</h2>
+<table><thead><tr><th>O quê</th><th>Quanto</th><th>Custo</th></tr></thead><tbody id="lista"></tbody></table>
+<div class="res" aria-live="polite">
+<div class="box big"><small>Gasto total</small><b id="rTot">—</b></div>
+<div class="box"><small>Dividindo por todos</small><b id="rPp" style="font-size:1.05rem">—</b></div>
+</div>
+<div class="btns">
+<button type="button" id="btnWa" disabled onclick="enviarWa()">Enviar a lista no WhatsApp</button>
+<button type="button" class="sec" onclick="window.print()">Imprimir</button>
+</div>
+</section>
+<section>
+<h2>2. Quantidades por pessoa (ajuste se quiser)</h2>
+<label><span>Carne por adulto (g)<small>fontes: 350 a 500 g com acompanhamentos</small></span>{_inp("ca",400,"50")}</label>
+<label><span>Carne por criança (g)</span>{_inp("cc",200,"50")}</label>
+<label><span>Cerveja por adulto que bebe (L)<small>fontes: 1 a 1,5 L numa festa de 4 a 5 h</small></span>{_inp("ce",1.5,"0.1")}</label>
+<label><span>Adultos que bebem por garrafa de espumante<small>1 garrafa dá 5 a 6 taças; 2 taças por pessoa</small></span>{_inp("eg",3)}</label>
+<label><span>Refrigerante ou suco por criança ou adulto que não bebe (L)<small>fontes: 0,6 a 1 L</small></span>{_inp("rf",0.6,"0.1")}</label>
+<label><span>Refrigerante ou suco por adulto que bebe (L)</span>{_inp("rfb",0.3,"0.1")}</label>
+<label><span>Água por pessoa (L)</span>{_inp("ag",0.5,"0.1")}</label>
+<label><span>Gelo por litro de bebida (kg)<small>fonte: cerca de 0,5 kg</small></span>{_inp("gl",0.5,"0.1")}</label>
+<label><span>Aumento de bebida por hora acima de 5 h (%)<small>estimativa nossa</small></span>{_inp("hx",20)}</label>
+</section>
+<section>
+<h2>3. Preços do seu mercado (R$)</h2>
+<label><span>Carne, por kg</span>{_inp("pca",45,"0.01")}</label>
+<label><span>Cerveja, por lata de 350 ml</span>{_inp("pce",3.5,"0.01")}</label>
+<label><span>Espumante, por garrafa</span>{_inp("pes",30,"0.01")}</label>
+<label><span>Refrigerante ou suco, por garrafa de 2 L</span>{_inp("prf",8,"0.01")}</label>
+<label><span>Água, por litro</span>{_inp("pag",2,"0.01")}</label>
+<label><span>Gelo, por kg</span>{_inp("pgl",3,"0.01")}</label>
+<label><span>Acompanhamentos, por pessoa</span>{_inp("pac",6,"0.01")}</label>
+</section>
+<article>
+<p><small>Atualizado em 25/11/2026. Não existe regra oficial: as quantidades são as faixas de guias de festa e churrasco como <a href="https://www.tendaatacado.com.br/dicas/bebidas-para-o-ano-novo/" rel="nofollow">Tenda Atacado</a>, <a href="https://valorfinal.com.br/calculadora-bebidas-festa" rel="nofollow">Valor Final</a> e <a href="https://www.guiadasemana.com.br/restaurantes/noticia/veja-como-calcular-a-quantidade-de-comida-e-bebida-para-um-churrasco" rel="nofollow">Guia da Semana</a>. Os preços são um exemplo: troque pelos do seu mercado. Bebida alcoólica só para maiores de 18 anos. Se beber, não dirija.</small></p>
+<h2>Exemplo resolvido: 18 pessoas, 5 horas</h2>
+<p>São os números que já vêm preenchidos: 10 adultos que bebem, 4 adultos que não bebem e 4 crianças.</p>
+<ul>
+<li><b>Carne:</b> 14 adultos × 400 g + 4 crianças × 200 g = 6,4 kg × R$ 45 = R$ 288,00.</li>
+<li><b>Cerveja:</b> 10 × 1,5 L = 15 L ÷ 0,35 L = 43 latas (arredondando para cima) × R$ 3,50 = R$ 150,50.</li>
+<li><b>Espumante:</b> 10 adultos ÷ 3 = 4 garrafas (arredondando para cima) × R$ 30 = R$ 120,00.</li>
+<li><b>Refrigerante ou suco:</b> 8 × 0,6 L + 10 × 0,3 L = 7,8 L = 4 garrafas de 2 L × R$ 8 = R$ 32,00.</li>
+<li><b>Água:</b> 18 × 0,5 L = 9 L × R$ 2 = R$ 18,00.</li>
+<li><b>Gelo:</b> (43 latas × 0,35 L + 4 garrafas × 2 L) × 0,5 kg = 11,5 kg, arredondando 12 kg × R$ 3 = R$ 36,00.</li>
+<li><b>Acompanhamentos:</b> 18 × R$ 6 = R$ 108,00.</li>
+</ul>
+<p><b>Total: R$ 752,50</b>, ou <b>R$ 41,81 por pessoa</b> se todos dividirem igual.</p>
+<h2>Como economizar sem faltar nada</h2>
+<p><b>Divida a conta antes da festa.</b> Mande a lista no WhatsApp com o valor por pessoa: cada um sabe quanto vai dar, e ninguém leva o mesmo item duas vezes.</p>
+<p><b>Compre gelo e bebida no dia 30.</b> No dia 31 os mercados lotam e o gelo acaba cedo.</p>
+<p><b>Troque a carne cara por uma mais barata</b> (frango, linguiça, pernil) e mude o preço por kg na calculadora: o total muda na hora.</p>
+<p><b>Quem não bebe álcool</b> costuma tomar mais refrigerante ou suco: por isso a calculadora separa os dois grupos.</p>
+<h2>Erros comuns</h2>
+<p><b>Comprar espumante para todo mundo.</b> Conte só os adultos que bebem; para as crianças, suco de uva ou sidra sem álcool.</p>
+<p><b>Esquecer o gelo.</b> Sem gelo a cerveja e o refrigerante não gelam a tempo. Em dia quente, use o fim da faixa.</p>
+<p><b>Comprar para uma festa curta quando ela vai varar a noite.</b> Se a virada passar de 5 horas, coloque a duração real: a bebida aumenta 20% por hora a mais.</p>
+<h2>Perguntas frequentes</h2>
+<p><b>Quanto de cerveja por pessoa no Ano Novo?</b> Numa festa de 4 a 5 horas, de 1 a 1,5 L por adulto que bebe, cerca de 3 a 4 latas. Festa mais longa ou mais quente pede mais.</p>
+<p><b>Quantas garrafas de espumante para 20 pessoas?</b> Se as 20 forem adultos que bebem, com 2 taças cada: 20 ÷ 3 = 6,7, ou seja, 7 garrafas.</p>
+<p><b>Quanto de carne por pessoa?</b> De 350 a 500 g por adulto quando há acompanhamentos; criança come cerca da metade.</p>
+<p><b>Vai vender comida para o Ano Novo?</b> Use a <a href="/precifica/">calculadora de preço</a> para cobrar a encomenda sem prejuízo, e a de <a href="/precifica/quantos-salgados/">salgados por pessoa</a> para saber quanto fazer.</p>
+<h2>Outras calculadoras</h2>
+<p><a href="/precifica/quantos-salgados/">Quantos salgados por pessoa</a> · <a href="/precifica/docinhos-e-bolo/">Quantos docinhos e quanto bolo</a> · <a href="/precifica/panetone/">Preço de panetone caseiro</a></p>
+</article>
+{FOOTER}
+</main>
+"""+ANO_SCRIPT+"""
+</body>
+</html>
+"""
+write("festa-de-ano-novo",head_for(ANO_TITLE,ANO_DESC,ANO_URL)+ANO_BODY)
+
+urls=[BASE]+[BASE+p["slug"]+"/" for p in PAGES]+[SALG_URL,DOCE_URL,ANO_URL,BASE+"sobre/"]
 open(os.path.join(ROOT,"sitemap.xml"),"w",encoding="utf-8").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"".join(f"<url><loc>{u}</loc><lastmod>2026-11-24</lastmod></url>\n" for u in urls)+"</urlset>\n")
 open(os.path.join(ROOT,"robots.txt"),"w",encoding="utf-8").write("User-agent: *\nAllow: /\nSitemap: "+BASE+"sitemap.xml\n")
-print("ok",[p["slug"] for p in PAGES]+["quantos-salgados","docinhos-e-bolo","sobre"])
+print("ok",[p["slug"] for p in PAGES]+["quantos-salgados","docinhos-e-bolo","festa-de-ano-novo","sobre"])
