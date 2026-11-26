@@ -276,6 +276,66 @@ Abaixo de R$ 6,74 (6,40 ÷ 0,95) você não paga o material e as suas horas depo
 <p><b>Preciso de nota fiscal?</b> Para vender pouco, como pessoa física, em geral não. Se as vendas crescerem, o MEI é o caminho mais simples; confira as regras no Portal do Empreendedor (gov.br).</p>
 <h2>Outras calculadoras</h2>
 <p><a href="/precifica/croche/">Preço de peça de crochê</a> · <a href="/precifica/shopee/">Preço para vender na Shopee</a> · <a href="/precifica/">Calculadora geral de preço</a></p>"""),
+ dict(slug="ifood", title="Calculadora de preço iFood 2026: quanto cobrar com a taxa",
+  desc="Quanto cobrar no iFood para não vender no prejuízo: comissão do Plano Básico ou Entrega, taxa de pagamento online, seus custos e lucro. Grátis.",
+  h1="Quanto cobrar no iFood?",
+  sub="No iFood a comissão é de cerca de <b>12% no Plano Básico</b> (você entrega) ou <b>23% no Plano Entrega</b>, mais cerca de <b>3,2%</b> do pagamento online. Com custo de R$ 14,60 por marmita e 20% de lucro, cobre <b>R$ 27,14</b> no Plano Entrega. Preencha os seus custos.",
+  lab=["Ingredientes do lote<small>arroz, feijão, carne, legumes, temperos</small>","Embalagens do lote<small>marmita, tampa, saco, talher, etiqueta</small>","Gás e luz (estimativa)","Porções que o lote rende"],
+  vals=[80,15,6,10,3,15,26.2,20],
+  art="""<h2>Exemplo resolvido: 10 marmitas no iFood</h2>
+<p>Os números abaixo são os que já vêm preenchidos na calculadora. São um <b>exemplo</b>: troque pelos valores das suas notas.</p>
+<ul>
+<li><b>Ingredientes:</b> R$ 80,00 para 10 marmitas. <b>Embalagens:</b> 10 × R$ 1,50 = R$ 15,00. <b>Gás e luz:</b> R$ 6,00.</li>
+<li><b>Tempo:</b> 3 horas de cozinha e montagem a R$ 15 por hora = R$ 45,00.</li>
+<li><b>Taxa:</b> 26,2% (23% do Plano Entrega + 3,2% do pagamento online). <b>Lucro:</b> 20%.</li>
+</ul>
+<p><b>A conta:</b> custo por marmita = (80 + 15 + 6 + 45) ÷ 10 = R$ 14,60.<br>
+Preço = 14,60 ÷ (1 − 0,262 − 0,20) = 14,60 ÷ 0,538 = <b>R$ 27,14 por marmita</b>.</p>
+<h2>Plano Básico, Plano Entrega ou venda direta?</h2>
+<table><tr><th>Onde vende</th><th>Taxa usada</th><th>Preço da mesma marmita</th></tr>
+<tr><td>iFood Plano Entrega (o iFood entrega)</td><td>23% + 3,2%</td><td>R$ 27,14</td></tr>
+<tr><td>iFood Plano Básico (você entrega)</td><td>12% + 3,2%</td><td>R$ 22,53</td></tr>
+<tr><td>WhatsApp com Pix</td><td>0%</td><td>R$ 18,25</td></tr></table>
+<p>No Plano Básico a entrega é sua: some o custo do entregador ou da sua moto nos gastos, senão o preço sai baixo demais.</p>
+<h2>Erros comuns</h2>
+<p><b>Usar no iFood o mesmo preço do balcão.</b> No exemplo, a mesma marmita de R$ 18,25 no Pix precisa custar R$ 27,14 no Plano Entrega para sobrar o mesmo lucro.</p>
+<p><b>Somar a taxa no custo em vez de dividir.</b> 14,60 + 46,2% = R$ 21,35 parece certo, mas depois da taxa e do lucro não paga o custo. A conta certa divide.</p>
+<p><b>Esquecer a mensalidade.</b> Quem vende mais de R$ 1.800 por mês no iFood paga mensalidade (cerca de R$ 110 no Plano Básico e R$ 150 no Plano Entrega, conforme a fonte). Divida pelo número de pedidos do mês e some no custo.</p>
+<h2>Perguntas frequentes</h2>
+<p><b>Qual a taxa do iFood em 2026?</b> Cerca de 12% no Plano Básico e 23% no Plano Entrega, mais cerca de 3,2% de pagamento online (algumas fontes dizem 3,5%). Pedido pago em dinheiro na entrega não tem a taxa online. Fontes: <a href="https://www.serasa.com.br/blog/abrir-loja-no-ifood/" rel="nofollow">Serasa</a>, <a href="https://saipos.com/integracoes/ifood/taxa-ifood" rel="nofollow">Saipos</a> e <a href="https://blog.bling.com.br/?p=19386" rel="nofollow">Bling</a>. Confira no Portal do Parceiro antes de fechar o preço.</p>
+<p><b>Posso cobrar mais caro no iFood do que no balcão?</b> Muitos restaurantes fazem isso justamente por causa da taxa. Deixe o seu preço de balcão e o do iFood cada um com a sua conta.</p>
+<p><b>Quanto vale a minha hora?</b> Divida quanto quer ganhar no mês pelas horas que trabalha. Ex.: R$ 2.000 ÷ 120 h ≈ R$ 16,67 por hora.</p>"""),
+ dict(slug="mercado-livre", title="Calculadora de preço Mercado Livre 2026: Clássico ou Premium",
+  desc="Quanto cobrar no Mercado Livre com a tarifa do anúncio Clássico ou Premium e o custo fixo de item barato. Seus custos, seu lucro. Grátis.",
+  h1="Quanto cobrar no Mercado Livre?",
+  sub="No Mercado Livre a tarifa é de <b>10% a 14% no Clássico</b> e de <b>15% a 19% no Premium</b>, conforme a categoria, e item barato paga um <b>custo fixo por unidade</b>. Com custo de R$ 14 por peça e 20% de lucro, cobre <b>R$ 30,15</b> no Clássico. Preencha os seus custos.",
+  lab=["Materiais do lote<small>tecido, linha, miçanga, base, tinta</small>","Embalagem de envio<small>saquinho, plástico-bolha, etiqueta, fita</small>","Luz e outros gastos (estimativa)","Peças que o lote rende"],
+  vals=[60,15,5,10,5,12,12,20,6.5],
+  art="""<p><small>Atualizado em 25/11/2026. A tarifa muda por categoria e o custo fixo de item barato mudou em 2026 (segundo blogs de vendedores, desde março/2026: no Envios Flex e no envio próprio, item abaixo de R$ 79 paga um custo fixo de cerca de R$ 6,25 a R$ 7,75 por unidade; no Full, Coleta e Agência ele virou custo de envio por peso e preço, a partir de cerca de R$ 5,65). O exemplo usa R$ 6,50. Confira no anúncio, na tela "Tarifas", e troque os campos de taxa e taxa fixa.</small></p>
+<h2>Exemplo resolvido: 10 peças no anúncio Clássico</h2>
+<p>Os números abaixo são os que já vêm preenchidos na calculadora. São um <b>exemplo</b>: troque pelos valores das suas notas.</p>
+<ul>
+<li><b>Materiais:</b> R$ 60,00 para 10 peças. <b>Embalagem:</b> R$ 15,00. <b>Luz e outros:</b> R$ 5,00.</li>
+<li><b>Tempo:</b> 5 horas a R$ 12 por hora = R$ 60,00.</li>
+<li><b>Tarifa:</b> 12% (Clássico, meio da faixa) + R$ 6,50 por unidade. <b>Lucro:</b> 20%.</li>
+</ul>
+<p><b>A conta:</b> custo por peça = (60 + 15 + 5 + 60) ÷ 10 = R$ 14,00.<br>
+Preço = (14,00 + 6,50) ÷ (1 − 0,12 − 0,20) = 20,50 ÷ 0,68 = <b>R$ 30,15 por peça</b>.</p>
+<h2>A mesma peça em cada canal</h2>
+<table><tr><th>Onde vende</th><th>Taxa usada</th><th>Preço da mesma peça</th></tr>
+<tr><td>Mercado Livre Clássico</td><td>12% + R$ 6,50</td><td>R$ 30,15</td></tr>
+<tr><td>Mercado Livre Premium (parcela sem juros)</td><td>17% + R$ 6,50</td><td>R$ 32,54</td></tr>
+<tr><td><a href="/precifica/shopee/">Shopee</a></td><td>20% + R$ 4,50</td><td>R$ 30,83</td></tr>
+<tr><td>Venda direta no Pix</td><td>0%</td><td>R$ 17,50</td></tr></table>
+<p>O Premium custa mais, mas deixa o cliente parcelar sem juros. Vale para peça cara, em que parcelar decide a compra. Para peça barata, o Clássico costuma bastar.</p>
+<h2>Erros comuns</h2>
+<p><b>Esquecer o custo fixo em item barato.</b> Numa peça de R$ 30, R$ 6,50 são mais de 20% do preço, além da tarifa.</p>
+<p><b>Usar o mesmo preço do Premium e do Clássico.</b> Se anunciar nos dois, cada um precisa da sua conta.</p>
+<p><b>Somar a taxa no custo em vez de dividir.</b> A conta certa divide: preço = (custo + taxa fixa) ÷ (1 − taxa − lucro).</p>
+<h2>Perguntas frequentes</h2>
+<p><b>Qual a tarifa do Mercado Livre em 2026?</b> De 10% a 14% no Clássico e de 15% a 19% no Premium, conforme a categoria, mais um custo fixo ou de envio para itens baratos. Fontes: <a href="https://ecommercenapratica.com/quanto-custa-vender-no-mercado-livre/" rel="nofollow">E-commerce na Prática</a>, <a href="https://viniensina.com.br/?p=4617" rel="nofollow">Vini Ensina</a> e <a href="https://jaguarsheet.com/pt/blog/costo-fijo-mercado-livre" rel="nofollow">Jaguar Sheet</a>. Confira na tela de tarifas do seu anúncio.</p>
+<p><b>Vale vender kit?</b> Muitas vezes sim: o custo fixo é por unidade vendida, então um kit de 3 peças paga um só. No exemplo, o kit de 3 sai a (42 + 6,50) ÷ 0,68 = <b>R$ 71,32</b>, ou R$ 23,77 por peça, contra R$ 30,15 avulsa.</p>
+<p><b>Quanto vale a minha hora?</b> Divida quanto quer ganhar no mês pelas horas que trabalha. Ex.: R$ 2.000 ÷ 120 h ≈ R$ 16,67 por hora.</p>""")
 ]
 
 # Oferta da planilha paga (S1-5). Fica desligada até o Arthur mandar o link de venda da Kiwify: cole o link aqui e rode o build.
