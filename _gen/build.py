@@ -748,7 +748,131 @@ ANO_BODY=f"""<body>
 """
 write("festa-de-ano-novo",head_for(ANO_TITLE,ANO_DESC,ANO_URL)+ANO_BODY)
 
-urls=[BASE]+[BASE+p["slug"]+"/" for p in PAGES]+[SALG_URL,DOCE_URL,ANO_URL,BASE+"sobre/"]
+# --- Festa infantil (Sophia 1, ciclo 23, 26/11/2026) ---
+INF_URL=BASE+"festa-infantil/"
+INF_TITLE="Festa infantil: quanto comprar por criança e quanto custa"
+INF_DESC="Calcule salgados, docinhos, bolo, refrigerante, água e lembrancinhas para a festa infantil, com o gasto total e por criança. Grátis, sem cadastro."
+INF_SCRIPT="""<script>
+const $=id=>document.getElementById(id);
+const n=id=>Math.max(0,parseFloat($(id).value)||0);
+const R=v=>'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+const D=(v,c)=>v.toLocaleString('pt-BR',{maximumFractionDigits:c});
+let txtWa=null;
+function conta(){
+  const cr=Math.round(n('cr')),ad=Math.round(n('ad')),tot=cr+ad;
+  const ext=1+n('hx')/100*Math.max(0,n('dur')-4);
+  const salg=Math.ceil((cr*n('sc')+ad*n('sa'))*ext-1e-9);
+  const doce=Math.ceil(cr*n('dc')+ad*n('da')-1e-9);
+  const bolo=Math.round((cr*n('bc')+ad*n('ba'))/100)/10;
+  const garRef=Math.ceil(tot*n('rf')*ext/2-1e-9);
+  const litAg=Math.ceil(tot*n('ag')*ext-1e-9);
+  const it=[['Salgados',salg+' unidades ('+D(salg/100,1)+' centos)',salg*n('psa')/100],
+    ['Docinhos',doce+' unidades ('+D(doce/100,1)+' centos)',doce*n('pdo')/100],
+    ['Bolo',D(bolo,1)+' kg',bolo*n('pbo')],
+    ['Refrigerante ou suco',garRef+' garrafas de 2 L',garRef*n('prf')],
+    ['Água',litAg+' L',litAg*n('pag')],
+    ['Lembrancinhas',cr+' unidades',cr*n('ple')],
+    ['Descartáveis (prato, copo, guardanapo)',tot+' pessoas',tot*n('pds')]];
+  const total=it.reduce((s,x)=>s+x[2],0);
+  return {cr,tot,it,total};
+}
+function calc(){
+  const r=conta();txtWa=null;$('btnWa').disabled=true;
+  if(r.tot===0){$('lista').innerHTML='';['rTot','rPc','rResumo'].forEach(i=>$(i).textContent='—');return;}
+  $('lista').innerHTML=r.it.map(x=>'<tr><td>'+x[0]+'</td><td>'+x[1]+'</td><td>'+R(x[2])+'</td></tr>').join('');
+  $('rTot').textContent=R(r.total);
+  $('rPc').textContent=(r.cr>0?R(r.total/r.cr)+' por criança · ':'')+R(r.total/r.tot)+' por pessoa';
+  $('rResumo').textContent='Resumo: '+r.tot+' convidados ('+r.cr+' crianças), gasto de cerca de '+R(r.total)+'. Lista completa abaixo.';
+  txtWa='Lista da festa infantil ('+r.cr+' crianças e '+(r.tot-r.cr)+' adultos):\\n'+r.it.map(x=>'- '+x[0]+': '+x[1]+' ('+R(x[2])+')').join('\\n')+'\\nTotal: '+R(r.total)+'. Calculei no Precifica: '+document.querySelector('link[rel=canonical]').href;
+  $('btnWa').disabled=false;
+}
+function enviarWa(){if(txtWa)window.open('https://wa.me/?text='+encodeURIComponent(txtWa),'_blank','noopener');}
+document.querySelectorAll('input').forEach(i=>i.addEventListener('input',calc));calc();
+</script>"""
+INF_BODY=f"""<body>
+<main>
+{NAV}
+<h1>Quanto comprar para festa infantil?</h1>
+<p class="sub">Diga quantas crianças e quantos adultos vão e veja quanto comprar de salgados, docinhos, bolo, bebida e lembrancinhas, com o gasto total. Para 20 crianças e 15 adultos numa festa de 3 horas: <b>270 salgados, 180 docinhos e 3,1 kg de bolo</b>, cerca de <b>R$ 755</b>. Troque os preços pelos da sua região.</p>
+<section>
+<h2>1. Convidados</h2>
+<label><span>Crianças</span>{_inp("cr",20)}</label>
+<label><span>Adultos</span>{_inp("ad",15)}</label>
+<label><span>Duração da festa (horas)</span>{_inp("dur",3,"0.5")}</label>
+</section>
+<p class="box good" id="rResumo" aria-live="polite">—</p>
+<section>
+<h2>Lista de compras</h2>
+<table><thead><tr><th>O quê</th><th>Quanto</th><th>Custo</th></tr></thead><tbody id="lista"></tbody></table>
+<div class="res" aria-live="polite">
+<div class="box big"><small>Gasto total</small><b id="rTot">—</b></div>
+<div class="box"><small>Dividindo</small><b id="rPc" style="font-size:1.05rem">—</b></div>
+</div>
+<div class="btns">
+<button type="button" id="btnWa" disabled onclick="enviarWa()">Enviar a lista no WhatsApp</button>
+<button type="button" class="sec" onclick="window.print()">Imprimir</button>
+</div>
+</section>
+<section>
+<h2>2. Quantidades por pessoa (ajuste se quiser)</h2>
+<label><span>Salgados por criança<small>fontes: 5 a 8</small></span>{_inp("sc",6)}</label>
+<label><span>Salgados por adulto<small>fontes: 10 a 15</small></span>{_inp("sa",10)}</label>
+<label><span>Docinhos por criança<small>fontes: 5 a 7</small></span>{_inp("dc",6)}</label>
+<label><span>Docinhos por adulto<small>fontes: 4 a 5</small></span>{_inp("da",4)}</label>
+<label><span>Bolo por criança (g)<small>estimativa nossa: fatia menor</small></span>{_inp("bc",80,"10")}</label>
+<label><span>Bolo por adulto (g)<small>fontes: cerca de 100 g</small></span>{_inp("ba",100,"10")}</label>
+<label><span>Refrigerante ou suco por pessoa (L)<small>fontes: 0,4 a 0,5 L</small></span>{_inp("rf",0.5,"0.1")}</label>
+<label><span>Água por pessoa (L)</span>{_inp("ag",0.3,"0.1")}</label>
+<label><span>Aumento por hora acima de 4 h (%)<small>salgados e bebidas; fonte: cerca de 10%</small></span>{_inp("hx",10)}</label>
+</section>
+<section>
+<h2>3. Preços da sua região (R$)</h2>
+<label><span>Salgados, o cento</span>{_inp("psa",60,"0.01")}</label>
+<label><span>Docinhos, o cento</span>{_inp("pdo",100,"0.01")}</label>
+<label><span>Bolo, por kg</span>{_inp("pbo",60,"0.01")}</label>
+<label><span>Refrigerante ou suco, garrafa de 2 L</span>{_inp("prf",8,"0.01")}</label>
+<label><span>Água, por litro</span>{_inp("pag",2,"0.01")}</label>
+<label><span>Lembrancinha, cada</span>{_inp("ple",4,"0.01")}</label>
+<label><span>Descartáveis, por pessoa</span>{_inp("pds",1.5,"0.01")}</label>
+</section>
+<article>
+<p><small>Atualizado em 26/11/2026. Não existe regra oficial: as quantidades são faixas de guias de festa como <a href="https://www.receiteria.com.br/dicas/calculadora-de-docinhos-festa/" rel="nofollow">Receiteria</a>, <a href="https://valorfinal.com.br/calculadora-festa" rel="nofollow">Valor Final</a> e <a href="https://www.decorfacil.com/quantidade-de-salgados-para-festa" rel="nofollow">Decor Fácil</a>. Os preços são um exemplo: troque pelos da sua região.</small></p>
+<h2>Exemplo resolvido: 20 crianças e 15 adultos, 3 horas</h2>
+<p>São os números que já vêm preenchidos.</p>
+<ul>
+<li><b>Salgados:</b> 20 × 6 + 15 × 10 = 270 salgados (2,7 centos) × R$ 60 o cento = R$ 162,00.</li>
+<li><b>Docinhos:</b> 20 × 6 + 15 × 4 = 180 docinhos (1,8 cento) × R$ 100 o cento = R$ 180,00.</li>
+<li><b>Bolo:</b> 20 × 80 g + 15 × 100 g = 3,1 kg × R$ 60 = R$ 186,00.</li>
+<li><b>Refrigerante ou suco:</b> 35 × 0,5 L = 17,5 L = 9 garrafas de 2 L (arredondando para cima) × R$ 8 = R$ 72,00.</li>
+<li><b>Água:</b> 35 × 0,3 L = 10,5 L, arredondando 11 L × R$ 2 = R$ 22,00.</li>
+<li><b>Lembrancinhas:</b> 20 × R$ 4 = R$ 80,00. <b>Descartáveis:</b> 35 × R$ 1,50 = R$ 52,50.</li>
+</ul>
+<p><b>Total: R$ 754,50</b>, ou R$ 37,73 por criança convidada (R$ 21,56 por pessoa).</p>
+<h2>Como economizar sem faltar nada</h2>
+<p><b>Encomende por cento, mas some antes.</b> A conta dá o número exato; arredonde para o cento de cima só se a doceira vender assim.</p>
+<p><b>Festa curta no meio da tarde</b> pede menos comida que festa perto do almoço ou do jantar. Se for perto da refeição, aumente os salgados.</p>
+<p><b>Lembrancinha feita em casa</b> sai mais barata: troque o preço na calculadora e veja o total mudar na hora.</p>
+<h2>Erros comuns</h2>
+<p><b>Contar criança como adulto.</b> Criança pequena come bem menos: 20 crianças a 10 salgados dariam 80 salgados a mais que o necessário no exemplo.</p>
+<p><b>Esquecer os adultos.</b> Pais e tios que levam as crianças também comem, e costumam comer mais salgado que doce.</p>
+<p><b>Comprar só refrigerante.</b> Com calor e criança correndo, a água acaba primeiro. Deixe água à vontade.</p>
+<h2>Perguntas frequentes</h2>
+<p><b>Quantos salgados por criança?</b> De 5 a 8 numa festa de 2 a 3 horas, conforme a idade. Adolescentes comem como adultos.</p>
+<p><b>Quantos docinhos para 30 crianças?</b> Com 6 por criança, 180 docinhos. Some os dos adultos.</p>
+<p><b>Quanto bolo para 50 pessoas?</b> Com cerca de 100 g por pessoa, 5 kg. Se metade for criança, cerca de 4,5 kg.</p>
+<p><b>Vai fazer os doces para vender?</b> Use a <a href="/precifica/brigadeiro/">calculadora de preço do brigadeiro</a> e a de <a href="/precifica/bolo-de-pote/">bolo de pote</a> para cobrar sem prejuízo.</p>
+<h2>Outras calculadoras</h2>
+<p><a href="/precifica/quantos-salgados/">Quantos salgados por pessoa</a> · <a href="/precifica/docinhos-e-bolo/">Quantos docinhos e quanto bolo</a> · <a href="/precifica/festa-de-ano-novo/">Festa de Ano Novo</a></p>
+</article>
+{FOOTER}
+</main>
+"""+INF_SCRIPT+"""
+</body>
+</html>
+"""
+write("festa-infantil",head_for(INF_TITLE,INF_DESC,INF_URL)+INF_BODY)
+
+urls=[BASE]+[BASE+p["slug"]+"/" for p in PAGES]+[SALG_URL,DOCE_URL,ANO_URL,INF_URL,BASE+"sobre/"]
 open(os.path.join(ROOT,"sitemap.xml"),"w",encoding="utf-8").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"".join(f"<url><loc>{u}</loc><lastmod>2026-11-24</lastmod></url>\n" for u in urls)+"</urlset>\n")
 open(os.path.join(ROOT,"robots.txt"),"w",encoding="utf-8").write("User-agent: *\nAllow: /\nSitemap: "+BASE+"sitemap.xml\n")
-print("ok",[p["slug"] for p in PAGES]+["quantos-salgados","docinhos-e-bolo","festa-de-ano-novo","sobre"])
+print("ok",[p["slug"] for p in PAGES]+["quantos-salgados","docinhos-e-bolo","festa-de-ano-novo","festa-infantil","sobre"])
