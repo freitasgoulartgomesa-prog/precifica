@@ -202,7 +202,7 @@ Abaixo de R$ 83,16 (79,00 ÷ 0,95) você não paga nem o material e as suas hora
 <h2>Outras calculadoras</h2>
 <p><a href="/precifica/panetone/">Preço de panetone caseiro</a> · <a href="/precifica/ceia-de-natal/">Quanto comprar para a ceia de Natal</a> · <a href="/precifica/rabanada/">Preço de rabanada</a></p>"""),
  dict(slug="rabanada",title="Quanto cobrar por rabanada: calculadora grátis",
-  desc="Vai vender rabanada no Natal? Calcule o preço por unidade e por caixa: pão, leite, ovos, óleo, embalagem, gás, seu tempo e taxas. Grátis, sem cadastro.",
+  desc="Vai vender rabanada no Natal? Calcule o preço por unidade e por caixa: pão, leite, ovos, óleo, embalagem, gás, seu tempo e taxas. Grátis.",
   h1="Quanto cobrar por rabanada?",
   sub="Rabanada é doce de Natal fácil de vender por unidade ou em caixa. Preencha os custos de <b>uma fornada</b> e quantas rabanadas ela rende. No exemplo, cada uma sai por <b>R$ 2,36</b> (caixa com 10 por R$ 23,57).",
   lab=["Ingredientes da fornada<small>pão amanhecido, leite, leite condensado, ovos, açúcar, canela, óleo</small>","Bandejas ou caixas, filme e etiqueta","Gás do fogão (fritura)","Rabanadas que a fornada rende"],
