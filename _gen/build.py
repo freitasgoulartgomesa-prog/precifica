@@ -200,7 +200,37 @@ Abaixo de R$ 83,16 (79,00 ÷ 0,95) você não paga nem o material e as suas hora
 <p><b>Dá para vender pavê como renda extra no Natal?</b> Sim, desde que o preço pague o material, o seu tempo e a taxa. Peça as encomendas com antecedência e um sinal para garantir.</p>
 <p><b>Quanto vale a minha hora?</b> Divida quanto quer ganhar no mês pelas horas que trabalha. Ex.: R$ 2.000 ÷ 120 h ≈ R$ 16,67 por hora.</p>
 <h2>Outras calculadoras</h2>
-<p><a href="/precifica/panetone/">Preço de panetone caseiro</a> · <a href="/precifica/ceia-de-natal/">Quanto comprar para a ceia de Natal</a> · <a href="/precifica/bolo-de-pote/">Preço de bolo de pote</a></p>"""),
+<p><a href="/precifica/panetone/">Preço de panetone caseiro</a> · <a href="/precifica/ceia-de-natal/">Quanto comprar para a ceia de Natal</a> · <a href="/precifica/rabanada/">Preço de rabanada</a></p>"""),
+ dict(slug="rabanada",title="Quanto cobrar por rabanada: calculadora grátis",
+  desc="Vai vender rabanada no Natal? Calcule o preço por unidade e por caixa: pão, leite, ovos, óleo, embalagem, gás, seu tempo e taxas. Grátis, sem cadastro.",
+  h1="Quanto cobrar por rabanada?",
+  sub="Rabanada é doce de Natal fácil de vender por unidade ou em caixa. Preencha os custos de <b>uma fornada</b> e quantas rabanadas ela rende. No exemplo, cada uma sai por <b>R$ 2,36</b> (caixa com 10 por R$ 23,57).",
+  lab=["Ingredientes da fornada<small>pão amanhecido, leite, leite condensado, ovos, açúcar, canela, óleo</small>","Bandejas ou caixas, filme e etiqueta","Gás do fogão (fritura)","Rabanadas que a fornada rende"],
+  vals=[31.7,6,3,40,2,15,5,20],
+  art="""<h2>Exemplo resolvido: 40 rabanadas fritas (4 caixas de 10)</h2>
+<p>Os números abaixo são os que já vêm preenchidos na calculadora. São um <b>exemplo</b> com preços de mercado comuns (estimativa nossa): troque pelos valores das suas notas.</p>
+<ul>
+<li><b>Ingredientes:</b> R$ 31,70 (10 pães franceses amanhecidos R$ 8,00, 1 L de leite R$ 5,00, 1 lata de leite condensado R$ 7,00, 4 ovos R$ 3,20, açúcar e canela R$ 2,50 e a parte do óleo de fritura que se perde R$ 6,00).</li>
+<li><b>Rendimento:</b> cada pão cortado em 4 fatias = 40 rabanadas.</li>
+<li><b>Embalagem:</b> 4 bandejas com filme e etiqueta a R$ 1,50 = R$ 6,00. <b>Gás:</b> R$ 3,00 (fritura gasta mais que forno).</li>
+<li><b>Tempo:</b> 2 h de trabalho (cortar, molhar, fritar, escorrer, passar no açúcar e embalar), a R$ 15 por hora = R$ 30,00.</li>
+<li><b>Taxa da maquininha:</b> 5%. <b>Lucro do negócio:</b> 20%.</li>
+</ul>
+<p><b>A conta por unidade:</b> material = (31,70 + 6,00 + 3,00) ÷ 40 = R$ 1,02; tempo = 30,00 ÷ 40 = R$ 0,75; custo = R$ 1,77.<br>
+Preço = 1,7675 ÷ (1 − 0,05 − 0,20) = 1,7675 ÷ 0,75 = <b>R$ 2,36 cada</b>, ou <b>R$ 23,57 a caixa com 10</b>.<br>
+Abaixo de R$ 1,86 cada (1,7675 ÷ 0,95) você não paga nem o material e as suas horas depois da taxa.</p>
+<h2>Rabanada de forno ou na air fryer</h2>
+<p>Sem fritura, quase todo o óleo sai da conta: tire os R$ 6,00 de óleo dos ingredientes e ponha um pouco de manteiga para pincelar (uns R$ 2,00). O gás ou a energia do forno pode subir, porque assa em várias levas. Mude os campos e a calculadora refaz o preço.</p>
+<h2>Erros comuns</h2>
+<p><b>Esquecer o óleo.</b> O óleo que fica na panela ou é jogado fora é custo da fornada. Em fritura, é um dos itens mais caros depois do leite condensado.</p>
+<p><b>Não contar o tempo de fritar.</b> Fritar 40 fatias leva tempo de verdade em pé no fogão: é o seu trabalho e entra no preço.</p>
+<p><b>Vender por unidade o mesmo que na caixa.</b> Unidade avulsa pede embalagem própria (saquinho, guardanapo). Some esse custo ou cobre um pouco mais na avulsa.</p>
+<h2>Perguntas frequentes</h2>
+<p><b>Quanto cobrar pela caixa de rabanada?</b> Faça a conta por unidade e multiplique: no exemplo, a caixa com 10 dá R$ 23,57. Com recheio (doce de leite, creme) ou calda, some nos ingredientes.</p>
+<p><b>Dá para vender rabanada como renda extra no Natal?</b> Sim, desde que o preço pague o material, o seu tempo e a taxa. Rabanada é melhor no dia: combine as encomendas para 23 e 24 de dezembro e peça um sinal.</p>
+<p><b>Quanto vale a minha hora?</b> Divida quanto quer ganhar no mês pelas horas que trabalha. Ex.: R$ 2.000 ÷ 120 h ≈ R$ 16,67 por hora.</p>
+<h2>Outras calculadoras</h2>
+<p><a href="/precifica/pave/">Preço de pavê de Natal</a> · <a href="/precifica/panetone/">Preço de panetone caseiro</a> · <a href="/precifica/ceia-de-natal/">Quanto comprar para a ceia de Natal</a></p>"""),
  dict(slug="bolo-de-pote",title="Quanto cobrar por bolo de pote: calculadora grátis",
   desc="Calcule o preço do bolo de pote: massa, recheio, pote, colher, gás, seu tempo e taxas. Grátis e sem cadastro.",
   h1="Quanto cobrar por bolo de pote?",
@@ -425,7 +455,7 @@ SOBRE_BODY=f"""<body>
 <h2>Use no seu site ou blog</h2>
 <p>Tem um blog de receitas, uma loja ou um site de artesanato? Pode colocar uma calculadora do Precifica nele, de graça. Escolha a calculadora, copie o código e cole no seu site (no WordPress, use o bloco "HTML personalizado").</p>
 <label><span>Calculadora</span><select id="embSel" style="padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font-size:1rem;max-width:200px">
-<option value="">Calculadora geral de preço</option><option value="brigadeiro/">Brigadeiro</option><option value="bolo-de-pote/">Bolo de pote</option><option value="panetone/">Panetone</option><option value="cesta-de-natal/">Cesta de Natal</option><option value="croche/">Crochê</option><option value="bijuteria/">Bijuteria</option><option value="shopee/">Shopee</option><option value="quantos-salgados/">Salgados para festa</option><option value="docinhos-e-bolo/">Doces e bolo para festa</option><option value="festa-de-ano-novo/">Festa de Ano Novo</option><option value="ceia-de-natal/">Ceia de Natal</option><option value="pave/">Pavê de Natal</option>
+<option value="">Calculadora geral de preço</option><option value="brigadeiro/">Brigadeiro</option><option value="bolo-de-pote/">Bolo de pote</option><option value="panetone/">Panetone</option><option value="cesta-de-natal/">Cesta de Natal</option><option value="croche/">Crochê</option><option value="bijuteria/">Bijuteria</option><option value="shopee/">Shopee</option><option value="quantos-salgados/">Salgados para festa</option><option value="docinhos-e-bolo/">Doces e bolo para festa</option><option value="festa-de-ano-novo/">Festa de Ano Novo</option><option value="ceia-de-natal/">Ceia de Natal</option><option value="pave/">Pavê de Natal</option><option value="rabanada/">Rabanada</option>
 </select></label>
 <textarea id="embCod" readonly rows="5" style="width:100%;margin-top:8px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:13px/1.4 ui-monospace,Consolas,monospace"></textarea>
 <div class="btns"><button type="button" onclick="copiarEmb()">Copiar código</button><span id="embOk" class="good" style="align-self:center"></span></div>
@@ -899,7 +929,7 @@ CEIA_BODY=f"""<body>
 <p><b>Quanto de carne por pessoa na ceia de Natal?</b> De 150 a 250 g de carne servida por adulto, somando todas as carnes. Ave inteira com osso pede mais.</p>
 <p><b>Quanto de arroz para 20 pessoas?</b> 20 × 50 g = 1 kg de arroz cru.</p>
 <p><b>Quanto custa uma ceia de Natal por pessoa?</b> No exemplo, cerca de R$ 29 por pessoa. Muda muito com a carne e a bebida: troque os preços e veja na hora.</p>
-<p><b>Vai vender ceia ou pratos de Natal?</b> Use a <a href="/precifica/">calculadora de preço</a> para cobrar sem prejuízo, e a de <a href="/precifica/panetone/">preço de panetone</a> se for vender panetone.</p>
+<p><b>Vai vender doces ou pratos de Natal?</b> Use a <a href="/precifica/">calculadora de preço</a> para cobrar sem prejuízo, ou as de <a href="/precifica/panetone/">panetone</a>, <a href="/precifica/pave/">pavê</a> e <a href="/precifica/rabanada/">rabanada</a>.</p>
 <h2>Outras calculadoras</h2>
 <p><a href="/precifica/festa-de-ano-novo/">Festa de Ano Novo</a> · <a href="/precifica/cesta-de-natal/">Preço de cesta de Natal</a> · <a href="/precifica/panetone/">Preço de panetone caseiro</a></p>
 </article>
