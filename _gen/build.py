@@ -138,6 +138,7 @@ Abaixo de R$ 32,84 (31,20 ÷ 0,95) você não paga nem o material e as suas hora
 <p><b>Quanto cobrar por um panetone caseiro de 500 g?</b> Faça a sua conta: no exemplo dá R$ 41,60. Para comparar, panetones industriais gourmet de 500 g saíram por R$ 70 a R$ 90 em 2025 (<a href="https://www.guiadasemana.com.br/gastronomia/galeria/lancamentos-panetones-chocotones-2025" rel="nofollow">Guia da Semana</a>). O seu caseiro pode ficar entre o de supermercado e o gourmet.</p>
 <p><b>Dá para vender panetone como renda extra no Natal?</b> Sim, desde que o preço pague o material, o seu tempo e a taxa. Comece com encomendas de conhecidos e anote quanto tempo cada fornada leva de verdade.</p>
 <p><b>E para vender em cesta de Natal?</b> Calcule o panetone aqui e some o preço de cada item da cesta. A cesta inteira também precisa de lucro e da sua hora para montar.</p>
+<p><b>Vai vender pavê também?</b> Veja a <a href="/precifica/pave/">calculadora de preço de pavê</a>. Para a ceia da sua casa, use <a href="/precifica/ceia-de-natal/">quanto comprar para a ceia de Natal</a>.</p>
 <p><b>Quanto vale a minha hora?</b> Divida quanto quer ganhar no mês pelas horas que trabalha. Ex.: R$ 2.000 ÷ 120 h ≈ R$ 16,67 por hora.</p>"""),
  dict(slug="cesta-de-natal",title="Quanto cobrar por cesta de Natal: calculadora grátis",
   desc="Vai montar cestas de Natal para vender? Calcule o preço de cada cesta: itens, cesta e embalagem, ida ao mercado, seu tempo e taxas. Grátis, direto no celular.",
@@ -171,6 +172,35 @@ Abaixo de R$ 88,95 (84,50 ÷ 0,95) você não paga nem os itens e as suas horas 
 <p><b>E para empresas?</b> Encomenda grande pede preço por lote. Calcule o lote inteiro aqui (por exemplo, 30 cestas) e ofereça um desconto menor que o seu lucro.</p>
 <p><b>Posso colocar bebida alcoólica?</b> Só se o comprador e quem recebe forem maiores de 18, e confira as regras de onde você vende. Suco de uva integral é uma opção para todos.</p>
 <p><b>Quanto vale a minha hora?</b> Divida quanto quer ganhar no mês pelas horas que trabalha. Ex.: R$ 2.000 ÷ 120 h ≈ R$ 16,67 por hora.</p>"""),
+ dict(slug="pave",title="Quanto cobrar por pavê de Natal: calculadora grátis",
+  desc="Vai vender pavê no Natal, em travessa ou pote? Calcule o preço: ingredientes, embalagem, gás, seu tempo e taxas. Exemplo resolvido. Grátis, sem cadastro.",
+  h1="Quanto cobrar por pavê de Natal?",
+  sub="Pavê é uma das sobremesas mais pedidas na ceia. Preencha os custos de <b>uma receita</b> e quantas unidades ela rende (1 travessa ou vários potes). No exemplo, a travessa de 2 L sai por <b>R$ 105,33</b>.",
+  lab=["Ingredientes da receita<small>leite condensado, creme de leite, biscoito, leite, ovos, chocolate</small>","Travessa ou potes, tampa e etiqueta","Gás do fogão (estimativa)","Unidades que a receita rende<small>1 travessa ou número de potes</small>"],
+  vals=[48,6.5,2,1,1.5,15,5,20],
+  art="""<h2>Exemplo resolvido: pavê de chocolate em travessa de 2 L (12 porções)</h2>
+<p>Os números abaixo são os que já vêm preenchidos na calculadora. São um <b>exemplo</b> com preços de mercado comuns: troque pelos valores das suas notas.</p>
+<ul>
+<li><b>Ingredientes:</b> R$ 48,00 (2 latas de leite condensado R$ 14,00, 2 caixas de creme de leite R$ 7,00, 2 pacotes de biscoito maisena R$ 9,00, 500 ml de leite R$ 2,50, 3 ovos R$ 2,40, 100 g de chocolate em pó R$ 6,00, amido de milho R$ 0,60 e 100 g de chocolate para cobrir R$ 6,50).</li>
+<li><b>Embalagem:</b> travessa descartável de 2 L com tampa R$ 6,00 e etiqueta R$ 0,50 = R$ 6,50. <b>Gás:</b> R$ 2,00.</li>
+<li><b>Tempo:</b> 1,5 h de trabalho (cremes, montar as camadas, cobrir e embalar), a R$ 15 por hora = R$ 22,50. As horas na geladeira não entram.</li>
+<li><b>Taxa da maquininha:</b> 5%. <b>Lucro do negócio:</b> 20%.</li>
+</ul>
+<p><b>A conta:</b> custo = 48,00 + 6,50 + 2,00 + 22,50 = R$ 79,00.<br>
+Preço = 79,00 ÷ (1 − 0,05 − 0,20) = 79,00 ÷ 0,75 = <b>R$ 105,33 a travessa</b>, cerca de R$ 8,78 por porção.<br>
+Abaixo de R$ 83,16 (79,00 ÷ 0,95) você não paga nem o material e as suas horas depois da taxa.</p>
+<h2>Pavê em pote para vender</h2>
+<p>A mesma receita rende uns <b>10 potes de 200 ml</b>. Troque a embalagem por 10 potes com tampa (R$ 1,20 cada) e etiquetas (R$ 2,00) = R$ 14,00, ponha 2 h de trabalho e 10 unidades. A conta: (48 + 14 + 2 + 30) ÷ 10 = R$ 9,40 de custo por pote, preço <b>R$ 12,53 o pote</b>.</p>
+<h2>Erros comuns</h2>
+<p><b>Esquecer a travessa.</b> Travessa com tampa para entregar custa quase o mesmo que um pacote de biscoito. Se a cliente devolve a travessa de vidro, não cobre; se é descartável, cobre sempre.</p>
+<p><b>Cobrar a porção pelo preço do mercado.</b> Pavê de padaria é feito em grande quantidade. O seu é sob encomenda: venda o sabor caseiro e a entrega no dia da ceia.</p>
+<p><b>Aceitar encomenda para o dia 24 sem contar a geladeira.</b> Cada travessa precisa de espaço gelado por horas. Veja quantas cabem antes de fechar pedidos.</p>
+<h2>Perguntas frequentes</h2>
+<p><b>Quanto cobrar por um pavê de travessa?</b> Faça a sua conta: no exemplo, a travessa de 2 L dá R$ 105,33. Sabores com morango, nozes ou chocolate nobre custam mais: some nos ingredientes.</p>
+<p><b>Dá para vender pavê como renda extra no Natal?</b> Sim, desde que o preço pague o material, o seu tempo e a taxa. Peça as encomendas com antecedência e um sinal para garantir.</p>
+<p><b>Quanto vale a minha hora?</b> Divida quanto quer ganhar no mês pelas horas que trabalha. Ex.: R$ 2.000 ÷ 120 h ≈ R$ 16,67 por hora.</p>
+<h2>Outras calculadoras</h2>
+<p><a href="/precifica/panetone/">Preço de panetone caseiro</a> · <a href="/precifica/ceia-de-natal/">Quanto comprar para a ceia de Natal</a> · <a href="/precifica/bolo-de-pote/">Preço de bolo de pote</a></p>"""),
  dict(slug="bolo-de-pote",title="Quanto cobrar por bolo de pote: calculadora grátis",
   desc="Calcule o preço do bolo de pote: massa, recheio, pote, colher, gás, seu tempo e taxas. Grátis e sem cadastro.",
   h1="Quanto cobrar por bolo de pote?",
@@ -395,7 +425,7 @@ SOBRE_BODY=f"""<body>
 <h2>Use no seu site ou blog</h2>
 <p>Tem um blog de receitas, uma loja ou um site de artesanato? Pode colocar uma calculadora do Precifica nele, de graça. Escolha a calculadora, copie o código e cole no seu site (no WordPress, use o bloco "HTML personalizado").</p>
 <label><span>Calculadora</span><select id="embSel" style="padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font-size:1rem;max-width:200px">
-<option value="">Calculadora geral de preço</option><option value="brigadeiro/">Brigadeiro</option><option value="bolo-de-pote/">Bolo de pote</option><option value="panetone/">Panetone</option><option value="cesta-de-natal/">Cesta de Natal</option><option value="croche/">Crochê</option><option value="bijuteria/">Bijuteria</option><option value="shopee/">Shopee</option><option value="quantos-salgados/">Salgados para festa</option><option value="docinhos-e-bolo/">Doces e bolo para festa</option><option value="festa-de-ano-novo/">Festa de Ano Novo</option>
+<option value="">Calculadora geral de preço</option><option value="brigadeiro/">Brigadeiro</option><option value="bolo-de-pote/">Bolo de pote</option><option value="panetone/">Panetone</option><option value="cesta-de-natal/">Cesta de Natal</option><option value="croche/">Crochê</option><option value="bijuteria/">Bijuteria</option><option value="shopee/">Shopee</option><option value="quantos-salgados/">Salgados para festa</option><option value="docinhos-e-bolo/">Doces e bolo para festa</option><option value="festa-de-ano-novo/">Festa de Ano Novo</option><option value="ceia-de-natal/">Ceia de Natal</option><option value="pave/">Pavê de Natal</option>
 </select></label>
 <textarea id="embCod" readonly rows="5" style="width:100%;margin-top:8px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:13px/1.4 ui-monospace,Consolas,monospace"></textarea>
 <div class="btns"><button type="button" onclick="copiarEmb()">Copiar código</button><span id="embOk" class="good" style="align-self:center"></span></div>
@@ -738,7 +768,7 @@ ANO_BODY=f"""<body>
 <p><b>Quanto de carne por pessoa?</b> De 350 a 500 g por adulto quando há acompanhamentos; criança come cerca da metade.</p>
 <p><b>Vai vender comida para o Ano Novo?</b> Use a <a href="/precifica/">calculadora de preço</a> para cobrar a encomenda sem prejuízo, e a de <a href="/precifica/quantos-salgados/">salgados por pessoa</a> para saber quanto fazer.</p>
 <h2>Outras calculadoras</h2>
-<p><a href="/precifica/quantos-salgados/">Quantos salgados por pessoa</a> · <a href="/precifica/docinhos-e-bolo/">Quantos docinhos e quanto bolo</a> · <a href="/precifica/panetone/">Preço de panetone caseiro</a></p>
+<p><a href="/precifica/quantos-salgados/">Quantos salgados por pessoa</a> · <a href="/precifica/docinhos-e-bolo/">Quantos docinhos e quanto bolo</a> · <a href="/precifica/panetone/">Preço de panetone caseiro</a> · <a href="/precifica/ceia-de-natal/">Quanto comprar para a ceia de Natal</a></p>
 </article>
 {FOOTER}
 </main>
@@ -747,6 +777,139 @@ ANO_BODY=f"""<body>
 </html>
 """
 write("festa-de-ano-novo",head_for(ANO_TITLE,ANO_DESC,ANO_URL)+ANO_BODY)
+
+# --- Ceia de Natal (Sophia 1, ciclo 30, 27/11/2026) ---
+CEIA_URL=BASE+"ceia-de-natal/"
+CEIA_TITLE="Quanto comprar para a ceia de Natal: lista e custo"
+CEIA_DESC="Calcule quanta carne, arroz, farofa, salada, bebida e panetone comprar para a ceia de Natal e quanto vai gastar por pessoa. Grátis, sem cadastro."
+CEIA_SCRIPT="""<script>
+const $=id=>document.getElementById(id);
+const n=id=>Math.max(0,parseFloat($(id).value)||0);
+const R=v=>'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+const D=(v,c)=>v.toLocaleString('pt-BR',{maximumFractionDigits:c});
+let txtWa=null;
+function conta(){
+  const ab=Math.round(n('ab')),an=Math.round(n('an')),cr=Math.round(n('cr')),ad=ab+an,tot=ad+cr;
+  const carne=Math.ceil((ad*n('ca')+cr*n('ca')*n('cf')/100)/100-1e-9)/10;
+  const arroz=Math.ceil(tot*n('ar')/100-1e-9)/10;
+  const farofa=Math.ceil(tot/Math.max(1,n('fa'))*10-1e-9)/10;
+  const salada=Math.ceil(tot*n('sa')/100-1e-9)/10;
+  const garRef=Math.ceil(((an+cr)*n('rf')+ab*n('rfb'))/2-1e-9);
+  const vinho=Math.ceil(ab/Math.max(1,n('vg'))-1e-9);
+  const pan=Math.ceil(tot/Math.max(1,n('pf'))-1e-9);
+  const it=[['Carnes (pernil, tender, peru ou chester)',D(carne,1)+' kg',carne*n('pca')],
+    ['Arroz (cru)',D(arroz,1)+' kg',arroz*n('par')],
+    ['Farofa pronta',D(farofa,1)+' kg',farofa*n('pfa')],
+    ['Salada',D(salada,1)+' kg',salada*n('psa')],
+    ['Refrigerante ou suco',garRef+' garrafas de 2 L',garRef*n('prf')],
+    ['Vinho ou espumante (só maiores de 18)',vinho+' garrafas de 750 ml',vinho*n('pvi')],
+    ['Panetone ou chocotone (500 g)',pan+' unidades',pan*n('ppa')],
+    ['Sobremesa (rabanada, pavê)',tot+' pessoas',tot*n('pso')],
+    ['Frutas e castanhas',tot+' pessoas',tot*n('pfr')]];
+  const total=it.reduce((s,x)=>s+x[2],0);
+  return {tot,it,total};
+}
+function calc(){
+  const r=conta();txtWa=null;$('btnWa').disabled=true;
+  if(r.tot===0){$('lista').innerHTML='';['rTot','rPp','rResumo'].forEach(i=>$(i).textContent='—');return;}
+  $('lista').innerHTML=r.it.map(x=>'<tr><td>'+x[0]+'</td><td>'+x[1]+'</td><td>'+R(x[2])+'</td></tr>').join('');
+  $('rTot').textContent=R(r.total);
+  $('rPp').textContent=R(r.total/r.tot)+' por pessoa';
+  $('rResumo').textContent='Resumo: '+r.tot+' pessoas, gasto de cerca de '+R(r.total)+' ('+R(r.total/r.tot)+' por pessoa). Lista completa abaixo.';
+  txtWa='Lista da ceia de Natal ('+r.tot+' pessoas):\\n'+r.it.map(x=>'- '+x[0]+': '+x[1]+' ('+R(x[2])+')').join('\\n')+'\\nTotal: '+R(r.total)+' ('+R(r.total/r.tot)+' por pessoa). Calculei no Precifica: '+document.querySelector('link[rel=canonical]').href;
+  $('btnWa').disabled=false;
+}
+function enviarWa(){if(txtWa)window.open('https://wa.me/?text='+encodeURIComponent(txtWa),'_blank','noopener');}
+document.querySelectorAll('input').forEach(i=>i.addEventListener('input',calc));calc();
+</script>"""
+CEIA_BODY=f"""<body>
+<main>
+{NAV}
+<h1>Quanto comprar para a ceia de Natal?</h1>
+<p class="sub">Diga quantas pessoas vão e veja a lista de compras da ceia (carnes, arroz, farofa, salada, bebida, panetone e sobremesa) com o gasto total e por pessoa. Para 12 pessoas, a conta dá cerca de <b>R$ 352, uns R$ 29 por pessoa</b>. Troque os preços pelos do seu mercado.</p>
+<section>
+<h2>1. Convidados</h2>
+<label><span>Adultos que bebem álcool<small>só maiores de 18</small></span>{_inp("ab",6)}</label>
+<label><span>Adultos que não bebem álcool</span>{_inp("an",3)}</label>
+<label><span>Crianças</span>{_inp("cr",3)}</label>
+</section>
+<p class="box good" id="rResumo" aria-live="polite">—</p>
+<section>
+<h2>Lista de compras</h2>
+<table><thead><tr><th>O quê</th><th>Quanto</th><th>Custo</th></tr></thead><tbody id="lista"></tbody></table>
+<div class="res" aria-live="polite">
+<div class="box big"><small>Gasto total</small><b id="rTot">—</b></div>
+<div class="box"><small>Dividindo por todos</small><b id="rPp" style="font-size:1.05rem">—</b></div>
+</div>
+<div class="btns">
+<button type="button" id="btnWa" disabled onclick="enviarWa()">Enviar a lista no WhatsApp</button>
+<button type="button" class="sec" onclick="window.print()">Imprimir</button>
+</div>
+</section>
+<section>
+<h2>2. Quantidades por pessoa (ajuste se quiser)</h2>
+<label><span>Carnes por adulto, somando todas (g)<small>fontes: 150 a 250 g</small></span>{_inp("ca",250,"10")}</label>
+<label><span>Criança come quanto de um adulto (%)</span>{_inp("cf",50,"5")}</label>
+<label><span>Arroz cru por pessoa (g)<small>fonte: 50 g</small></span>{_inp("ar",50,"5")}</label>
+<label><span>Pessoas por kg de farofa pronta<small>fonte: 1 kg serve 15</small></span>{_inp("fa",15)}</label>
+<label><span>Salada por pessoa (g)<small>fonte: 100 g</small></span>{_inp("sa",100,"10")}</label>
+<label><span>Refrigerante ou suco por criança ou adulto que não bebe (L)</span>{_inp("rf",0.6,"0.1")}</label>
+<label><span>Refrigerante ou suco por adulto que bebe (L)</span>{_inp("rfb",0.3,"0.1")}</label>
+<label><span>Adultos que bebem por garrafa de vinho ou espumante<small>estimativa nossa: 2 taças por pessoa</small></span>{_inp("vg",3)}</label>
+<label><span>Pessoas por panetone de 500 g<small>estimativa nossa: 8 fatias</small></span>{_inp("pf",8)}</label>
+</section>
+<section>
+<h2>3. Preços do seu mercado (R$)</h2>
+<label><span>Carnes, por kg</span>{_inp("pca",30,"0.01")}</label>
+<label><span>Arroz, por kg</span>{_inp("par",6,"0.01")}</label>
+<label><span>Farofa pronta, por kg</span>{_inp("pfa",14,"0.01")}</label>
+<label><span>Salada, por kg</span>{_inp("psa",12,"0.01")}</label>
+<label><span>Refrigerante ou suco, por garrafa de 2 L</span>{_inp("prf",8,"0.01")}</label>
+<label><span>Vinho ou espumante, por garrafa</span>{_inp("pvi",30,"0.01")}</label>
+<label><span>Panetone de 500 g</span>{_inp("ppa",25,"0.01")}</label>
+<label><span>Sobremesa, por pessoa</span>{_inp("pso",5,"0.01")}</label>
+<label><span>Frutas e castanhas, por pessoa</span>{_inp("pfr",4,"0.01")}</label>
+</section>
+<article>
+<p><small>Atualizado em 27/11/2026. Não existe regra oficial: as quantidades são as faixas de guias de ceia como <a href="https://www.tudogostoso.com.br/noticias/como-calcular-quantidade-de-comida-a2215.htm" rel="nofollow">TudoGostoso</a>, <a href="https://idec.org.br/consultas/dicas-e-direitos/confira-as-dicas-do-idec-e-economize-nas-compras-para-a-ceia-de-natal" rel="nofollow">Idec</a> e <a href="https://valorfinal.com.br/guia/cardapio-ceia-de-natal" rel="nofollow">Valor Final</a>. Panetone e vinho por pessoa são estimativa nossa. Os preços são um exemplo: troque pelos do seu mercado. Bebida alcoólica só para maiores de 18 anos.</small></p>
+<h2>Exemplo resolvido: 12 pessoas</h2>
+<p>São os números que já vêm preenchidos: 6 adultos que bebem, 3 adultos que não bebem e 3 crianças.</p>
+<ul>
+<li><b>Carnes:</b> 9 adultos × 250 g + 3 crianças × 125 g = 2,625 kg, arredondando 2,7 kg × R$ 30 = R$ 81,00.</li>
+<li><b>Arroz:</b> 12 × 50 g = 0,6 kg × R$ 6 = R$ 3,60.</li>
+<li><b>Farofa:</b> 12 ÷ 15 = 0,8 kg × R$ 14 = R$ 11,20.</li>
+<li><b>Salada:</b> 12 × 100 g = 1,2 kg × R$ 12 = R$ 14,40.</li>
+<li><b>Refrigerante ou suco:</b> 6 × 0,6 L + 6 × 0,3 L = 5,4 L = 3 garrafas de 2 L × R$ 8 = R$ 24,00.</li>
+<li><b>Vinho ou espumante:</b> 6 adultos ÷ 3 = 2 garrafas × R$ 30 = R$ 60,00.</li>
+<li><b>Panetone:</b> 12 ÷ 8 = 1,5, arredondando 2 × R$ 25 = R$ 50,00.</li>
+<li><b>Sobremesa:</b> 12 × R$ 5 = R$ 60,00. <b>Frutas e castanhas:</b> 12 × R$ 4 = R$ 48,00.</li>
+</ul>
+<p><b>Total: R$ 352,20</b>, ou <b>R$ 29,35 por pessoa</b> se todos dividirem igual.</p>
+<h2>Peru e chester inteiros: compre mais</h2>
+<p>As gramas acima são de carne servida. Ave inteira tem osso: um peru de 4 kg serve cerca de 6 pessoas, segundo o TudoGostoso. Se a carne for só peru ou chester, coloque o preço por kg e aumente a quantidade por adulto para uns 600 g.</p>
+<h2>Como economizar sem faltar nada</h2>
+<p><b>Mais pratos, porção menor.</b> Com duas carnes, a soma das duas fica nos mesmos 250 g por adulto, não 250 g de cada.</p>
+<p><b>Divida a conta antes.</b> Mande a lista no WhatsApp com o valor por pessoa e combine quem leva o quê.</p>
+<p><b>Compre cedo o que não estraga</b> (arroz, farofa, castanhas, bebida) e deixe carne e salada para os últimos dias.</p>
+<h2>Erros comuns</h2>
+<p><b>Contar criança como adulto.</b> Criança come cerca da metade: a calculadora já desconta.</p>
+<p><b>Somar a porção cheia de cada carne.</b> É o erro que mais sobra comida na ceia.</p>
+<p><b>Esquecer a sobremesa e o panetone na conta.</b> Juntos, no exemplo, passam de R$ 100.</p>
+<h2>Perguntas frequentes</h2>
+<p><b>Quanto de carne por pessoa na ceia de Natal?</b> De 150 a 250 g de carne servida por adulto, somando todas as carnes. Ave inteira com osso pede mais.</p>
+<p><b>Quanto de arroz para 20 pessoas?</b> 20 × 50 g = 1 kg de arroz cru.</p>
+<p><b>Quanto custa uma ceia de Natal por pessoa?</b> No exemplo, cerca de R$ 29 por pessoa. Muda muito com a carne e a bebida: troque os preços e veja na hora.</p>
+<p><b>Vai vender ceia ou pratos de Natal?</b> Use a <a href="/precifica/">calculadora de preço</a> para cobrar sem prejuízo, e a de <a href="/precifica/panetone/">preço de panetone</a> se for vender panetone.</p>
+<h2>Outras calculadoras</h2>
+<p><a href="/precifica/festa-de-ano-novo/">Festa de Ano Novo</a> · <a href="/precifica/cesta-de-natal/">Preço de cesta de Natal</a> · <a href="/precifica/panetone/">Preço de panetone caseiro</a></p>
+</article>
+{FOOTER}
+</main>
+"""+CEIA_SCRIPT+"""
+</body>
+</html>
+"""
+write("ceia-de-natal",head_for(CEIA_TITLE,CEIA_DESC,CEIA_URL)+CEIA_BODY)
 
 # --- Festa infantil (Sophia 1, ciclo 23, 26/11/2026) ---
 INF_URL=BASE+"festa-infantil/"
@@ -872,7 +1035,7 @@ INF_BODY=f"""<body>
 """
 write("festa-infantil",head_for(INF_TITLE,INF_DESC,INF_URL)+INF_BODY)
 
-urls=[BASE]+[BASE+p["slug"]+"/" for p in PAGES]+[SALG_URL,DOCE_URL,ANO_URL,INF_URL,BASE+"sobre/"]
+urls=[BASE]+[BASE+p["slug"]+"/" for p in PAGES]+[SALG_URL,DOCE_URL,ANO_URL,CEIA_URL,INF_URL,BASE+"sobre/"]
 open(os.path.join(ROOT,"sitemap.xml"),"w",encoding="utf-8").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"".join(f"<url><loc>{u}</loc><lastmod>2026-11-24</lastmod></url>\n" for u in urls)+"</urlset>\n")
 open(os.path.join(ROOT,"robots.txt"),"w",encoding="utf-8").write("User-agent: *\nAllow: /\nSitemap: "+BASE+"sitemap.xml\n")
-print("ok",[p["slug"] for p in PAGES]+["quantos-salgados","docinhos-e-bolo","festa-de-ano-novo","festa-infantil","sobre"])
+print("ok",[p["slug"] for p in PAGES]+["quantos-salgados","docinhos-e-bolo","festa-de-ano-novo","ceia-de-natal","festa-infantil","sobre"])
