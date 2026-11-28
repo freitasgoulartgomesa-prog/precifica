@@ -75,7 +75,7 @@ Preço mínimo (sem lucro): 18,50 ÷ 0,80 = R$ 23,13. Abaixo disso você paga pa
 <h2>Outras calculadoras</h2>
 <p><a href="/precifica/">Calculadora geral de preço</a> · <a href="/precifica/croche/">Preço de peça de crochê</a> · <a href="/precifica/bijuteria/">Preço de bijuteria</a></p>"""),
  dict(slug="brigadeiro",title="Quanto cobrar por brigadeiro: calculadora grátis",
-  desc="Calcule o preço do brigadeiro por unidade: ingredientes, forminha, gás, seu tempo e taxas. Grátis, direto no celular.",
+  desc="Calcule o preço do brigadeiro por unidade: ingredientes, forminha, gás, seu tempo e taxas. Grátis, no celular.",
   h1="Quanto cobrar por brigadeiro?",
   sub="Preencha os custos de <b>uma receita</b> (uma panela) e quantos brigadeiros ela rende. A conta mostra o preço por unidade.",
   lab=["Ingredientes da receita<small>leite condensado, chocolate, manteiga, granulado</small>","Forminhas, caixinha, etiqueta","Gás e luz (estimativa)","Brigadeiros que a receita rende"],
@@ -141,7 +141,7 @@ Abaixo de R$ 32,84 (31,20 ÷ 0,95) você não paga nem o material e as suas hora
 <p><b>Vai vender pavê também?</b> Veja a <a href="/precifica/pave/">calculadora de preço de pavê</a>. Para a ceia da sua casa, use <a href="/precifica/ceia-de-natal/">quanto comprar para a ceia de Natal</a>.</p>
 <p><b>Quanto vale a minha hora?</b> Divida quanto quer ganhar no mês pelas horas que trabalha. Ex.: R$ 2.000 ÷ 120 h ≈ R$ 16,67 por hora.</p>"""),
  dict(slug="cesta-de-natal",title="Quanto cobrar por cesta de Natal: calculadora grátis",
-  desc="Vai montar cestas de Natal para vender? Calcule o preço de cada cesta: itens, cesta e embalagem, ida ao mercado, seu tempo e taxas. Grátis, direto no celular.",
+  desc="Vai montar cestas de Natal para vender? Calcule o preço de cada cesta: itens, cesta e embalagem, ida ao mercado, seu tempo e taxas. Grátis, no celular.",
   h1="Quanto cobrar por cesta de Natal?",
   sub="Renda extra no Natal montando cestas. Preencha o custo de <b>um lote</b> de cestas iguais e quantas você monta. A conta mostra o preço de cada uma.",
   lab=["Itens de todas as cestas do lote<small>panetone, chocolates, biscoitos, geleia, castanhas, suco</small>","Cestas ou caixas, papel, laço e etiqueta","Ida ao mercado e entrega (estimativa)","Cestas do lote"],
@@ -356,7 +356,7 @@ Abaixo de R$ 9,65 (9,17 ÷ 0,95) você não paga nem o material e as suas horas 
 <h2>Outras calculadoras</h2>
 <p><a href="/precifica/brigadeiro/">Quanto cobrar por brigadeiro</a> · <a href="/precifica/docinhos-e-bolo/">Quantos docinhos e quanto bolo para festa</a> · <a href="/precifica/">Calculadora geral de preço</a></p>"""),
  dict(slug="croche",title="Quanto cobrar por peça de crochê: calculadora grátis",
-  desc="Calcule o preço da sua peça de crochê: linha, acessórios, embalagem, horas de trabalho e taxas. Grátis, direto no celular.",
+  desc="Calcule o preço da sua peça de crochê: linha, acessórios, embalagem, horas de trabalho e taxas. Grátis, no celular.",
   h1="Quanto cobrar por uma peça de crochê?",
   sub="Um amigurumi de 20 cm com R$ 34 de material e 6 horas de trabalho a R$ 12 por hora sai a <b>R$ 141,33</b> (5% de taxa e 20% de lucro). Preencha os custos de <b>uma peça</b> (ou de um lote, dizendo quantas peças saem).",
   lab=["Linhas e fios<small>conte só a parte do novelo que a peça usa</small>","Acessórios e embalagem<small>enchimento, olhos, botões, saquinho, tag</small>","Luz e outros gastos (estimativa)","Peças feitas com esses materiais"],
@@ -391,7 +391,7 @@ Abaixo de R$ 111,58 (106 ÷ 0,95) você não paga o material e as suas horas dep
 <h2>Outras calculadoras</h2>
 <p><a href="/precifica/bijuteria/">Preço de bijuteria</a> · <a href="/precifica/shopee/">Preço para vender na Shopee</a> · <a href="/precifica/">Calculadora geral de preço</a></p>"""),
  dict(slug="bijuteria",title="Quanto cobrar por bijuteria artesanal: calculadora grátis",
-  desc="Calcule o preço da sua bijuteria: miçangas, fecho, fio, embalagem, seu tempo e taxas. Grátis, direto no celular.",
+  desc="Calcule o preço da sua bijuteria: miçangas, fecho, fio, embalagem, seu tempo e taxas. Grátis, no celular.",
   h1="Quanto cobrar por bijuteria artesanal?",
   sub="Num lote de 10 pulseiras de miçanga com R$ 40 de material, embalagem e outros gastos e 2 horas de trabalho, cada pulseira sai a <b>R$ 9,14</b> (5% de taxa e 25% de lucro). Preencha os custos de <b>um lote</b> de peças iguais e quantas peças saem dele.",
   lab=["Materiais do lote<small>miçangas, pedras, fio, fechos, argolas</small>","Embalagem<small>saquinho, cartela, tag</small>","Outros gastos (estimativa)","Peças que o lote rende"],
@@ -772,7 +772,7 @@ write("docinhos-e-bolo",head_for(DOCE_TITLE,DOCE_DESC,DOCE_URL)+DOCE_BODY)
 
 # ---- Época (Ano Novo): quanto comprar de comida e bebida ----
 ANO_URL=BASE+"festa-de-ano-novo/"
-ANO_TITLE="Quanto comprar para a festa de Ano Novo: comida, bebida e custo"
+ANO_TITLE="Festa de Ano Novo: quanto comprar de comida, bebida e custo"
 ANO_DESC="Calcule quanta carne, cerveja, espumante, refrigerante, água e gelo comprar para a festa de Ano Novo e quanto vai gastar por pessoa. Grátis, sem cadastro."
 ANO_SCRIPT="""<script>
 const $=id=>document.getElementById(id);
