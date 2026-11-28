@@ -230,7 +230,97 @@ Abaixo de R$ 1,86 cada (1,7675 ÷ 0,95) você não paga nem o material e as suas
 <p><b>Dá para vender rabanada como renda extra no Natal?</b> Sim, desde que o preço pague o material, o seu tempo e a taxa. Rabanada é melhor no dia: combine as encomendas para 23 e 24 de dezembro e peça um sinal.</p>
 <p><b>Quanto vale a minha hora?</b> Divida quanto quer ganhar no mês pelas horas que trabalha. Ex.: R$ 2.000 ÷ 120 h ≈ R$ 16,67 por hora.</p>
 <h2>Outras calculadoras</h2>
-<p><a href="/precifica/pave/">Preço de pavê de Natal</a> · <a href="/precifica/panetone/">Preço de panetone caseiro</a> · <a href="/precifica/ceia-de-natal/">Quanto comprar para a ceia de Natal</a></p>"""),
+<p><a href="/precifica/pave/">Preço de pavê de Natal</a> · <a href="/precifica/panetone/">Preço de panetone caseiro</a> · <a href="/precifica/ceia-de-natal/">Quanto comprar para a ceia de Natal</a> · <a href="/precifica/pao-de-mel/">Preço de pão de mel</a> · <a href="/precifica/trufa/">Preço de trufa</a></p>"""),
+ dict(slug="pao-de-mel",title="Quanto cobrar por pão de mel: calculadora grátis",
+  desc="Vai vender pão de mel no Natal? Calcule o preço por unidade e por kit: massa, recheio, chocolate, embalagem, gás, seu tempo e taxas. Grátis.",
+  h1="Quanto cobrar por pão de mel?",
+  sub="Pão de mel é um dos doces que mais vendem no Natal, avulso ou em kit de presente. Preencha os custos de <b>uma fornada</b> e quantos pães ela rende. No exemplo, cada um sai por <b>R$ 5,47</b> (kit com 6 por R$ 32,80).",
+  lab=["Ingredientes da fornada<small>farinha, mel, açúcar mascavo, cacau, especiarias, recheio, chocolate para banhar</small>","Saquinhos, fitas e etiquetas","Gás do forno e do banho-maria","Pães de mel que a fornada rende"],
+  vals=[62,12,4,30,3,15,5,20],
+  art="""<h2>Exemplo resolvido: 30 pães de mel recheados e banhados</h2>
+<p>Os números abaixo são os que já vêm preenchidos na calculadora. São um <b>exemplo</b> com preços de mercado comuns (estimativa nossa): troque pelos valores das suas notas.</p>
+<ul>
+<li><b>Ingredientes:</b> R$ 62,00 (massa com farinha, mel, açúcar mascavo, cacau, especiarias, leite e ovos R$ 25,00; doce de leite para rechear R$ 9,00; 800 g de chocolate fracionado para banhar R$ 28,00).</li>
+<li><b>Rendimento:</b> 30 pães de mel médios.</li>
+<li><b>Embalagem:</b> 30 saquinhos com fita e etiqueta a R$ 0,40 = R$ 12,00. <b>Gás:</b> R$ 4,00.</li>
+<li><b>Tempo:</b> 3 h de trabalho (massa, assar, cortar, rechear, banhar, secar e embalar), a R$ 15 por hora = R$ 45,00.</li>
+<li><b>Taxa da maquininha:</b> 5%. <b>Lucro do negócio:</b> 20%.</li>
+</ul>
+<p><b>A conta por unidade:</b> material = (62,00 + 12,00 + 4,00) ÷ 30 = R$ 2,60; tempo = 45,00 ÷ 30 = R$ 1,50; custo = R$ 4,10.<br>
+Preço = 4,10 ÷ (1 − 0,05 − 0,20) = 4,10 ÷ 0,75 = <b>R$ 5,47 cada</b>, ou <b>R$ 32,80 o kit com 6</b>.<br>
+Abaixo de R$ 4,32 cada (4,10 ÷ 0,95) você não paga nem o material e as suas horas depois da taxa.</p>
+<h2>Kit de presente de Natal</h2>
+<p>Caixa, laço e cartão do kit são custo à parte: some no campo de embalagem e divida pelo número de pães do kit. Ex.: caixa para 6 com laço a R$ 4,00 acrescenta R$ 0,67 em cada pão.</p>
+<h2>Erros comuns</h2>
+<p><b>Usar o preço da barra de chocolate da promoção.</b> O chocolate é o item mais caro: use o preço que você paga de verdade e conte o que sobra na tigela.</p>
+<p><b>Não contar o tempo de banhar e secar.</b> Banhar um por um e esperar secar leva horas. É o seu trabalho e entra no preço.</p>
+<p><b>Cobrar o mesmo no avulso e no kit.</b> O kit tem caixa e laço: some esse custo ou cobre mais no kit.</p>
+<h2>Perguntas frequentes</h2>
+<p><b>Quanto cobrar pelo kit de pão de mel?</b> Faça a conta por unidade e multiplique: no exemplo, o kit com 6 dá R$ 32,80, mais a caixa se tiver.</p>
+<p><b>Pão de mel dura quanto tempo?</b> Bem banhado e fechado no saquinho, costuma durar alguns dias fora da geladeira; por isso dá para produzir antes do Natal. Escreva a validade na etiqueta.</p>
+<p><b>Quanto vale a minha hora?</b> Divida quanto quer ganhar no mês pelas horas que trabalha. Ex.: R$ 2.000 ÷ 120 h ≈ R$ 16,67 por hora.</p>
+<h2>Outras calculadoras</h2>
+<p><a href="/precifica/panetone/">Preço de panetone caseiro</a> · <a href="/precifica/rabanada/">Preço de rabanada</a> · <a href="/precifica/cesta-de-natal/">Preço de cesta de Natal</a></p>"""),
+ dict(slug="trufa",title="Quanto cobrar por trufa: calculadora grátis",
+  desc="Vai vender trufa no Natal? Calcule o preço por unidade e por caixa: chocolate, recheio, papel, forminha, gás, seu tempo e taxas. Grátis.",
+  h1="Quanto cobrar por trufa de chocolate?",
+  sub="Trufa vende o ano todo e dispara no Natal, avulsa ou em caixa de presente. Preencha os custos de <b>uma leva</b> e quantas trufas ela rende. No exemplo, cada uma sai por <b>R$ 3,52</b> (caixa com 6 por R$ 21,12).",
+  lab=["Ingredientes da leva<small>chocolate da casca, chocolate e creme de leite do recheio, essência ou licor</small>","Papel chumbo, forminhas e etiquetas","Gás do banho-maria","Trufas que a leva rende"],
+  vals=[75,10,2,50,3,15,5,20],
+  art="""<h2>Exemplo resolvido: 50 trufas recheadas</h2>
+<p>Os números abaixo são os que já vêm preenchidos na calculadora. São um <b>exemplo</b> com preços de mercado comuns (estimativa nossa): troque pelos valores das suas notas.</p>
+<ul>
+<li><b>Ingredientes:</b> R$ 75,00 (1 kg de chocolate fracionado para a casca R$ 55,00; recheio de ganache com chocolate e creme de leite R$ 20,00).</li>
+<li><b>Rendimento:</b> 50 trufas de uns 20 g.</li>
+<li><b>Embalagem:</b> papel chumbo e forminha a R$ 0,20 cada = R$ 10,00. <b>Gás:</b> R$ 2,00.</li>
+<li><b>Tempo:</b> 3 h de trabalho (derreter e temperar, fazer a casca, rechear, fechar, embrulhar), a R$ 15 por hora = R$ 45,00.</li>
+<li><b>Taxa da maquininha:</b> 5%. <b>Lucro do negócio:</b> 20%.</li>
+</ul>
+<p><b>A conta por unidade:</b> material = (75,00 + 10,00 + 2,00) ÷ 50 = R$ 1,74; tempo = 45,00 ÷ 50 = R$ 0,90; custo = R$ 2,64.<br>
+Preço = 2,64 ÷ (1 − 0,05 − 0,20) = 2,64 ÷ 0,75 = <b>R$ 3,52 cada</b>, ou <b>R$ 21,12 a caixa com 6</b>.<br>
+Abaixo de R$ 2,78 cada (2,64 ÷ 0,95) você não paga nem o material e as suas horas depois da taxa.</p>
+<h2>Caixa de presente de Natal</h2>
+<p>A caixa, o laço e o cartão são custo à parte: some no campo de embalagem e divida pelo número de trufas da caixa. Ex.: caixa para 6 com laço a R$ 3,00 acrescenta R$ 0,50 em cada trufa.</p>
+<h2>Erros comuns</h2>
+<p><b>Esquecer o chocolate que fica na tigela e nas formas.</b> Sempre sobra chocolate que não vira trufa: use o pacote inteiro na conta.</p>
+<p><b>Cobrar o mesmo por recheios diferentes.</b> Recheio com castanha, licor ou frutas custa mais: faça uma conta para cada sabor.</p>
+<p><b>Não contar o tempo de embrulhar.</b> Papel chumbo um por um leva tempo. É o seu trabalho e entra no preço.</p>
+<h2>Perguntas frequentes</h2>
+<p><b>Quanto cobrar pela caixa de trufas?</b> Faça a conta por unidade e multiplique: no exemplo, a caixa com 6 dá R$ 21,12, mais a caixa de presente se tiver.</p>
+<p><b>Trufa precisa de geladeira?</b> Depende do recheio. Recheio com creme de leite fresco dura menos: escreva a validade e como guardar na etiqueta.</p>
+<p><b>Quanto vale a minha hora?</b> Divida quanto quer ganhar no mês pelas horas que trabalha. Ex.: R$ 2.000 ÷ 120 h ≈ R$ 16,67 por hora.</p>
+<h2>Outras calculadoras</h2>
+<p><a href="/precifica/pao-de-mel/">Preço de pão de mel</a> · <a href="/precifica/brigadeiro/">Preço de brigadeiro</a> · <a href="/precifica/cesta-de-natal/">Preço de cesta de Natal</a></p>"""),
+ dict(slug="biscoito-de-natal",title="Preço de biscoito de Natal: calculadora grátis",
+  desc="Vai vender biscoito amanteigado ou decorado no Natal? Calcule o preço por unidade e por saquinho: ingredientes, glacê, embalagem, gás e seu tempo.",
+  h1="Quanto cobrar por biscoito de Natal?",
+  sub="Biscoito amanteigado decorado é presente barato e muito procurado no Natal. Preencha os custos de <b>uma fornada</b> e quantos biscoitos ela rende. No exemplo, cada um sai por <b>R$ 2,44</b> (saquinho com 6 por R$ 14,67).",
+  lab=["Ingredientes da fornada<small>farinha, manteiga, açúcar, ovos, essência, glacê e corantes para decorar</small>","Saquinhos, fitas e etiquetas","Gás do forno","Biscoitos que a fornada rende"],
+  vals=[40,6,4,60,4,15,5,20],
+  art="""<h2>Exemplo resolvido: 60 biscoitos decorados (10 saquinhos de 6)</h2>
+<p>Os números abaixo são os que já vêm preenchidos na calculadora. São um <b>exemplo</b> com preços de mercado comuns (estimativa nossa): troque pelos valores das suas notas.</p>
+<ul>
+<li><b>Ingredientes:</b> R$ 40,00 (massa amanteigada com farinha, manteiga, açúcar, ovos e essência R$ 30,00; glacê real e corantes R$ 10,00).</li>
+<li><b>Rendimento:</b> 60 biscoitos médios cortados com forminha.</li>
+<li><b>Embalagem:</b> 10 saquinhos com fita e etiqueta a R$ 0,60 = R$ 6,00. <b>Gás:</b> R$ 4,00.</li>
+<li><b>Tempo:</b> 4 h de trabalho (massa, descanso, cortar, assar, decorar, secar e embalar), a R$ 15 por hora = R$ 60,00.</li>
+<li><b>Taxa da maquininha:</b> 5%. <b>Lucro do negócio:</b> 20%.</li>
+</ul>
+<p><b>A conta por unidade:</b> material = (40,00 + 6,00 + 4,00) ÷ 60 = R$ 0,83; tempo = 60,00 ÷ 60 = R$ 1,00; custo = R$ 1,83.<br>
+Preço = custo ÷ (1 − 0,05 − 0,20) = 1,8333 ÷ 0,75 = <b>R$ 2,44 cada</b>, ou <b>R$ 14,67 o saquinho com 6</b>.<br>
+Abaixo de R$ 1,93 cada (custo ÷ 0,95) você não paga nem o material e as suas horas depois da taxa.</p>
+<h2>Decorado ou simples?</h2>
+<p>Decorar com glacê pode dobrar o tempo. Biscoito simples (sem glacê) leva menos horas: troque o tempo na calculadora e veja o preço cair. Cobre à parte se o cliente pedir nome ou desenho.</p>
+<h2>Erros comuns</h2>
+<p><b>Não contar o tempo de secar o glacê.</b> O biscoito decorado precisa secar horas antes de embalar; o tempo de decorar é o seu trabalho.</p>
+<p><b>Contar os biscoitos que quebraram.</b> Sempre quebram alguns: use no rendimento só os que dá para vender.</p>
+<p><b>Usar o preço da margarina numa receita de manteiga.</b> A manteiga é o item que mais pesa: use o preço dela.</p>
+<h2>Perguntas frequentes</h2>
+<p><b>Quanto cobrar pelo saquinho de biscoito?</b> Faça a conta por unidade e multiplique: no exemplo, o saquinho com 6 dá R$ 14,67.</p>
+<p><b>Biscoito amanteigado dura quanto tempo?</b> Bem fechado, costuma durar algumas semanas: dá para produzir antes do Natal. Escreva a validade na etiqueta.</p>
+<p><b>Quanto vale a minha hora?</b> Divida quanto quer ganhar no mês pelas horas que trabalha. Ex.: R$ 2.000 ÷ 120 h ≈ R$ 16,67 por hora.</p>
+<h2>Outras calculadoras</h2>
+<p><a href="/precifica/pao-de-mel/">Preço de pão de mel</a> · <a href="/precifica/trufa/">Preço de trufa</a> · <a href="/precifica/cesta-de-natal/">Preço de cesta de Natal</a></p>"""),
  dict(slug="bolo-de-pote",title="Quanto cobrar por bolo de pote: calculadora grátis",
   desc="Calcule o preço do bolo de pote: massa, recheio, pote, colher, gás, seu tempo e taxas. Grátis e sem cadastro.",
   h1="Quanto cobrar por bolo de pote?",
@@ -455,7 +545,7 @@ SOBRE_BODY=f"""<body>
 <h2>Use no seu site ou blog</h2>
 <p>Tem um blog de receitas, uma loja ou um site de artesanato? Pode colocar uma calculadora do Precifica nele, de graça. Escolha a calculadora, copie o código e cole no seu site (no WordPress, use o bloco "HTML personalizado").</p>
 <label><span>Calculadora</span><select id="embSel" style="padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font-size:1rem;max-width:200px">
-<option value="">Calculadora geral de preço</option><option value="brigadeiro/">Brigadeiro</option><option value="bolo-de-pote/">Bolo de pote</option><option value="panetone/">Panetone</option><option value="cesta-de-natal/">Cesta de Natal</option><option value="croche/">Crochê</option><option value="bijuteria/">Bijuteria</option><option value="shopee/">Shopee</option><option value="quantos-salgados/">Salgados para festa</option><option value="docinhos-e-bolo/">Doces e bolo para festa</option><option value="festa-de-ano-novo/">Festa de Ano Novo</option><option value="ceia-de-natal/">Ceia de Natal</option><option value="pave/">Pavê de Natal</option><option value="rabanada/">Rabanada</option>
+<option value="">Calculadora geral de preço</option><option value="brigadeiro/">Brigadeiro</option><option value="bolo-de-pote/">Bolo de pote</option><option value="panetone/">Panetone</option><option value="cesta-de-natal/">Cesta de Natal</option><option value="croche/">Crochê</option><option value="bijuteria/">Bijuteria</option><option value="shopee/">Shopee</option><option value="quantos-salgados/">Salgados para festa</option><option value="docinhos-e-bolo/">Doces e bolo para festa</option><option value="festa-de-ano-novo/">Festa de Ano Novo</option><option value="ceia-de-natal/">Ceia de Natal</option><option value="pave/">Pavê de Natal</option><option value="rabanada/">Rabanada</option><option value="pao-de-mel/">Pão de mel</option><option value="trufa/">Trufa</option><option value="biscoito-de-natal/">Biscoito de Natal</option>
 </select></label>
 <textarea id="embCod" readonly rows="5" style="width:100%;margin-top:8px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:13px/1.4 ui-monospace,Consolas,monospace"></textarea>
 <div class="btns"><button type="button" onclick="copiarEmb()">Copiar código</button><span id="embOk" class="good" style="align-self:center"></span></div>
